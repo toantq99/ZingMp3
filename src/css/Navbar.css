@@ -1,0 +1,64 @@
+.nav-top {
+	padding: 7px 0;
+}
+.nav-bottom {
+	padding: 5px 0;
+	height: 30px;
+}
+.nav-logo {
+	height: 36px;
+}
+.nav-list {
+	display: flex;
+	list-style: none;
+	justify-content: space-around;
+	padding: 0;
+}
+.nav-list-top {
+	margin: -7px 0;
+}
+.nav-list-bottom {
+	margin: -5px 0;
+}
+.nav-item-top {
+	padding: 0 7px;
+	line-height: 50px;
+	color: white;
+}
+.nav-item-bottom {
+	padding: 0 10px;
+	line-height: 40px;
+}
+.nav-item-bottom:hover,
+.nav-item-bottom > a:hover {
+	text-decoration: none;
+	color: var(--violet);
+	background-color: white;
+}
+.nav-item-top:hover,
+.nav-item-top > a:hover {
+	text-decoration: none;
+	color: var(--violet);
+	background-color: black;
+}
+
+.nav-search {
+	height: 30px;
+	width: 355px;
+}
+
+.nav-search > input {
+	width: 321px;
+	height: 30px;
+	border: none;
+	outline: none;
+	padding: 0 15px;
+	background: padding-box;
+}
+.nav-search > button {
+	width: 34px;
+	border: none;
+	background: none;
+	padding: 0;
+	display: inline-block;
+}

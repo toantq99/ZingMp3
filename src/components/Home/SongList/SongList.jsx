@@ -16,7 +16,7 @@ export default function SongList({ name, list }) {
 			</h2>
 			<div>
 				{list.map((item, id) => (
-					<SongListItem item={item} key={id} />
+					<SongListItem item={item} key={id} id={id} />
 				))}
 			</div>
 		</div>

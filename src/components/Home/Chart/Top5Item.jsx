@@ -6,16 +6,15 @@ import ButtonGroup from "../../Static/ButtonGroup";
 export default function Top5Item({ id, item }) {
 	return (
 		<div
-			className="d-flex justify-bw align-center"
-			style={{
-				padding: 10,
-				borderBottom: id === 4 ? "none" : "1px solid gray",
-			}}
+			className={
+				"d-flex justify-bw align-center chart-top5-item" +
+				(id === 4 ? "" : " border-bottom")
+			}
 		>
 			<div className="d-flex align-center">
 				<div
 					className={
-						"text-big " +
+						"text-big top5-item-rank " +
 						(id === 0
 							? "text-blue"
 							: id === 1
@@ -24,11 +23,10 @@ export default function Top5Item({ id, item }) {
 							? "text-red"
 							: "text-gray")
 					}
-					style={{ marginRight: 10 }}
 				>
 					{id + 1}
 				</div>
-				<div style={{ textAlign: "center", width: 40, marginRight: 10 }}>
+				<div className="top5-item-status">
 					{item.type > 0 ? (
 						<div className="text-green">
 							<span className="material-icons icon">expand_less</span>

@@ -3,7 +3,7 @@ import Thumbnail from "../../Static/Thumbnail";
 import SongInfo from "../../Static/SongInfo";
 import ButtonGroup from "../../Static/ButtonGroup";
 
-export default function SongListItem({ item, key }) {
+export default function SongListItem({ item, id }) {
 	const [hovering, setHovering] = useState(false);
 	return (
 		<div
@@ -11,7 +11,7 @@ export default function SongListItem({ item, key }) {
 			style={{
 				margin: "5px 0",
 				padding: "5px 0",
-				borderBottom: key === 9 ? "" : "1px solid gray",
+				borderBottom: id === 9 ? "" : "1px solid gray",
 			}}
 			onMouseEnter={() => setHovering(true)}
 			onMouseLeave={() => setHovering(false)}

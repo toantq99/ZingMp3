@@ -1,0 +1,53 @@
+.chart-container {
+	margin-top: 50px;
+	background: url("https://www.xmple.com/wallpaper/gradient-black-violet-linear-2048x1152-c2-351044-0b040d-a-60-f-14.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 280px;
+	width: 650px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.chart-top3-list {
+	align-self: center;
+	width: 600px;
+}
+
+.chart-top3-item {
+	border: 1px solid gray;
+	border-radius: 3px;
+	width: 180px;
+	height: 35px;
+	padding: 5px;
+	font-size: 14px;
+}
+.chart-top3-item:hover {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.chart-top3-img {
+	border: white 1px solid;
+	border-radius: 2px;
+	margin-right: 5px;
+	width: 28px;
+	height: 28px;
+}
+
+.chart-top5-item {
+	padding: 10px;
+}
+
+.top5-item-rank {
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.top5-item-status {
+	text-align: center;
+	width: 40px;
+	margin-right: 10px;
+}
