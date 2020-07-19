@@ -1,0 +1,17 @@
+.top5-item {
+	padding: 10px 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top5-item-rank {
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.top5-item-status {
+	text-align: center;
+	width: 40px;
+	margin-right: 10px;
+}

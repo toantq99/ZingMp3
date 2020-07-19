@@ -1,0 +1,103 @@
+@import "./color.scss";
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box !important;
+	background-color: $bodyColor;
+}
+
+.wrapper {
+	width: 1000px;
+	margin: auto;
+}
+
+.bg-dark {
+	background-color: $darkColor;
+	color: white;
+}
+.bg-light {
+	background-color: $lightColor;
+}
+.bg-gray {
+	background-color: $grayColor;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+.d-flex {
+	display: flex;
+}
+
+.justify-bw {
+	justify-content: space-between;
+}
+.justify-ar {
+	justify-content: space-around;
+}
+.align-center {
+	align-items: center;
+}
+
+.section {
+	margin: 20px 0;
+}
+
+.icon-right {
+	vertical-align: middle;
+}
+.link {
+	text-decoration: none;
+}
+.link:hover {
+	text-decoration: underline;
+}
+
+.text-light {
+	color: white;
+}
+
+.text-dark {
+	color: black;
+}
+.text-blue {
+	color: blue;
+}
+.text-green {
+	color: green;
+}
+.text-red {
+	color: red;
+}
+.text-gray {
+	color: gray;
+}
+.text-upper {
+	text-transform: uppercase;
+}
+.text-cap {
+	text-transform: capitalize;
+}
+
+.icon {
+	vertical-align: text-top;
+}
+
+.p-relative {
+	position: relative;
+}
+.p-absolute {
+	position: absolute;
+}
