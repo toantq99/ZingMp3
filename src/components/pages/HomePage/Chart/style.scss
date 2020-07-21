@@ -1,0 +1,22 @@
+.chart-container {
+	background: url("https://www.xmple.com/wallpaper/gradient-black-violet-linear-2048x1152-c2-351044-0b040d-a-60-f-14.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 280px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	.date {
+		margin: 0 5px 0 10px;
+		color: gray;
+	}
+	.btn {
+		color: white;
+		font-size: 15px;
+	}
+	.pull-right {
+		text-align: right;
+	}
+}

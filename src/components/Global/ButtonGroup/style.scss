@@ -1,11 +1,14 @@
-@import "../../../color.scss";
 .btn-icon {
 	background: none;
 	border: none;
 	padding: 0px;
 	outline: none;
 	cursor: pointer;
-}
-.btn-icon:hover {
-	color: $violetColor;
+	margin: 0 3px;
+	:hover {
+		color: #721799;
+	}
+	span {
+		font-size: 15px;
+	}
 }

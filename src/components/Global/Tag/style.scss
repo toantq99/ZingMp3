@@ -5,28 +5,8 @@
 	font-size: 13px;
 	font-weight: bold;
 	text-decoration: none;
-}
-
-.tag:hover {
-	background-image: linear-gradient(90deg, #8d50e3 0%, #4936d7 100%);
-}
-.text-small {
-	font-size: 12px;
-}
-.text-big {
-	font-size: 18px;
-}
-.title.small {
-	font-size: 12px !important;
-}
-.title.big {
-	font-size: 15px !important;
-}
-
-.icon-small {
-	font-size: 20px;
-}
-
-.border-bottom {
-	border-bottom: 1px solid gray;
+	color: white;
+	:hover {
+		background-image: linear-gradient(90deg, #8d50e3 0%, #4936d7 100%);
+	}
 }

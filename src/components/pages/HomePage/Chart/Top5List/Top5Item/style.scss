@@ -1,0 +1,39 @@
+.top5-item {
+	padding: 10px;
+	align-items: center;
+	.rank,
+	.status {
+		font-weight: bold;
+		font-size: 20px;
+	}
+	.rank-1 {
+		@extend .rank;
+		color: blue;
+	}
+	.rank-2 {
+		@extend .rank;
+		color: green;
+	}
+	.rank-3 {
+		@extend .rank;
+		color: red;
+	}
+	.rank-4,
+	.rank-5 {
+		@extend .rank;
+		color: gray;
+	}
+	.status-up {
+		color: green;
+	}
+	.status-down {
+		color: red;
+	}
+	.status-neutral {
+		color: gray;
+	}
+}
+
+.border-bottom {
+	border-bottom: 1px solid gray;
+}

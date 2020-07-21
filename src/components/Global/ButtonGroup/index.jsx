@@ -1,37 +1,23 @@
 import React from "react";
+import {
+	PlusOutlined,
+	DownloadOutlined,
+	ShareAltOutlined,
+} from "@ant-design/icons";
 import "./style.scss";
 
-export default function ButtonGroup({ mv, type, marginRight, color }) {
+export default function ButtonGroup({ marginRight }) {
 	return (
-		<span
-			style={marginRight ? { marginRight: marginRight } : {}}
-			className={color === "light" ? "text-light" : "text-gray"}
-		>
-			{mv ? (
-				<button className="btn-icon">
-					<span
-						className={
-							(type === "small" ? "icon-small " : "") + "material-icons icon"
-						}
-						style={{ margin: "0 5px" }}
-					>
-						music_video
-					</span>
-				</button>
-			) : null}
-
-			{["save_alt", "add", "share"].map((item, id) => (
-				<button className="btn-icon">
-					<span
-						key={id}
-						className={
-							(type === "small" ? "icon-small " : "") + "material-icons icon"
-						}
-					>
-						{item}
-					</span>
-				</button>
-			))}
+		<span className={`margin-right-${marginRight}`}>
+			<button className="btn-icon" title="Thêm vào danh sách yêu thích">
+				<PlusOutlined />
+			</button>
+			<button className="btn-icon" title="Tải xuống">
+				<DownloadOutlined />
+			</button>
+			<button className="btn-icon" title="Chia sẻ">
+				<ShareAltOutlined />
+			</button>
 		</span>
 	);
 }

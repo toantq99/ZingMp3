@@ -1,0 +1,14 @@
+.music-item {
+	padding: 10px 5px;
+	border-bottom: 1px solid gray;
+}
+
+.music-item-1 {
+	@extend .music-item;
+	padding: 5px;
+	color: white;
+	font-size: 15px;
+	a {
+		color: white;
+	}
+}

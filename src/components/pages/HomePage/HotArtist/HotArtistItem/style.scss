@@ -1,0 +1,18 @@
+.item {
+	transition: all 0.3s ease-in-out;
+	position: relative;
+	:hover {
+		filter: brightness(70%);
+	}
+	div {
+		color: white;
+		font-size: 15px;
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		text-align: center;
+		transform: translate(-50%, -50%);
+		text-transform: capitalize;
+	}
+}

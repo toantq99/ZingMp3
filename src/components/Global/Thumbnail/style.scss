@@ -1,24 +1,30 @@
 .thumbnail {
 	transition: all 0.5s ease-in-out;
 	position: relative;
-}
-.thumbnail:hover {
-	filter: brightness(70%);
-}
-.btn-play {
-	position: absolute;
-	transition: all 0.5s ease-in-out;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: white;
-	width: 100%;
-	height: 100%;
-}
+	cursor: pointer;
 
-.btn-play > span {
-	font-size: 40px;
-}
-.btn-play:hover {
-	color: white !important;
+	:hover {
+		filter: brightness(70%);
+	}
+	.btn-play {
+		border: none;
+		background: none;
+		outline: none;
+		position: absolute;
+		transition: all 0.5s ease-in-out;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: white;
+		cursor: pointer;
+
+		z-index: 1000;
+		span {
+			font-size: 30px;
+		}
+		:hover {
+			color: white;
+			filter: brightness(200%);
+		}
+	}
 }

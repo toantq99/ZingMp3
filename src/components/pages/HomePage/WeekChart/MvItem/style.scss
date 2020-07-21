@@ -1,0 +1,15 @@
+.mv-item {
+	padding: 10px 0;
+	border-bottom: 1px solid gray;
+	.mv-img {
+		position: relative;
+	}
+	.mv-rank {
+		position: absolute;
+		bottom: 2px;
+		left: 2px;
+		color: white;
+		font-weight: bold;
+		font-size: 16px;
+	}
+}

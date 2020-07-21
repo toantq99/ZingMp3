@@ -1,0 +1,29 @@
+.wchart-header {
+	.button-group {
+		button {
+			width: 100%;
+			border: none;
+			background-color: #f2f2f2;
+			height: 40px;
+			outline: none;
+		}
+		.active {
+			border-top: 2px solid indigo;
+			background-color: white;
+		}
+	}
+
+	.banner {
+		position: relative;
+
+		img {
+			width: 100%;
+		}
+		.header-item {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+	}
+}

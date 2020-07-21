@@ -3,5 +3,9 @@ import { Link } from "react-router-dom";
 import "./style.scss";
 
 export default function Tag({ content }) {
-	return <Link className="icon text-light tag">{content}</Link>;
+	return (
+		<Link to="/" className="tag">
+			{content}
+		</Link>
+	);
 }

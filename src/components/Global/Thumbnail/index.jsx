@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { PlayCircleOutlined } from "@ant-design/icons";
 import "./style.scss";
 
-export default function Thumbnail({ width, height, marginRight, src }) {
+export default function Thumbnail({ width, height, src }) {
 	const [hover, setHover] = useState(false);
 	return (
 		<div
@@ -14,14 +15,10 @@ export default function Thumbnail({ width, height, marginRight, src }) {
 				alt="thumbnail"
 				width={width}
 				height={height}
-				style={{ marginRight: marginRight }}
 			/>
 			{hover ? (
-				<button
-					className="btn-icon btn-play"
-					onMouseEnter={() => setHover(true)}
-				>
-					<span className="material-icons icon">play_circle_filled</span>
+				<button className="btn-play" onMouseEnter={() => setHover(true)}>
+					<PlayCircleOutlined />
 				</button>
 			) : null}
 		</div>

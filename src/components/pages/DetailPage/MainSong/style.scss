@@ -1,0 +1,13 @@
+.info {
+	span:nth-child(1) {
+		color: gray;
+	}
+	span:nth-child(2) {
+		color: black;
+		font-weight: bold;
+	}
+}
+
+.right {
+	text-align: right;
+}

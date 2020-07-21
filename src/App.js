@@ -1,26 +1,26 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import { Layout } from "antd";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import MyFooter from "./components/Footer";
-import ToTopButton from "./components/ToTopButton";
+import { Switch, Route } from "react-router-dom";
+import Navbar from "./components/Global/Navbar";
+import MyFooter from "./components/Global/Footer";
+import ToTopButton from "./components/Global/ToTopButton";
+import HomePage from "./components/pages/HomePage";
+import DetailPage from "./components/pages/DetailPage";
 import "./index.scss";
-
-// const { Header, Content, Footer } = Layout;
 
 function App() {
 	return (
-		<BrowserRouter>
+		<div>
 			<Navbar />
-			<Switch>
-				<div className="wrapper">
-					<Route exact path="/" component={Home} />
-				</div>
-			</Switch>
+			<div className="wrapper">
+				<Switch>
+					<Route exact path="/" component={HomePage} />
+					<Route path="/detail/:id" component={DetailPage} />
+				</Switch>
+			</div>
+
 			<MyFooter />
 			<ToTopButton />
-		</BrowserRouter>
+		</div>
 	);
 }
 
