@@ -20,7 +20,7 @@ export default function MvItem({ rank, item }) {
 					</Col>
 					<Col>
 						<div>
-							<Link to="/">{item.title}</Link>
+							<Link to={`/bai-hat/${item.id}`}>{item.title}</Link>
 						</div>
 						<div>
 							<small>{item.artist.name}</small>

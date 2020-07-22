@@ -20,14 +20,14 @@ export default function MusicItem({ rank, item }) {
 					<Col>{rank < 10 ? "0" + rank : rank} </Col>
 					<Col>
 						<div>
-							<Link to="/">{item.title}</Link>
+							<Link to={`/bai-hat/${item.id}`}>{item.title}</Link>
 						</div>
 						<div>{item.artist.name}</div>
 					</Col>
 				</Row>
 			</Col>
 
-			{hovering ? <ButtonGroup /> : <span>{fakeCount}</span>}
+			{hovering ? <ButtonGroup item={item} /> : <span>{fakeCount}</span>}
 		</Row>
 	);
 }

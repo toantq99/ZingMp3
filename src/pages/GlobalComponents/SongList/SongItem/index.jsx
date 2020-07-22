@@ -32,7 +32,7 @@ export default function SongItem({ item, rank }) {
 					</Col>
 				</Row>
 			</Col>
-			<Col>{hovering ? <ButtonGroup /> : null}</Col>
+			<Col>{hovering ? <ButtonGroup item={item} /> : null}</Col>
 		</Row>
 	);
 }
