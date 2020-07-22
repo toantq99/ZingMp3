@@ -18,7 +18,7 @@ export default function ButtonGroup({ item }) {
 			{isAdded ? (
 				<button
 					className="btn-icon"
-					title="Xóa khỏi"
+					title="Xóa khỏi danh sách yêu thích"
 					onClick={() => dispatch(removeFav(item))}
 				>
 					<DeleteFilled />

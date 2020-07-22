@@ -10,6 +10,9 @@ export default function FavButton() {
 	const [show, setShow] = useState(false);
 	const [favFullList, setFavFullList] = useState(null);
 	const favList = useSelector((state) => state.favList);
+	const handleDelete = (song) => {
+		setFavFullList(favFullList.filter((item) => item.id !== song.id));
+	};
 
 	return (
 		<div>
@@ -35,7 +38,7 @@ export default function FavButton() {
 						favFullList.length > 0 ? (
 							favFullList.map((item, id) => (
 								<Col span={24} key={id}>
-									<FavItem item={item} />
+									<FavItem item={item} handleDelete={handleDelete} />
 								</Col>
 							))
 						) : (

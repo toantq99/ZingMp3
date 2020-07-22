@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Row, Col, Button } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -6,7 +7,8 @@ import Thumbnail from "../../Thumbnail";
 
 import { removeFav } from "../../../../actions/favListAction";
 
-export default function FavItem({ item }) {
+export default function FavItem({ item, handleDelete }) {
+	const dispatch = useDispatch();
 	return (
 		<Row
 			gutter={[0, 20]}
@@ -35,7 +37,10 @@ export default function FavItem({ item }) {
 					type="primary"
 					shape="round"
 					icon={<DeleteFilled />}
-					onClick={() => removeFav(item.id)}
+					onClick={() => {
+						dispatch(removeFav(item));
+						handleDelete(item);
+					}}
 					title="Xóa khỏi danh sách yêu thích"
 				/>
 			</Col>

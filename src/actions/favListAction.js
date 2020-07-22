@@ -41,13 +41,13 @@ const openSuccessNoti = (song) => {
 	notification["success"]({
 		message: "Thêm thành công",
 		description: `${song.title} - ${song.artist.name} đã được thêm vào danh sách yêu thích`,
-		placement: "bottomLeft",
+		placement: "topRight",
 	});
 };
 const openErrorNoti = (song) => {
 	notification["error"]({
 		message: "Xóa thành công",
 		description: `${song.title} - ${song.artist.name} đã được xóa khỏi danh sách yêu thích`,
-		placement: "bottomLeft",
+		placement: "topRight",
 	});
 };
