@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import musicListReducer from "./musicListReducer";
-import musicDetailReducer from "./musicDetailReducer";
-import favListReducer from "./favListReducer";
+import homeReducer from "./homeReducer";
+import detailReducer from "./detailReducer";
+import favReducer from "./favReducer";
 export default combineReducers({
-	musicList: musicListReducer,
-	detailPage: musicDetailReducer,
-	favList: favListReducer,
+	home: homeReducer,
+	detail: detailReducer,
+	favList: favReducer,
 });
