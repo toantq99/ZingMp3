@@ -26,22 +26,22 @@ export default function HomePage() {
 				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
-						<Collection name="Yêu" query="Love" limit={8} />
+						<Collection name="Spring" query="Spring" limit={8} />
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
-						<Collection name="Adele" query="Adele" />
+						<Collection name="Autumn" query="Autumn" />
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
-						<Collection name="Taylor Swift" query="Taylor Swift" />
+						<Collection name="Winter" query="Winter" />
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
-						<SuggestSong />
+						<SuggestSong query={["aimyon", "yonezu kenshi"]} />
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
@@ -61,13 +61,13 @@ export default function HomePage() {
 						<WeekChart
 							name="#zingchar tuần - bài hát"
 							type="song"
-							query="baby"
+							query="cafe"
 						/>
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
-						<WeekChart name="#zingchar tuần - MV" type="mv" query="sekai" />
+						<WeekChart name="#zingchar tuần - MV" type="mv" query="monster" />
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
@@ -75,7 +75,7 @@ export default function HomePage() {
 						<WeekChart
 							name="#zingchar tuần - Album"
 							type="album"
-							query="city"
+							query="love"
 						/>
 					</Col>
 				</Row>

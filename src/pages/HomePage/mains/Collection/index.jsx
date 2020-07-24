@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { Row, Col, Spin } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 
-import CollectionItem from "../../components/CollectionItem";
+import CollectionItem from "@HomePage/components/CollectionItem";
 import "./style.scss";
 
-import { getCollection } from "../../../../actions/homeAction";
+import { getCollection } from "@actions/homeAction";
 
 export default function Collection({ name, query }) {
 	const dispatch = useDispatch();

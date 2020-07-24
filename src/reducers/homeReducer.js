@@ -1,10 +1,7 @@
 import { homeActionTypes } from "../actions/types";
 
 const initialState = {
-	suggestList: {
-		new: null,
-		hot: null,
-	},
+	suggestList: {},
 	collection: {},
 	chart: { top3: null, top5: null },
 	weekChart: {},
@@ -12,23 +9,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case homeActionTypes.suggest.GET_HOT:
+		case homeActionTypes.suggest.GET_SUGGEST:
 			return {
 				...state,
 				suggestList: {
 					...state.suggestList,
-					hot: action.payload,
+					[action.payload.query]: action.payload.data,
 				},
 			};
-		case homeActionTypes.suggest.GET_NEW:
-			return {
-				...state,
-				suggestList: {
-					...state.suggestList,
-					new: action.payload,
-				},
-			};
-
 		case homeActionTypes.collection.GET_COLLECTION:
 			return {
 				...state,

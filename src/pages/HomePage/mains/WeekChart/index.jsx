@@ -6,7 +6,7 @@ import { RightOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import { Row, Col, Spin } from "antd";
 import "./style.scss";
 
-import { getWeekChart } from "../../../../actions/homeAction";
+import { getWeekChart } from "@actions/homeAction";
 
 export default function WeekChart({ name, type, query }) {
 	const dispatch = useDispatch();

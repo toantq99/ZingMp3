@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 
-import HotTopicItem from "../../dumps/HotTopicItem";
+import HotTopicItem from "@HomePage/dumps/HotTopicItem";
 import "./style.scss";
 
 export default function HotTopic() {

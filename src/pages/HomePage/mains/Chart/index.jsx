@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
 import { PlayCircleFilled, ShareAltOutlined } from "@ant-design/icons";
-import Tag from "../../../GlobalComponents/Tag";
+import Tag from "@GlobalComponents/Tag";
 import Top5List from "./Top5List";
 import Top3List from "./Top3List";
 import "./style.scss";
 
-import { getChart } from "../../../../actions/homeAction";
+import { getChart } from "@actions/homeAction";
 
 const datetimeFormat = (date) => {
 	let dd = date.getDate();

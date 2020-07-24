@@ -6,8 +6,8 @@ import {
 	LineOutlined,
 	CaretDownOutlined,
 } from "@ant-design/icons";
-import Thumbnail from "../../../GlobalComponents/Thumbnail";
-import ButtonGroup from "../../../GlobalComponents/ButtonGroup";
+import Thumbnail from "@GlobalComponents/Thumbnail";
+import ButtonGroup from "@GlobalComponents/ButtonGroup";
 
 import "./style.scss";
 
@@ -44,7 +44,10 @@ export default function Top5Item({ rank, item }) {
 			</Col>
 			<Col span={12}>
 				<div>
-					<Link to="/" title={item.title + " - " + item.artist.name}>
+					<Link
+						to={`/bai-hat/${item.id}`}
+						title={item.title + " - " + item.artist.name}
+					>
 						<div>{item.title}</div>
 					</Link>
 					<small>{item.artist.name}</small>

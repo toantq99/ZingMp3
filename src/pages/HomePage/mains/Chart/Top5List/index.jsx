@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Spin } from "antd";
-import Top5Item from "../../../components/Top5Item";
+import Top5Item from "@HomePage/components/Top5Item";
 
 export default function Top5List({ list }) {
 	return (

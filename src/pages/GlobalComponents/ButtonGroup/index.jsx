@@ -8,13 +8,13 @@ import {
 } from "@ant-design/icons";
 import "./style.scss";
 
-import { addFav, removeFav } from "../../../actions/favListAction";
+import { addFav, removeFav } from "@actions/favListAction";
 
-export default function ButtonGroup({ item }) {
+export default function ButtonGroup({ item, size }) {
 	const dispatch = useDispatch();
 	const isAdded = useSelector((state) => state.favList.includes(item.id));
 	return (
-		<span>
+		<span className={size ? "large" : "small"}>
 			{isAdded ? (
 				<button
 					className="btn-icon"

@@ -1,7 +1,7 @@
 import { homeActionTypes } from "./types";
 import axios from "axios";
 
-export const getSuggestList = (type) => (dispatch) => {
+export const getSuggestList = (query) => (dispatch) => {
 	axios({
 		method: "GET",
 		url: "https://deezerdevs-deezer.p.rapidapi.com/search",
@@ -12,18 +12,18 @@ export const getSuggestList = (type) => (dispatch) => {
 			useQueryString: true,
 		},
 		params: {
-			q: type === "hot" ? "aimyon" : "yonezu kenshi",
+			q: query,
 			limit: 10,
 		},
 	})
 		.then((response) => {
 			if (response.status === 200) {
 				dispatch({
-					type:
-						type === "hot"
-							? homeActionTypes.suggest.GET_HOT
-							: homeActionTypes.suggest.GET_NEW,
-					payload: response.data.data,
+					type: homeActionTypes.suggest.GET_SUGGEST,
+					payload: {
+						query: query,
+						data: response.data.data,
+					},
 				});
 			}
 		})

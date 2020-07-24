@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Spin } from "antd";
-import Top3Item from "../../../components/Top3Item";
+import Top3Item from "@HomePage/components/Top3Item";
 
 export default function Top3List({ list }) {
 	return (

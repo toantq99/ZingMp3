@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Spin } from "antd";
-import CommentItem from "../../dumps/CommentItem";
+import CommentItem from "@DetailPage/dumps/CommentItem";
 
 export default function Comments({ list }) {
 	return (

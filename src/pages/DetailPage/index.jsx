@@ -3,20 +3,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { Row, Col, Spin } from "antd";
 
 import MainSong from "./mains/MainSong";
-import SongList from "../GlobalComponents/SongList";
 import Comments from "./mains/Comments";
-import { getSongDetail } from "../../actions/detailAction";
+import SongList from "@GlobalComponents/SongList";
+import { getSongDetail, emptyDetail } from "@actions/detailAction";
 import "./style.scss";
 
 export default function DetailPage({ match }) {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getSongDetail(match.params.id));
-		return () => {};
+		return () => {
+			dispatch(emptyDetail());
+		};
 	}, [dispatch, match.params.id]);
 	const song = useSelector((state) => state.detail.song);
 	const similarSong = useSelector((state) => state.detail.similar);
 	const comments = useSelector((state) => state.detail.comments);
+
 	return (
 		<Row gutter={[16, 16]}>
 			<Col span={16}>

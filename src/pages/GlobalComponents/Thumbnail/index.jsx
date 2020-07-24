@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Dropdown } from "antd";
 import ContextMenu from "./ContextMenu";
 import { PlayCircleOutlined } from "@ant-design/icons";
@@ -11,23 +12,25 @@ export default function Thumbnail({ width, height, item }) {
 			overlay={() => <ContextMenu item={item} />}
 			trigger={["contextMenu"]}
 		>
-			<div
-				className="thumbnail"
-				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}
-			>
-				<img
-					src={item.album.cover_big}
-					alt="cover"
-					width={width}
-					height={height}
-				/>
-				{hover ? (
-					<button className="btn-play" onMouseEnter={() => setHover(true)}>
-						<PlayCircleOutlined />
-					</button>
-				) : null}
-			</div>
+			<Link to={`/bai-hat/${item.id}`}>
+				<div
+					className="thumbnail"
+					onMouseEnter={() => setHover(true)}
+					onMouseLeave={() => setHover(false)}
+				>
+					<img
+						src={item.album.cover_big}
+						alt="cover"
+						width={width}
+						height={height}
+					/>
+					{hover ? (
+						<button className="btn-play" onMouseEnter={() => setHover(true)}>
+							<PlayCircleOutlined />
+						</button>
+					) : null}
+				</div>
+			</Link>
 		</Dropdown>
 	);
 }

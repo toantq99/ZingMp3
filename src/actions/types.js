@@ -1,7 +1,6 @@
 const homeActionTypes = {
 	suggest: {
-		GET_HOT: "GET_HOT",
-		GET_NEW: "GET_NEW",
+		GET_SUGGEST: "GET_SUGGEST",
 	},
 	collection: {
 		GET_COLLECTION: "GET_COLLECTION",
@@ -19,6 +18,7 @@ const detailActionTypes = {
 	GET_SONG_DETAIL: "GET_SONG_DETAIL",
 	GET_SIMILAR_SONG: "GET_SIMILAR_SONG",
 	GET_COMMENTS: "GET_COMMENTS",
+	EMPTY_DETAIL: "EMPTY_DETAIL",
 };
 
 const favActionTypes = {
@@ -27,4 +27,14 @@ const favActionTypes = {
 	GET_FAV: "GET_FAV",
 };
 
-export { homeActionTypes, detailActionTypes, favActionTypes };
+const searchActionTypes = {
+	SEARCH_SONG: "SEARCH_SONG",
+	EMPTY_SEARCH: "EMPTY_SEARCH",
+};
+
+export {
+	homeActionTypes,
+	detailActionTypes,
+	favActionTypes,
+	searchActionTypes,
+};

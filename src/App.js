@@ -9,6 +9,7 @@ import ToTopButton from "./pages/GlobalComponents/ToTopButton";
 import FavButton from "./pages/GlobalComponents/FavButton";
 import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
+import SearchPage from "./pages/SearchPage";
 import "./index.scss";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 					<Switch>
 						<Route exact path="/" component={HomePage} />
 						<Route path="/bai-hat/:id" component={DetailPage} />
+						<Route path="/tim-kiem/" component={SearchPage} />
 					</Switch>
 				</div>
 				<Footer />

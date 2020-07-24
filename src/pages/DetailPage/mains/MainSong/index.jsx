@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col } from "antd";
 import "./style.scss";
-import Player from "../../components/Player";
-import ButtonGroup from "../../components/ButtonGroup";
-import SingerInfo from "../../dumps/SingerInfo";
+import Player from "@DetailPage/components/Player";
+import ButtonGroup from "@DetailPage/components/ButtonGroup";
+import SingerInfo from "@DetailPage/dumps/SingerInfo";
 
 export default function MainSong({ song }) {
 	const fakeCount = parseInt(Math.random() * 30000000);

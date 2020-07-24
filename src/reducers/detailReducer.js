@@ -14,6 +14,8 @@ export default (state = initialState, action) => {
 			return { ...state, similar: action.payload };
 		case detailActionTypes.GET_COMMENTS:
 			return { ...state, comments: action.payload };
+		case detailActionTypes.EMPTY_DETAIL:
+			return initialState;
 		default:
 			return state;
 	}

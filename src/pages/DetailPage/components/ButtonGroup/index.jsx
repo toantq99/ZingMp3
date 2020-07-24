@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 import "./style.scss";
 
-import { addFav, removeFav } from "../../../../actions/favListAction";
+import { addFav, removeFav } from "@actions/favListAction";
 
 export default function ButtonGroup({ song }) {
 	let isAdded = useSelector((state) => state.favList.includes(song.id));

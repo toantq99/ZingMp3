@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
-import ButtonGroup from "../../../../GlobalComponents/ButtonGroup";
+import ButtonGroup from "@GlobalComponents/ButtonGroup";
 import "./style.scss";
 
 export default function MusicItem({ rank, item }) {

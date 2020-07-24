@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col, Spin } from "antd";
 import { RightOutlined } from "@ant-design/icons";
-import HotArtistItem from "../../dumps/HotArtistItem";
+import HotArtistItem from "@HomePage/dumps/HotArtistItem";
 
-import artist from "../../../../mocks/artist";
+import artist from "@mocks/artist";
 
 const [first, ...rest] = artist;
 

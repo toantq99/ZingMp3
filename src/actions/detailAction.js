@@ -30,19 +30,20 @@ export const getSongDetail = (id) => (dispatch) => {
 };
 
 export const getSimilarSong = (song) => (dispatch) => {
+	const url = song.artist.tracklist.slice(0, -2) + "10";
 	axios({
 		method: "GET",
-		url: "https://deezerdevs-deezer.p.rapidapi.com/search",
+		url: "https://cors-anywhere.herokuapp.com/" + url,
 		headers: {
 			"content-type": "application/octet-stream",
 			"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
 			"x-rapidapi-key": "3319f523f7msh49e3d6c5c3ee4b4p19f9fajsn66e90ad6334c",
 			useQueryString: true,
 		},
-		params: {
-			q: `${song.artist.name}`,
-			limit: 10,
-		},
+		// params: {
+		// 	q: `${song.artist.name}`,
+		// 	limit: 10,
+		// },
 	})
 		.then((response) => {
 			if (response.status === 200) {
@@ -63,5 +64,11 @@ export const getComments = (song) => (dispatch) => {
 			type: detailActionTypes.GET_COMMENTS,
 			payload: comments,
 		});
-	}, 2000);
+	}, 1000);
+};
+
+export const emptyDetail = () => (dispatch) => {
+	dispatch({
+		type: detailActionTypes.EMPTY_DETAIL,
+	});
 };
