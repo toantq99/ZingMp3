@@ -33,7 +33,7 @@ export default function HotTopic() {
 				</div>
 			</Col>
 			<Col span={24}>
-				<div>
+				<>
 					<h3 className="text-upper">Chủ đề hot</h3>
 					{[1, 2, 3, 4, 5].map((item, id) => (
 						<HotTopicItem key={id} item={item} />
@@ -41,7 +41,7 @@ export default function HotTopic() {
 					<Link to="/" className="link text-dark">
 						Xem thêm chủ đề <RightOutlined />
 					</Link>
-				</div>
+				</>
 			</Col>
 		</Row>
 	);

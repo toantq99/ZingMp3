@@ -4,7 +4,6 @@ import { resolve } from "path";
 export default override(
 	addWebpackAlias({
 		"@actions": resolve(__dirname, "./src/actions"),
-		"@reducers": resolve(__dirname, "./src/reducers"),
 		"@hooks": resolve(__dirname, "./src/hooks"),
 		"@mocks": resolve(__dirname, "./src/mocks"),
 		"@pages": resolve(__dirname, "./src/pages"),

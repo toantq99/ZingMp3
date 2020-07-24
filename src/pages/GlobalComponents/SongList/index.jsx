@@ -5,7 +5,7 @@ import { Row, Col, Spin } from "antd";
 
 export default function SongList({ name, list, size }) {
 	return (
-		<div>
+		<>
 			<h2 className="text-upper">
 				{name} <RightOutlined />
 			</h2>
@@ -22,6 +22,6 @@ export default function SongList({ name, list, size }) {
 					</Col>
 				)}
 			</Row>
-		</div>
+		</>
 	);
 }
