@@ -33,11 +33,10 @@ export default function ButtonGroup({ item, size }) {
 				</button>
 			)}
 
-			<button className="btn-icon" title="Tải xuống" disabled>
+			<button className="btn-icon" title="Tải xuống">
 				<DownloadOutlined />
 			</button>
-
-			<button className="btn-icon" title="Chia sẻ" disabled>
+			<button className="btn-icon" title="Chia sẻ">
 				<ShareAltOutlined />
 			</button>
 		</span>

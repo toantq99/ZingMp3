@@ -18,7 +18,7 @@ export default function Collection({ name, query }) {
 
 	const list = useSelector((state) => state.home.collection[query]);
 	return (
-		<>
+		<div>
 			<Link to="/">
 				<h2 className="text-upper">
 					{name}
@@ -38,6 +38,6 @@ export default function Collection({ name, query }) {
 					</Col>
 				)}
 			</Row>
-		</>
+		</div>
 	);
 }

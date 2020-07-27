@@ -3,7 +3,7 @@ import { homeActionTypes } from "../actions/types";
 const initialState = {
 	suggestList: {},
 	collection: {},
-	chart: { songChart: null, artistChart: null },
+	chart: { top3: null, top5: null },
 	weekChart: {},
 };
 
@@ -26,17 +26,20 @@ export default (state = initialState, action) => {
 				},
 			};
 
-		case homeActionTypes.chart.GET_SONG_CHART:
-			return {
-				...state,
-				chart: { ...state.chart, songChart: action.payload },
-			};
-		case homeActionTypes.chart.GET_ARTIST_CHART:
+		case homeActionTypes.chart.GET_CHART_TOP3:
 			return {
 				...state,
 				chart: {
 					...state.chart,
-					artistChart: action.payload,
+					top3: action.payload,
+				},
+			};
+		case homeActionTypes.chart.GET_CHART_TOP5:
+			return {
+				...state,
+				chart: {
+					...state.chart,
+					top5: action.payload,
 				},
 			};
 		case homeActionTypes.weekChart.GET_WEEK_CHART:
@@ -44,7 +47,7 @@ export default (state = initialState, action) => {
 				...state,
 				weekChart: {
 					...state.weekChart,
-					[action.payload.name]: action.payload.data,
+					[action.payload.query]: action.payload.data,
 				},
 			};
 		default:

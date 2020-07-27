@@ -18,6 +18,7 @@ export const searchSong = (query, page, pageSize) => (dispatch) => {
 		},
 	})
 		.then((response) => {
+			console.log(response.data);
 			if (response.status === 200) {
 				dispatch({
 					type: searchActionTypes.SEARCH_SONG,

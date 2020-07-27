@@ -8,17 +8,21 @@ export default function CarouselBanner() {
 		return (
 			<Row>
 				<Col span={24}>
-					<Carousel autoplay>
-						{carouselList.map((item, id) => (
-							<div key={id}>
-								<Link to="/">
-									<img src={item.image} alt="main-banner" width="100%" />
-								</Link>
-							</div>
-						))}
-					</Carousel>
+					<Row>
+						<Col span={24}>
+							<Carousel autoplay>
+								{carouselList.map((item, id) => (
+									<div key={id}>
+										<Link to="/">
+											<img src={item.image} alt="main-banner" width="100%" />
+										</Link>
+									</div>
+								))}
+							</Carousel>
+						</Col>
+					</Row>
 
-					{/* <Row justify="space-between">
+					<Row justify="space-between">
 						{carouselList.map((item, id) => (
 							<Col key={id}>
 								<img
@@ -29,7 +33,7 @@ export default function CarouselBanner() {
 								/>
 							</Col>
 						))}
-					</Row> */}
+					</Row>
 				</Col>
 			</Row>
 		);

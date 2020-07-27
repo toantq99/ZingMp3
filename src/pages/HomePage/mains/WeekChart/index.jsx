@@ -8,14 +8,14 @@ import "./style.scss";
 
 import { getWeekChart } from "@actions/homeAction";
 
-export default function WeekChart({ name, type, limit }) {
+export default function WeekChart({ name, type, query }) {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(getWeekChart(type, limit));
+		dispatch(getWeekChart(query, type === "song" ? 10 : 5));
 		return () => {};
-	}, [dispatch, type, limit]);
+	}, [dispatch, query, type]);
 
-	const list = useSelector((state) => state.home.weekChart[type]);
+	const list = useSelector((state) => state.home.weekChart[query]);
 
 	if (list) {
 		const [top1, ...rest] = list;

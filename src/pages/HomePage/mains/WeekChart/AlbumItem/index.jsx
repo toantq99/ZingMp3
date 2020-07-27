@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
 import "./style.scss";
 
-export default function AlbumItem({ rank, item }) {
+export default function MvItem({ rank, item }) {
 	const fakeCount = parseInt(Math.random() * 10000 + 10000);
 	return (
 		<Row align="middle" justify="space-between" className="album-item">

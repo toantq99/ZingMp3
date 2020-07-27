@@ -11,7 +11,7 @@ import "./style.scss";
 
 export default function Navbar() {
 	return (
-		<>
+		<div>
 			<div className="nav-top">
 				<div className="nav-top-container">
 					<Row align="middle">
@@ -86,6 +86,6 @@ export default function Navbar() {
 					</Row>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }

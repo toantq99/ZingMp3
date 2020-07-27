@@ -19,7 +19,7 @@ export default function Thumbnail({ width, height, item }) {
 					onMouseLeave={() => setHover(false)}
 				>
 					<img
-						src={item.album ? item.album.cover_big : item.cover}
+						src={item.album.cover_big}
 						alt="cover"
 						width={width}
 						height={height}

@@ -5,14 +5,14 @@ import Thumbnail from "@GlobalComponents/Thumbnail";
 import ButtonGroup from "@GlobalComponents/ButtonGroup";
 import "./style.scss";
 
-export default function SongItem({ item, size }) {
+export default function SongItem({ item, rank, size }) {
 	const [hovering, setHovering] = useState(false);
 	return (
 		<Row
 			gutter={[0, 20]}
 			align="middle"
 			justify="space-between"
-			className="song-item"
+			className="border-bottom"
 			onMouseEnter={() => setHovering(true)}
 			onMouseLeave={() => setHovering(false)}
 		>
@@ -35,7 +35,6 @@ export default function SongItem({ item, size }) {
 						<div className={size ? "large-singer" : "small-singer"}>
 							{item.artist.name}
 						</div>
-						{size ? <div>{item.duration}</div> : null}
 					</Col>
 				</Row>
 			</Col>

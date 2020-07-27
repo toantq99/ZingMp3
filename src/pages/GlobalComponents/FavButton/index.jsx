@@ -10,7 +10,7 @@ export default function FavButton() {
 	const favList = useSelector((state) => state.favList);
 
 	return (
-		<>
+		<div>
 			<button
 				className="btn-fav"
 				onClick={() => {
@@ -43,6 +43,6 @@ export default function FavButton() {
 					)}
 				</Row>
 			</Drawer>
-		</>
+		</div>
 	);
 }

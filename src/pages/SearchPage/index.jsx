@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Row, Col, Spin, Pagination } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 
+import Filter from "./Filter";
 import SongList from "@GlobalComponents/SongList";
 
 import { searchSong, emptySearch } from "@actions/searchAction";
@@ -23,20 +24,31 @@ export default function SearchPage({ location }) {
 
 	const result = useSelector((state) => state.search);
 	return (
-		<>
+		<div>
 			<Row>
 				<Col span={16}>
-					{result.total ? (
-						<SongList
-							name={`${(page - 1) * pageSize + 1}-${
-								page * pageSize < result.total ? page * pageSize : result.total
-							}/${result.total} kết quả tìm kiếm cho ${query}`}
-							list={result.data}
-							size="large"
-						/>
-					) : (
-						<Spin size="large" />
-					)}
+					<Row>
+						<Col span={24}>
+							<Filter />
+						</Col>
+						<Row>
+							<Col span={24}>
+								{result.total ? (
+									<SongList
+										name={`${(page - 1) * pageSize + 1}-${
+											page * pageSize < result.total
+												? page * pageSize
+												: result.total
+										}/${result.total} kết quả tìm kiếm cho ${query}`}
+										list={result.data}
+										size="large"
+									/>
+								) : (
+									<Spin size="large" />
+								)}
+							</Col>
+						</Row>
+					</Row>
 				</Col>
 			</Row>
 			{result.total ? (
@@ -64,6 +76,6 @@ export default function SearchPage({ location }) {
 					</Col>
 				</Row>
 			) : null}
-		</>
+		</div>
 	);
 }

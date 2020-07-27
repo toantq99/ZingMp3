@@ -9,6 +9,7 @@ import HotArtist from "./components/HotArtist";
 import HotTopic from "./components/HotTopic";
 import News from "./components/News";
 import Partner from "./dumps/Partner";
+
 export default function HomePage() {
 	return (
 		<Row gutter={[16, 30]}>
@@ -30,12 +31,12 @@ export default function HomePage() {
 				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
-						<Collection name="Autumn" query="Autumn" limit={8} />
+						<Collection name="Autumn" query="Autumn" />
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
-						<Collection name="Winter" query="Winter" limit={8} />
+						<Collection name="Winter" query="Winter" />
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
@@ -59,24 +60,25 @@ export default function HomePage() {
 					<Col span={24}>
 						<WeekChart
 							name="#zingchar tuần - bài hát"
-							type="tracks"
-							limit={10}
+							type="song"
+							query="cafe"
 						/>
 					</Col>
 				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
-						<WeekChart name="#zingchar tuần - MV" type="tracks" limit={10} />
+						<WeekChart name="#zingchar tuần - MV" type="mv" query="monster" />
 					</Col>
 				</Row>
-				{/* <Row gutter={[20, 30]}>
+				<Row gutter={[20, 30]}>
 					<Col span={24}>
 						<WeekChart
 							name="#zingchar tuần - Album"
 							type="album"
+							query="love"
 						/>
 					</Col>
-				</Row> */}
+				</Row>
 				<Row gutter={[20, 30]}>
 					<Col span={24}>
 						<News />

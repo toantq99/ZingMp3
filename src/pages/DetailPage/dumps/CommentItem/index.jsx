@@ -11,7 +11,7 @@ export default function CommentItem({ cmt }) {
 			<Col span={20} className="content">
 				<h3>
 					{cmt.author.name}
-					<small>{cmt.date}</small>
+					<small>{new Date(cmt.date).toLocaleDateString()}</small>
 				</h3>
 
 				<div>{cmt.text}</div>

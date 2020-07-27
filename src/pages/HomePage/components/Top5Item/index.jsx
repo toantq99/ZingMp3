@@ -43,17 +43,15 @@ export default function Top5Item({ rank, item }) {
 				<Thumbnail width={60} height={60} item={item} />
 			</Col>
 			<Col span={12}>
-				<>
-					<div>
-						<Link
-							to={`/bai-hat/${item.id}`}
-							title={item.title + " - " + item.artist.name}
-						>
-							{item.title}
-						</Link>
-					</div>
+				<div>
+					<Link
+						to={`/bai-hat/${item.id}`}
+						title={item.title + " - " + item.artist.name}
+					>
+						<div>{item.title}</div>
+					</Link>
 					<small>{item.artist.name}</small>
-				</>
+				</div>
 			</Col>
 			<Col span={4}>
 				<ButtonGroup item={item} />

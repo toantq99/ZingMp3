@@ -11,12 +11,7 @@ export default function HotArtistItem({ width, height, item }) {
 				onMouseEnter={() => setHovering(true)}
 				onMouseLeave={() => setHovering(false)}
 			>
-				<img
-					src={item.picture_big}
-					alt={item.name}
-					width={width}
-					height={height}
-				/>
+				<img src={item.image} alt={item.name} width={width} height={height} />
 				{hovering ? <div>{item.name}</div> : null}
 			</div>
 		</Link>
