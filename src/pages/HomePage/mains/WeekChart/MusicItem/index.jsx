@@ -19,9 +19,10 @@ export default function MusicItem({ rank, item }) {
 				<Row gutter={10} align="middle">
 					<Col>{rank < 10 ? "0" + rank : rank} </Col>
 					<Col>
-						<div>
-							<Link to={`/bai-hat/${item.id}`}>{item.title}</Link>
+						<div className="title">
+							<Link to={`/bai-hat/${item.id}`}>{item.title_short}</Link>
 						</div>
+
 						<div>{item.artist.name}</div>
 					</Col>
 				</Row>

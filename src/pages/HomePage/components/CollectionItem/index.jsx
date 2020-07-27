@@ -9,11 +9,11 @@ export default function CollectionItem({ item, height, width }) {
 			className="collection-item"
 			title={item.title + " - " + item.artist.name}
 		>
-			<Link to={`/bai-hat/${item.id}`}>
-				<Thumbnail item={item} width={width} height={height} />
-				<div className="title">{item.title}</div>
-				<small className="singer">{item.artist.name}</small>
+			<Thumbnail item={item} width={width} height={height} />
+			<Link to={`/bai-hat/${item.id}`} className="title">
+				{item.title}
 			</Link>
+			<div className="singer">{item.artist.name}</div>
 		</div>
 	);
 }

@@ -22,7 +22,6 @@ export default function Top3Item({ rank, item }) {
 					<div className="title">{item.title_short}</div>
 					<small>{item.artist.name}</small>
 				</Col>
-
 				<Col flex="28px" className={`rank-${rank}`}>
 					{fakePercent + "%"}
 				</Col>
