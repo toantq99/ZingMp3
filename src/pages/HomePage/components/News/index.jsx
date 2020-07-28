@@ -7,8 +7,8 @@ import NewsHeader from "@HomePage/dumps/NewsHeader";
 export default function News() {
 	return (
 		<Row gutter={[0, 10]}>
-			<h4 className="text-upper">
-				Tin tức âm nhạc
+			<h4>
+				TIN TỨC ÂM NHẠC
 				<RightOutlined />
 			</h4>
 			<Col span={24}>

@@ -12,12 +12,13 @@ import ButtonGroup from "@GlobalComponents/ButtonGroup";
 import "./style.scss";
 
 export default function Top5Item({ rank, item }) {
-	const fakeStatus = parseInt(Math.random() * 10 - 5);
-	const fakeCount = parseInt(Math.random() * 10000) + 10000;
+	const fakeStatus = Math.floor(Math.random() * 10 - 5);
+	const fakeCount = Math.floor(Math.random() * 10000) + 10000;
 	return (
 		<Row
 			gutter={10}
-			className={"top5-item" + (rank === 5 ? "" : " border-bottom")}
+			align="middle"
+			className={"top5-item-wrapper" + (rank === 5 ? "" : " border-bottom")}
 		>
 			<Col span={1}>
 				<div className={`rank-${rank}`}>{rank}</div>

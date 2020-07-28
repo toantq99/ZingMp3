@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Row, Col, Spin, Pagination } from "antd";
+import { Pagination } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 
 import SongList from "@GlobalComponents/SongList";
 
 import { searchSong, emptySearch } from "@actions/searchAction";
+import withLoading from "@HOCs/withLoading";
+import "./style.scss";
 
 export default function SearchPage({ location }) {
 	const history = useHistory();
@@ -21,49 +23,40 @@ export default function SearchPage({ location }) {
 		};
 	}, [dispatch, query, page, pageSize]);
 
-	const result = useSelector((state) => state.search);
-	return (
-		<>
-			<Row>
-				<Col span={16}>
-					{result.total ? (
-						<SongList
-							name={`${(page - 1) * pageSize + 1}-${
-								page * pageSize < result.total ? page * pageSize : result.total
-							}/${result.total} kết quả tìm kiếm cho ${query}`}
-							list={result.data}
-							size="large"
-						/>
-					) : (
-						<Spin size="large" />
-					)}
-				</Col>
-			</Row>
-			{result.total ? (
-				<Row justify="center">
-					<Col span={24}>
-						<Pagination
-							total={result.total}
-							showSizeChanger
-							showQuickJumper
-							defaultPageSize={pageSize}
-							showTotal={() => `Tổng số ${result.total} kết quả`}
-							onChange={(page, pageSize) => {
-								history.push(
-									`/tim-kiem/?query=${query}&page=${page}&limit=${pageSize}`
-								);
-								window.scrollTo({ top: 0, behavior: "smooth" });
-							}}
-							onShowSizeChange={(current, size) => {
-								history.push(
-									`/tim-kiem/?query=${query}&page=${page}&limit=${size}`
-								);
-								window.scrollTo({ top: 0, behavior: "smooth" });
-							}}
-						/>
-					</Col>
-				</Row>
-			) : null}
-		</>
+	const { isLoading, data } = useSelector((state) => state.search);
+
+	return withLoading(isLoading)(
+		<div className="search-page-wrapper">
+			<div className="col-span-3">
+				<SongList
+					name={`${(page - 1) * pageSize + 1}-${
+						page * pageSize < data.total ? page * pageSize : data.total
+					}/${data.total} kết quả tìm kiếm cho ${query}`}
+					list={data.data || []}
+					size="large"
+				/>
+				<Pagination
+					total={data.total}
+					showSizeChanger
+					showQuickJumper
+					current={page}
+					defaultPageSize={pageSize}
+					showTotal={() => `Tổng số ${data.total} kết quả`}
+					onChange={(page, pageSize) => {
+						history.push(
+							`/tim-kiem/?query=${query}&page=${page}&limit=${pageSize}`
+						);
+						window.scrollTo({ top: 0, behavior: "smooth" });
+					}}
+					onShowSizeChange={(current, size) => {
+						history.push(
+							`/tim-kiem/?query=${query}&page=${page}&limit=${size}`
+						);
+						window.scrollTo({ top: 0, behavior: "smooth" });
+					}}
+				/>
+			</div>
+			<div className="col-span-1"></div>
+		</div>
 	);
 }

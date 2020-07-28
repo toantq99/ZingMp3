@@ -1,21 +1,12 @@
 import React from "react";
-import { Row, Col, Spin } from "antd";
 import Top5Item from "@HomePage/components/Top5Item";
 
 export default function Top5List({ list }) {
-	return list ? (
-		<Row>
+	return (
+		<div className="top5-list-wrapper">
 			{list.map((item, id) => (
-				<Col span={24} key={id}>
-					<Top5Item item={item} rank={id + 1} />
-				</Col>
+				<Top5Item key={id} item={item} rank={id + 1} />
 			))}
-		</Row>
-	) : (
-		<Row>
-			<Col span={24}>
-				<Spin size="large" />
-			</Col>
-		</Row>
+		</div>
 	);
 }

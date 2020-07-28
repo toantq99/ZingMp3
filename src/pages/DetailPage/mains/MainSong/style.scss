@@ -1,13 +1,18 @@
-.info {
-	span:nth-child(1) {
-		color: gray;
+.main-song-wrapper {
+	.info {
+		span:nth-child(1) {
+			color: gray;
+		}
+		span:nth-child(2) {
+			color: black;
+			font-weight: bold;
+		}
 	}
-	span:nth-child(2) {
-		color: black;
-		font-weight: bold;
-	}
-}
 
-.right {
-	text-align: right;
+	.player-bottom {
+		margin: 10px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 }

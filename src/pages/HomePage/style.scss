@@ -1,0 +1,14 @@
+.home-page-wrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 16px;
+
+	@for $i from 1 through 3 {
+		.col-span-#{$i} {
+			grid-column: span $i;
+			.section {
+				margin: 20px 0;
+			}
+		}
+	}
+}

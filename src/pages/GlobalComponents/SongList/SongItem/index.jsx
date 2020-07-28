@@ -5,6 +5,13 @@ import Thumbnail from "@GlobalComponents/Thumbnail";
 import ButtonGroup from "@GlobalComponents/ButtonGroup";
 import "./style.scss";
 
+const formarDuration = (duration) => {
+	const mins = Math.floor(duration / 60);
+	const secs = duration % 60;
+
+	return mins + " phút " + secs + " giây";
+};
+
 export default function SongItem({ item, size }) {
 	const [hovering, setHovering] = useState(false);
 	return (
@@ -35,7 +42,9 @@ export default function SongItem({ item, size }) {
 						<div className={size ? "large-singer" : "small-singer"}>
 							{item.artist.name}
 						</div>
-						{size ? <div>{item.duration}</div> : null}
+						{size ? (
+							<div>Thời lượng: {formarDuration(item.duration)}</div>
+						) : null}
 					</Col>
 				</Row>
 			</Col>

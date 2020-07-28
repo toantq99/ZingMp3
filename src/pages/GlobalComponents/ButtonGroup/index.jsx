@@ -13,6 +13,7 @@ import { addFav, removeFav } from "@actions/favListAction";
 export default function ButtonGroup({ item, size }) {
 	const dispatch = useDispatch();
 	const isAdded = useSelector((state) => state.favList.includes(item.id));
+
 	return (
 		<span className={size ? "large" : "small"}>
 			{isAdded ? (
@@ -37,9 +38,11 @@ export default function ButtonGroup({ item, size }) {
 				<DownloadOutlined />
 			</button>
 
-			<button className="btn-icon" title="Chia sẻ" disabled>
-				<ShareAltOutlined />
-			</button>
+			<a href={item.link} target="_blank" rel="noopener noreferrer">
+				<button className="btn-icon" title="Liên kết">
+					<ShareAltOutlined />
+				</button>
+			</a>
 		</span>
 	);
 }

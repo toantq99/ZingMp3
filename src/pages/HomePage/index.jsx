@@ -1,91 +1,50 @@
 import React from "react";
-import { Row, Col } from "antd";
 import CarouselBanner from "./dumps/CarouselBanner";
 import Chart from "./mains/Chart";
-import Collection from "./mains/Collection";
-import SuggestSong from "./mains/SuggestSong";
-import WeekChart from "./mains/WeekChart";
-import HotArtist from "./components/HotArtist";
+import CollectionList from "./mains/CollectionList";
+import SuggestList from "./mains/SuggestList";
+import WeekChartList from "./mains/WeekChartList";
+import HotArtist from "./mains/HotArtist";
 import HotTopic from "./components/HotTopic";
 import News from "./components/News";
 import Partner from "./dumps/Partner";
+
+import "./style.scss";
+
 export default function HomePage() {
 	return (
-		<Row gutter={[16, 30]}>
-			<Col span={16}>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<CarouselBanner />
-					</Col>
-				</Row>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<Chart />
-					</Col>
-				</Row>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<Collection name="Spring" query="Spring" limit={8} />
-					</Col>
-				</Row>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<Collection name="Autumn" query="Autumn" limit={8} />
-					</Col>
-				</Row>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<Collection name="Winter" query="Winter" limit={8} />
-					</Col>
-				</Row>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<SuggestSong query={["aimyon", "yonezu kenshi"]} />
-					</Col>
-				</Row>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<HotArtist />
-					</Col>
-				</Row>
-			</Col>
-			<Col span={8}>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<HotTopic />
-					</Col>
-				</Row>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<WeekChart
-							name="#zingchar tuần - bài hát"
-							type="tracks"
-							limit={10}
-						/>
-					</Col>
-				</Row>
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<WeekChart name="#zingchar tuần - MV" type="tracks" limit={10} />
-					</Col>
-				</Row>
-				{/* <Row gutter={[20, 30]}>
-					<Col span={24}>
-						<WeekChart
-							name="#zingchar tuần - Album"
-							type="album"
-						/>
-					</Col>
-				</Row> */}
-				<Row gutter={[20, 30]}>
-					<Col span={24}>
-						<News />
-					</Col>
-				</Row>
-			</Col>
-			<Col span={24}>
+		<div className="home-page-wrapper">
+			<div className="col-span-2">
+				<div className="section">
+					<CarouselBanner />
+				</div>
+				<div className="section">
+					<Chart />
+				</div>
+				<div className="section">
+					<CollectionList />
+				</div>
+				<div className="section">
+					<SuggestList />
+				</div>
+				<div className="section">
+					<HotArtist />
+				</div>
+			</div>
+			<div className="col-span-1">
+				<div className="section">
+					<HotTopic />
+				</div>
+				<div className="section">
+					<WeekChartList />
+				</div>
+				<div className="section">
+					<News />
+				</div>
+			</div>
+			<div className="col-span-3">
 				<Partner />
-			</Col>
-		</Row>
+			</div>
+		</div>
 	);
 }

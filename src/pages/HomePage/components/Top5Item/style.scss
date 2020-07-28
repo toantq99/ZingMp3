@@ -1,10 +1,10 @@
-.top5-item {
+.top5-item-wrapper {
 	padding: 10px;
-	align-items: center;
 	.rank,
 	.status {
 		font-weight: bold;
 		font-size: 20px;
+		margin-right: 5px;
 	}
 	.rank-1 {
 		@extend .rank;
@@ -33,7 +33,6 @@
 		color: gray;
 	}
 }
-
 .border-bottom {
 	border-bottom: 1px solid gray;
 }

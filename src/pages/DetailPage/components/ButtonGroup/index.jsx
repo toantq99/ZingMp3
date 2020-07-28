@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Button } from "antd";
 import {
 	PlusOutlined,
-	DownloadOutlined,
+	// DownloadOutlined,
 	ShareAltOutlined,
 	DeleteOutlined,
 } from "@ant-design/icons";
@@ -21,7 +21,7 @@ export default function ButtonGroup({ song }) {
 	const dispatch = useDispatch();
 
 	return (
-		<Row gutter={16}>
+		<Row gutter={16} className="button-group-wrapper">
 			<Col span={24}>
 				{added ? (
 					<Button
@@ -46,8 +46,10 @@ export default function ButtonGroup({ song }) {
 					</Button>
 				)}
 
-				<Button icon={<DownloadOutlined />}>Tải xuống</Button>
-				<Button icon={<ShareAltOutlined />}>Chia sẻ</Button>
+				{/* <Button icon={<DownloadOutlined />}>Tải xuống</Button> */}
+				<a href={song.link} target="_blank" rel="noopener noreferrer">
+					<Button icon={<ShareAltOutlined />}>Chia sẻ</Button>
+				</a>
 			</Col>
 		</Row>
 	);

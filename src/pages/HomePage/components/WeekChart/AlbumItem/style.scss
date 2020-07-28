@@ -1,0 +1,25 @@
+.album-item {
+	padding: 10px 0;
+	border-bottom: 1px solid gray;
+	.album-img {
+		position: relative;
+	}
+	.album-rank {
+		position: absolute;
+		bottom: 2px;
+		left: 2px;
+		color: white;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	.album-info {
+		overflow: hidden;
+		display: block;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		text-overflow: ellipsis;
+		width: 200px;
+	}
+}

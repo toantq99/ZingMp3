@@ -5,7 +5,7 @@ import "./style.scss";
 
 export default function Player({ song }) {
 	return (
-		<div className="player-container">
+		<div className="player-wrapper">
 			<Row gutter={16}>
 				<Col span={6}>
 					<img src={song.album.cover_medium} alt="spinner" />

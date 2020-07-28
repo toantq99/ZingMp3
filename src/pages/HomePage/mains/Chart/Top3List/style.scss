@@ -1,0 +1,9 @@
+.top3-list-wrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+
+	.col-span-1 {
+		grid-column: span 1;
+	}
+}

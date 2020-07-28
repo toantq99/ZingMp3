@@ -11,7 +11,7 @@ export default function ContextMenu({ item }) {
 						console.log(item);
 					}}
 				>
-					Thêm vào Chart
+					.....
 				</button>
 			</li>
 			<li>

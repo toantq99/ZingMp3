@@ -1,0 +1,17 @@
+.search-page-wrapper {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+
+	@for $i from 1 through 4 {
+		.col-span-#{$i} {
+			grid-column: span $i;
+		}
+	}
+	ul {
+		text-align: center;
+		li {
+			margin: 0 1px;
+		}
+	}
+}

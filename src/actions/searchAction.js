@@ -1,7 +1,9 @@
 import { searchActionTypes } from "./types";
+import { setLoadingSearch } from "./loadingAction";
 import axios from "axios";
 
 export const searchSong = (query, page, pageSize) => (dispatch) => {
+	dispatch(setLoadingSearch(true));
 	axios({
 		method: "GET",
 		url: "https://deezerdevs-deezer.p.rapidapi.com/search",
@@ -23,6 +25,7 @@ export const searchSong = (query, page, pageSize) => (dispatch) => {
 					type: searchActionTypes.SEARCH_SONG,
 					payload: response.data,
 				});
+				dispatch(setLoadingSearch(false));
 			}
 		})
 		.catch((error) => {

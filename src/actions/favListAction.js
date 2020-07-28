@@ -55,6 +55,17 @@ export const getFullFavItem = (id) => {
 		.catch((err) => console.log(err));
 };
 
+// export const getFavListFromStorage = () => {
+// 	const list = localStorage.getItem("favList");
+// 	if (list) return list.split(".");
+// 	else return [];
+// };
+
+// export const dispatchFavListFromStorage = () => (dispatch) => {
+// 	const favList = getFavListFromStorage();
+// 	dispatch({ type: favActionTypes.GET_FAV_STORAGE, payload: favList });
+// };
+
 const openSuccessNoti = (song) => {
 	notification["success"]({
 		message: "Thêm thành công",
