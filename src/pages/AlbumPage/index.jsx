@@ -28,7 +28,16 @@ export default function AlbumPage({ match }) {
 				<Player
 					song={tracks[currentTrackIndex]}
 					cover={detail.cover}
-					onListen={(e) => setCurrentTime(e.target.currentTime)}
+					onListen={(e) => {
+						setCurrentTime(e.target.currentTime);
+						if (
+							Math.floor(e.target.currentTime) === Math.floor(duration) &&
+							currentTrackIndex < tracks.length - 1
+						) {
+							setCurrentTrackIndex(currentTrackIndex + 1);
+							setCurrentTime(0);
+						}
+					}}
 					onPlay={(e) => {
 						setDuration(e.target.duration);
 					}}
