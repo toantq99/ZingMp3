@@ -30,6 +30,12 @@ const detailActionTypes = {
 	EMPTY_DETAIL: "EMPTY_DETAIL",
 };
 
+const albumActionTypes = {
+	GET_ALBUM_DETAIL: "GET_ALBUM_DETAIL",
+	GET_ALBUM_TRACK: "GET_ALBUM_TRACK",
+	SET_LOADING_ALBUM: "SET_LOADING_ALBUM",
+};
+
 const favActionTypes = {
 	ADD_FAV: "ADD_FAV",
 	REMOVE_FAV: "REMOVE_FAV",
@@ -46,6 +52,7 @@ const searchActionTypes = {
 export {
 	homeActionTypes,
 	detailActionTypes,
+	albumActionTypes,
 	favActionTypes,
 	searchActionTypes,
 };

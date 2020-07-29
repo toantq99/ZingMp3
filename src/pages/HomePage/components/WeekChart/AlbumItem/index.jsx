@@ -20,7 +20,7 @@ export default function AlbumItem({ rank, item }) {
 					</Col>
 					<Col className="album-info">
 						<div>
-							<Link to={`/bai-hat/${item.id}`}>{item.title}</Link>
+							<Link to={`/album/${item.id}`}>{item.title}</Link>
 						</div>
 						<div>{item.artist.name}</div>
 						<div>{fakeCount}</div>

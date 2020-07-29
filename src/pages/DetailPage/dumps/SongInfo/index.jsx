@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SongInfo({ song }) {
 	return (
@@ -8,7 +9,9 @@ export default function SongInfo({ song }) {
 			</h2>
 			<div className="info">
 				<span>Album: </span>
-				<span>{song.album.title}</span>
+				<span>
+					<Link to={`/album/${song.album.id}`}>{song.album.title}</Link>
+				</span>
 			</div>
 			<div className="info">
 				<span>Release Date: </span>

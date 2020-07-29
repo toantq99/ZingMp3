@@ -34,7 +34,13 @@ export default function Header({ type, item }) {
 							<Col className="rank">01</Col>
 							<Col>
 								<div className="title">
-									<Link to={`/bai-hat/${item.id}`}>
+									<Link
+										to={
+											type === "tracks"
+												? `/bai-hat/${item.id}`
+												: `/album/${item.id}`
+										}
+									>
 										{type === "tracks" ? item.title_short : item.title}
 									</Link>
 								</div>

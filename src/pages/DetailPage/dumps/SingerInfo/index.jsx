@@ -1,14 +1,14 @@
 import React from "react";
 import { Row, Col } from "antd";
 
-export default function SingerInfo({ singer }) {
+export default function SingerInfo({ singer, className }) {
 	return (
-		<Row>
+		<Row className={className}>
 			<Col span={6}>
 				<img src={singer.picture} alt="singer" />
 			</Col>
 			<Col span={18}>
-				<Row gutter={[0, 16]}>
+				<Row>
 					<Col span={24}>
 						<h2>{singer.name}</h2>
 					</Col>

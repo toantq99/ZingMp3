@@ -24,7 +24,7 @@ function DetailPage({ match }) {
 	const { isLoading: isLoadingComments = true, data: dataComments } = comments;
 
 	return withLoading(
-		(isLoadingSong && isLoadingComments && isLoadingSimilar) || !dataSong.title
+		isLoadingSong || isLoadingComments || isLoadingSimilar || !dataSong.title
 	)(
 		<div className="detail-page-wrapper">
 			<div className="col-span-2">

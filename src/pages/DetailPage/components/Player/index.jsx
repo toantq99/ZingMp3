@@ -3,17 +3,20 @@ import { Row, Col } from "antd";
 import ReactAudioPlayer from "react-audio-player";
 import "./style.scss";
 
-export default function Player({ song }) {
+export default function Player({ song, cover }) {
 	return (
 		<div className="player-wrapper">
-			<Row gutter={16}>
+			<Row gutter={[16, 20]}>
 				<Col span={6}>
-					<img src={song.album.cover_medium} alt="spinner" />
+					<img
+						src={song.album ? song.album.cover_medium : cover}
+						alt="spinner"
+					/>
 				</Col>
 				<Col span={18}>
 					<div className="info">
 						<h2>{song.title}</h2>
-						<h4>{song.artist.name}</h4>
+						<h4>{song.artist ? song.artist.name : null}</h4>
 					</div>
 				</Col>
 			</Row>

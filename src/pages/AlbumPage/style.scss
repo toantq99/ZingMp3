@@ -1,0 +1,15 @@
+.album-page-wrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+
+	@for $i from 1 through 3 {
+		.col-span-#{$i} {
+			grid-column: span $i;
+		}
+	}
+
+	.margin-y {
+		margin: 20px 0;
+	}
+}

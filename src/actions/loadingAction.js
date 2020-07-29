@@ -1,4 +1,9 @@
-import { homeActionTypes, detailActionTypes, searchActionTypes } from "./types";
+import {
+	homeActionTypes,
+	detailActionTypes,
+	searchActionTypes,
+	albumActionTypes,
+} from "./types";
 
 const setLoadingHome = (type, isLoading) => (dispatch) => {
 	let actionType;
@@ -44,8 +49,12 @@ const setLoadingDetail = (type, isLoading) => (dispatch) => {
 	dispatch({ type: actionType, payload: isLoading });
 };
 
+const setLoadingAlbum = (isLoading) => (dispatch) => {
+	dispatch({ type: albumActionTypes.SET_LOADING_ALBUM, payload: isLoading });
+};
+
 const setLoadingSearch = (isLoading) => (dispatch) => {
 	dispatch({ type: searchActionTypes.SET_LOADING_SEARCH, payload: isLoading });
 };
 
-export { setLoadingHome, setLoadingDetail, setLoadingSearch };
+export { setLoadingHome, setLoadingDetail, setLoadingSearch, setLoadingAlbum };
