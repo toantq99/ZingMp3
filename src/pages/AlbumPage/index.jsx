@@ -18,12 +18,21 @@ export default function AlbumPage({ match }) {
 	const { isLoading, detail } = useSelector((state) => state.album);
 	const { data: tracks } = detail.tracks;
 	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+	const [currentTime, setCurrentTime] = useState(0);
+	const [duration, setDuration] = useState(0);
 
 	return withLoading(isLoading)(
 		<div className="album-page-wrapper">
 			<div className="col-span-2">
 				<TrackInfo track={tracks[currentTrackIndex]} album={detail} />
-				<Player song={tracks[currentTrackIndex]} cover={detail.cover} />
+				<Player
+					song={tracks[currentTrackIndex]}
+					cover={detail.cover}
+					onListen={(e) => setCurrentTime(e.target.currentTime)}
+					onPlay={(e) => {
+						setDuration(e.target.duration);
+					}}
+				/>
 				<div className="margin-y">
 					<ButtonGroup song={tracks[currentTrackIndex]} />
 				</div>
@@ -36,6 +45,9 @@ export default function AlbumPage({ match }) {
 					list={tracks}
 					currentTrackIndex={currentTrackIndex}
 					setCurrentTrackIndex={setCurrentTrackIndex}
+					setCurrentTime={setCurrentTime}
+					currentTime={currentTime}
+					duration={duration}
 				/>
 			</div>
 		</div>

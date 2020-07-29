@@ -1,9 +1,10 @@
 import React from "react";
 import { Row, Col } from "antd";
-import ReactAudioPlayer from "react-audio-player";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 import "./style.scss";
 
-export default function Player({ song, cover }) {
+export default function Player({ song, cover, onListen, onPlay = () => {} }) {
 	return (
 		<div className="player-wrapper">
 			<Row gutter={[16, 20]}>
@@ -22,10 +23,14 @@ export default function Player({ song, cover }) {
 			</Row>
 			<Row>
 				<Col span={24}>
-					<ReactAudioPlayer
-						src={song.preview}
+					<AudioPlayer
 						autoPlay
-						controls
+						src={song.preview}
+						onListen={onListen}
+						onPlay={(e) => {
+							onPlay(e);
+							e.target.onloadedmetadata = onPlay;
+						}}
 						className="player"
 					/>
 				</Col>

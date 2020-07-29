@@ -5,6 +5,9 @@ export default function TrackList({
 	list,
 	currentTrackIndex,
 	setCurrentTrackIndex,
+	setCurrentTime,
+	currentTime,
+	duration,
 }) {
 	return (
 		<div className="track-list-wrapper">
@@ -16,7 +19,10 @@ export default function TrackList({
 					index={id}
 					key={id}
 					setCurrentTrackIndex={setCurrentTrackIndex}
+					setCurrentTime={setCurrentTime}
 					isPlaying={id === currentTrackIndex}
+					currentTime={currentTime}
+					duration={duration}
 				/>
 			))}
 		</div>

@@ -65,5 +65,17 @@
 		outline: none;
 		border: none;
 		background: none;
+		button {
+			outline: none;
+		}
+		.rhap_progress-container {
+			outline: none;
+		}
+		.rhap_time {
+			color: white;
+		}
+		.rhap_volume-bar-area {
+			outline: none;
+		}
 	}
 }
