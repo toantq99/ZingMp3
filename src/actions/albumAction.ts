@@ -1,8 +1,12 @@
 import axios from "axios";
-import { albumActionTypes } from "./types";
+import { albumActionTypes, AlbumAction } from "../constants/albumTypes";
+import { LoadingDispatchAction } from "../constants/loadingTypes";
 import { setLoadingAlbum } from "./loadingAction";
+import { Dispatch } from "react";
 
-export const getAlbumDetail = (id) => (dispatch) => {
+export const getAlbumDetail = (id: string) => (
+	dispatch: Dispatch<AlbumAction | LoadingDispatchAction>
+) => {
 	dispatch(setLoadingAlbum(true));
 	axios({
 		method: "GET",

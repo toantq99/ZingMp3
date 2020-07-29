@@ -2,6 +2,7 @@ import { detailActionTypes } from "./types";
 import { setLoadingDetail } from "./loadingAction";
 import axios from "axios";
 import comments from "../mocks/comments";
+import { proxy } from "./corsProxy";
 
 export const getSongDetail = (id) => (dispatch) => {
 	dispatch(setLoadingDetail("songdetail", true));
@@ -34,7 +35,7 @@ export const getSimilarSong = (song) => (dispatch) => {
 	const url = song.artist.tracklist.slice(0, -2) + "15";
 	axios({
 		method: "GET",
-		url: "https://cors-anywhere.herokuapp.com/" + url,
+		url: proxy + url,
 		headers: {
 			"content-type": "application/octet-stream",
 			"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",

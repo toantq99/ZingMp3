@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAlbumDetail } from "@actions/albumAction";
-import withLoading from "@HOCs/withLoading";
+import { getAlbumDetail } from "../../actions/albumAction";
+import { RootState } from "../../constants/rootState";
+import withLoading from "../../HOCs/withLoading";
 import TrackInfo from "./TrackInfo";
-import Player from "@DetailPage/components/Player";
-import SingerInfo from "@DetailPage/dumps/SingerInfo";
-import ButtonGroup from "@DetailPage/components/ButtonGroup";
+import Player from "../DetailPage/components/Player";
+import SingerInfo from "../DetailPage/dumps/SingerInfo";
+import ButtonGroup from "../DetailPage/components/ButtonGroup";
 import "./style.scss";
 import TrackList from "./TrackList";
 
-export default function AlbumPage({ match }) {
+interface Props {
+	match: {
+		params: {
+			id: string;
+		};
+	};
+}
+
+const AlbumPage: React.FC<Props> = ({ match }) => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAlbumDetail(match.params.id));
 	}, [dispatch, match.params.id]);
 
-	const { isLoading, detail } = useSelector((state) => state.album);
+	const { isLoading, detail } = useSelector((state: RootState) => state.album);
 	const { data: tracks } = detail.tracks;
 	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 	const [currentTime, setCurrentTime] = useState(0);
@@ -28,7 +37,7 @@ export default function AlbumPage({ match }) {
 				<Player
 					song={tracks[currentTrackIndex]}
 					cover={detail.cover}
-					onListen={(e) => {
+					onListen={(e: any) => {
 						setCurrentTime(e.target.currentTime);
 						if (
 							Math.floor(e.target.currentTime) === Math.floor(duration) &&
@@ -38,7 +47,7 @@ export default function AlbumPage({ match }) {
 							setCurrentTime(0);
 						}
 					}}
-					onPlay={(e) => {
+					onPlay={(e: any) => {
 						setDuration(e.target.duration);
 					}}
 				/>
@@ -61,4 +70,6 @@ export default function AlbumPage({ match }) {
 			</div>
 		</div>
 	);
-}
+};
+
+export default AlbumPage;

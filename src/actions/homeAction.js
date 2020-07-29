@@ -1,6 +1,7 @@
 import axios from "axios";
 import { homeActionTypes } from "./types";
 import { setLoadingHome } from "./loadingAction";
+import { proxy } from "./corsProxy";
 
 export const getSuggestList = (queryList) => (dispatch) => {
 	dispatch(setLoadingHome("suggest", true));
@@ -61,8 +62,7 @@ export const getSongChart = () => (dispatch) => {
 	dispatch(setLoadingHome("songchart", true));
 	axios({
 		method: "GET",
-		url:
-			"https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/tracks/tracks",
+		url: proxy + "https://api.deezer.com/chart/tracks/tracks",
 		headers: {
 			"content-type": "application/octet-stream",
 			"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
@@ -87,8 +87,7 @@ export const getArtistChart = () => (dispatch) => {
 
 	axios({
 		method: "GET",
-		url:
-			"https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/artists",
+		url: proxy + "https://api.deezer.com/chart/0/artists",
 		headers: {
 			"content-type": "application/octet-stream",
 			"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
@@ -117,7 +116,7 @@ export const getWeekChart = (typeList) => (dispatch) => {
 		typeList.map(async (type) => {
 			const response = await axios({
 				method: "GET",
-				url: `https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/${type}/${type}`,
+				url: proxy + `https://api.deezer.com/chart/${type}/${type}`,
 				headers: {
 					"content-type": "application/octet-stream",
 					"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",

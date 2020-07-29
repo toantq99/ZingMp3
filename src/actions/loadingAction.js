@@ -5,6 +5,8 @@ import {
 	albumActionTypes,
 } from "./types";
 
+// import { LoadingAction } from "../constants/loadingTypes";
+
 const setLoadingHome = (type, isLoading) => (dispatch) => {
 	let actionType;
 	switch (type) {

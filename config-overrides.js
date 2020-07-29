@@ -6,6 +6,7 @@ const { resolve } = require("path");
 
 module.exports = override(
 	addWebpackAlias({
+		"@constants": resolve(__dirname, "./src/constants"),
 		"@actions": resolve(__dirname, "./src/actions"),
 		"@hooks": resolve(__dirname, "./src/hooks"),
 		"@HOCs": resolve(__dirname, "./src/HOCs"),

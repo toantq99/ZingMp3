@@ -13,7 +13,7 @@ import SearchPage from "./pages/SearchPage";
 import AlbumPage from "./pages/AlbumPage";
 import "./index.scss";
 
-function App() {
+const App: React.FC = () => {
 	return (
 		<Provider store={store}>
 			<BrowserRouter>
@@ -32,6 +32,6 @@ function App() {
 			</BrowserRouter>
 		</Provider>
 	);
-}
+};
 
 export default App;
