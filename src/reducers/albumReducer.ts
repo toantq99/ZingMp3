@@ -1,28 +1,14 @@
-import { albumActionTypes } from "../actions/types";
-
-interface AlbumState {
-	isLoading: boolean;
-	detail: {
-		artist: {
-			name: string;
-		};
-		tracks: {
-			data: [{}];
-		};
-	};
-}
-
-interface Action {
-	type: string;
-	payload: any;
-}
+import { albumActionTypes, AlbumAction } from "../constants/types/albumTypes";
+import { AlbumState } from "../constants/state";
+import { LoadingAction } from "../constants/types/loadingTypes";
+import { emptyAlbumDetail } from "../constants/emptyValue/album";
 
 const initialState: AlbumState = {
 	isLoading: false,
-	detail: { artist: { name: "" }, tracks: { data: [{}] } },
+	detail: emptyAlbumDetail,
 };
 
-export default (state = initialState, action: Action) => {
+export default (state = initialState, action: AlbumAction | LoadingAction) => {
 	switch (action.type) {
 		case albumActionTypes.GET_ALBUM_DETAIL:
 			return { ...state, detail: action.payload };

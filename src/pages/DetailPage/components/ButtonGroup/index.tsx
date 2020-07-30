@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Row, Col, Button } from "antd";
 import {
 	PlusOutlined,
@@ -8,15 +8,16 @@ import {
 	DeleteOutlined,
 } from "@ant-design/icons";
 import "./style.scss";
-// import { addFav, removeFav } from "@actions/favListAction";
+import { addFav, removeFav } from "../../../../actions/favListAction";
 
-import { RootState } from "../../../../constants/rootState";
+import { RootState } from "../../../../constants/state";
+import {
+	SongDetail,
+	SongInAlbum,
+} from "../../../../constants/types/songDetailTypes";
 
 interface Props {
-	song: {
-		id: string;
-		link: string;
-	};
+	song: SongDetail | SongInAlbum;
 }
 
 const ButtonGroup: React.FC<Props> = ({ song }) => {
@@ -26,9 +27,8 @@ const ButtonGroup: React.FC<Props> = ({ song }) => {
 	const [added, setAdded] = useState(isAdded);
 	useEffect(() => {
 		setAdded(isAdded);
-		return () => {};
 	}, [isAdded]);
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	return (
 		<Row gutter={16} className="button-group-wrapper">
@@ -36,23 +36,23 @@ const ButtonGroup: React.FC<Props> = ({ song }) => {
 				{added ? (
 					<Button
 						type="primary"
-						// onClick={() => {
-						// 	dispatch(removeFav(song));
-						// 	setAdded(false);
-						// }}
+						onClick={() => {
+							dispatch(removeFav(song));
+							setAdded(false);
+						}}
 						icon={<DeleteOutlined />}
 					>
-						Xóa khỏi danh sách yêu thích
+						Bỏ yêu thích
 					</Button>
 				) : (
 					<Button
-						// onClick={() => {
-						// 	dispatch(addFav(song));
-						// 	setAdded(true);
-						// }}
+						onClick={() => {
+							dispatch(addFav(song));
+							setAdded(true);
+						}}
 						icon={<PlusOutlined />}
 					>
-						Thêm vào danh sách yêu thích
+						Yêu thích
 					</Button>
 				)}
 

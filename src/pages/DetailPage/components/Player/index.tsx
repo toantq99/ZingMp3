@@ -3,9 +3,13 @@ import { Row, Col } from "antd";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import "./style.scss";
+import {
+	SongInAlbum,
+	SongDetail,
+} from "../../../../constants/types/songDetailTypes";
 
 interface Props {
-	song: any;
+	song: SongInAlbum | SongDetail;
 	cover?: string;
 	onListen?: any;
 	onPlay?: any;
@@ -22,7 +26,11 @@ const Player: React.FC<Props> = ({
 			<Row gutter={[16, 20]}>
 				<Col span={6}>
 					<img
-						src={song.album ? song.album.cover_medium : cover}
+						src={
+							(song as SongDetail).album
+								? (song as SongDetail).album.cover_medium
+								: cover
+						}
 						alt="spinner"
 					/>
 				</Col>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAlbumDetail } from "../../actions/albumAction";
-import { RootState } from "../../constants/rootState";
+import { RootState } from "../../constants/state/index";
 import withLoading from "../../HOCs/withLoading";
 import TrackInfo from "./TrackInfo";
 import Player from "../DetailPage/components/Player";
@@ -20,22 +20,24 @@ interface Props {
 
 const AlbumPage: React.FC<Props> = ({ match }) => {
 	const dispatch = useDispatch();
+	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+	const [currentTime, setCurrentTime] = useState(0);
 	useEffect(() => {
 		dispatch(getAlbumDetail(match.params.id));
 	}, [dispatch, match.params.id]);
 
 	const { isLoading, detail } = useSelector((state: RootState) => state.album);
 	const { data: tracks } = detail.tracks;
-	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-	const [currentTime, setCurrentTime] = useState(0);
-	const [duration, setDuration] = useState(0);
+
+	const [duration, setDuration] = useState(-1);
+	const currentTrack = tracks[currentTrackIndex] || { artist: {} };
 
 	return withLoading(isLoading)(
 		<div className="album-page-wrapper">
 			<div className="col-span-2">
-				<TrackInfo track={tracks[currentTrackIndex]} album={detail} />
+				<TrackInfo track={currentTrack} album={detail} />
 				<Player
-					song={tracks[currentTrackIndex]}
+					song={currentTrack}
 					cover={detail.cover}
 					onListen={(e: any) => {
 						setCurrentTime(e.target.currentTime);
@@ -52,7 +54,7 @@ const AlbumPage: React.FC<Props> = ({ match }) => {
 					}}
 				/>
 				<div className="margin-y">
-					<ButtonGroup song={tracks[currentTrackIndex]} />
+					<ButtonGroup song={currentTrack} />
 				</div>
 				<div className="margin-y">
 					<SingerInfo singer={detail.artist} />
