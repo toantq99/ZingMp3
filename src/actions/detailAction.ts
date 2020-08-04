@@ -12,7 +12,7 @@ import comments from "@mocks/comments";
 import { proxy } from "./corsProxy";
 import { Dispatch } from "react";
 
-export const getSongDetail = (id: string) => (dispatch: Dispatch<any>) => {
+export const getSongDetail = (id: number) => (dispatch: Dispatch<any>) => {
 	dispatch(setLoadingDetail("songdetail", true));
 	dispatch(setLoadingDetail("similar", true));
 	dispatch(setLoadingDetail("comments", true));

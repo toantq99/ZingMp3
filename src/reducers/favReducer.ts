@@ -9,6 +9,8 @@ export default (state = initialState, action: FavListAction) => {
 			return [...state, action.payload];
 		case favActionTypes.REMOVE_FAV:
 			return state.filter((id) => id !== action.payload);
+		case favActionTypes.GET_FAV_STORAGE:
+			return action.payload;
 		default:
 			return state;
 	}

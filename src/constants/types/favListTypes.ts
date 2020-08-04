@@ -7,6 +7,11 @@ export const favActionTypes = {
 
 export interface FavListAction {
 	type: string;
-	payload: string;
+	payload: number;
 }
-export type FavList = string[];
+export interface FavListStorageAction {
+	type: string;
+	payload: number[];
+}
+
+export type FavList = number[];

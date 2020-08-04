@@ -9,7 +9,7 @@ import { removeFav, getFullFavItem } from "@actions/favListAction";
 import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
-	id: string;
+	id: number;
 }
 
 const FavItem: React.FC<Props> = ({ id }) => {

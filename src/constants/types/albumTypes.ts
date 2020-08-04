@@ -6,7 +6,7 @@ export const albumActionTypes = {
 	SET_LOADING_ALBUM: "SET_LOADING_ALBUM",
 };
 export interface Album {
-	id: string;
+	id: number;
 	title: string;
 	artist: Singer;
 	cover: string;

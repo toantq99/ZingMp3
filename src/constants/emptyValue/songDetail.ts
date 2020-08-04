@@ -7,7 +7,7 @@ import {
 import { emptyAlbum } from "./album";
 
 export const emptySinger: Singer = {
-	id: "",
+	id: 0,
 	name: "",
 	link: "",
 	picture: "",
@@ -16,7 +16,7 @@ export const emptySinger: Singer = {
 };
 
 export const emptySongInAlbum: SongInAlbum = {
-	id: "",
+	id: 0,
 	title: "",
 	title_short: "",
 	duration: -1,
@@ -34,7 +34,7 @@ export const emptySongDetail: SongDetail = {
 
 export const emptyComment: Comment = {
 	author: {
-		id: "",
+		id: 0,
 		name: "",
 		link: "",
 		picture: "",

@@ -1,14 +1,27 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Drawer, Empty, Row, Col, Badge } from "antd";
 import { HeartFilled } from "@ant-design/icons";
 import "./style.scss";
 import FavItem from "./FavItem";
 import { RootState } from "@constants/state";
+import {
+	dispatchListFromStorage,
+	// saveListToStorage,
+} from "@actions/favListAction";
 
 const FavButton: React.FC = () => {
 	const [show, setShow] = useState(false);
+	const dispatch = useDispatch();
+	const [isFirstMount, setIsFirstMount] = useState(true);
 	const favList = useSelector((state: RootState) => state.favList);
+
+	useEffect(() => {
+		if (isFirstMount) {
+			dispatch(dispatchListFromStorage());
+			setIsFirstMount(false);
+		}
+	}, [dispatch, isFirstMount]);
 
 	return (
 		<>
@@ -28,12 +41,12 @@ const FavButton: React.FC = () => {
 				closable={true}
 				onClose={() => setShow(false)}
 				visible={show}
-				width={350}
+				width={400}
 			>
 				<Row gutter={[0, 16]}>
 					{favList.length > 0 ? (
-						favList.map((id) => (
-							<Col span={24} key={id}>
+						favList.map((id, index) => (
+							<Col span={24} key={index}>
 								<FavItem id={id} />
 							</Col>
 						))

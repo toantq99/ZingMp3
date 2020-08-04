@@ -23,7 +23,7 @@ const AlbumPage: React.FC<Props> = ({ match }) => {
 	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 	const [currentTime, setCurrentTime] = useState(0);
 	useEffect(() => {
-		dispatch(getAlbumDetail(match.params.id));
+		dispatch(getAlbumDetail(parseInt(match.params.id)));
 	}, [dispatch, match.params.id]);
 
 	const { isLoading, detail } = useSelector((state: RootState) => state.album);

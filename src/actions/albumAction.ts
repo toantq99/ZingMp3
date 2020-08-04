@@ -4,7 +4,7 @@ import { LoadingDispatchAction } from "@constants/types/loadingTypes";
 import { setLoadingAlbum } from "./loadingAction";
 import { Dispatch } from "react";
 
-export const getAlbumDetail = (id: string) => (
+export const getAlbumDetail = (id: number) => (
 	dispatch: Dispatch<AlbumAction | LoadingDispatchAction>
 ) => {
 	dispatch(setLoadingAlbum(true));

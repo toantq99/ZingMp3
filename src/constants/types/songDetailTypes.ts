@@ -11,7 +11,7 @@ export const detailActionTypes = {
 };
 
 export type Singer = {
-	id: string;
+	id: number;
 	name: string;
 	link: string;
 	picture: string;
@@ -20,7 +20,7 @@ export type Singer = {
 };
 
 export interface SongInAlbum {
-	id: string;
+	id: number;
 	title: string;
 	title_short: string;
 	duration: number;
@@ -37,7 +37,7 @@ export interface SongDetail extends SongInAlbum {
 
 export type Comment = {
 	author: {
-		id: string;
+		id: number;
 		name: string;
 		link: string;
 		picture: string;

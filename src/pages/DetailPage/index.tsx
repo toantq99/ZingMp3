@@ -21,7 +21,7 @@ interface Props {
 const DetailPage: React.FC<Props> = ({ match }) => {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(getSongDetail(match.params.id));
+		dispatch(getSongDetail(parseInt(match.params.id)));
 		return () => {
 			dispatch(emptyDetail());
 		};

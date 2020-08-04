@@ -2,7 +2,11 @@ import axios from "axios";
 import { notification } from "antd";
 import { Dispatch } from "react";
 import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
-import { favActionTypes, FavListAction } from "@constants/types/favListTypes";
+import {
+	favActionTypes,
+	FavListAction,
+	FavListStorageAction,
+} from "@constants/types/favListTypes";
 
 export const addFav = (song: SongDetail | SongInAlbum) => (
 	dispatch: Dispatch<FavListAction>
@@ -11,6 +15,13 @@ export const addFav = (song: SongDetail | SongInAlbum) => (
 		type: favActionTypes.ADD_FAV,
 		payload: song.id,
 	});
+	const list = getListFromStorage();
+	if (list.length > 0) {
+		list.push(song.id);
+		localStorage.setItem("favList", list.join("."));
+	} else {
+		localStorage.setItem("favList", song.id.toString());
+	}
 	openSuccessNoti(song);
 };
 
@@ -21,10 +32,38 @@ export const removeFav = (song: SongDetail | SongInAlbum) => (
 		type: favActionTypes.REMOVE_FAV,
 		payload: song.id,
 	});
+	const list = getListFromStorage();
+	if (list.length > 0) {
+		localStorage.setItem(
+			"favList",
+			list.filter((item) => item !== song.id).join(".")
+		);
+	}
 	openErrorNoti(song);
 };
 
-export const getFullFavList = (list: string[]) => {
+export const getListFromStorage = () => {
+	const list = localStorage.getItem("favList");
+	if (list === null || list.trim().length === 0) {
+		return [];
+	} else {
+		return list
+			.trim()
+			.split(".")
+			.map((item) => parseInt(item));
+	}
+};
+
+export const dispatchListFromStorage = () => (
+	dispatch: Dispatch<FavListStorageAction>
+) => {
+	dispatch({
+		type: favActionTypes.GET_FAV_STORAGE,
+		payload: getListFromStorage(),
+	});
+};
+
+export const getFullFavList = (list: number[]) => {
 	const promises = list.map((id) => {
 		return axios({
 			method: "GET",
@@ -43,7 +82,7 @@ export const getFullFavList = (list: string[]) => {
 	return Promise.all(promises);
 };
 
-export const getFullFavItem = (id: string) => {
+export const getFullFavItem = (id: number) => {
 	return axios({
 		method: "GET",
 		url: `https://deezerdevs-deezer.p.rapidapi.com/track/${id}`,

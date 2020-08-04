@@ -5,7 +5,7 @@ import { emptyComment } from "@constants/emptyValue/songDetail";
 const comments: Comment[] = new Array(4).fill(emptyComment);
 const generateComment: () => Comment = () => ({
 	author: {
-		id: "2529",
+		id: 2529,
 		name: "dadbond",
 		link: "https://www.deezer.com/profile/2529",
 		picture: "https://api.deezer.com/user/2529/image",

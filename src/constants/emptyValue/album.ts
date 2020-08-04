@@ -1,10 +1,10 @@
 import { Album, AlbumDetail } from "../types/albumTypes";
 
 export const emptyAlbum: Album = {
-	id: "",
+	id: 0,
 	title: "",
 	artist: {
-		id: "",
+		id: 0,
 		name: "",
 		link: "",
 		picture: "",
