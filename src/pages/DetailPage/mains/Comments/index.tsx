@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Spin } from "antd";
-import CommentItem from "../../dumps/CommentItem";
-import { Comment } from "../../../../constants/types/songDetailTypes";
+import CommentItem from "@DetailPage/dumps/CommentItem";
+import { Comment } from "@constants/types/songDetailTypes";
 
 interface Props {
 	list: Comment[];

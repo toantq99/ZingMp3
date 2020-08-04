@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"@constants/*": ["src/constants/*"],
+			"@actions/*": ["src/actions/*"],
+			"@reducers/*": ["src/reducers/*"],
+			"@pages/*": ["src/pages/*"],
+			"@hooks/*": ["src/hooks/*"],
+			"@mocks/*": ["src/mocks/*"],
+			"@HOCs/*": ["src/HOCs/*"],
+			"@AlbumPage/*": ["src/pages/AlbumPage/*"],
+			"@HomePage/*": ["src/pages/HomePage/*"],
+			"@DetailPage/*": ["src/pages/DetailPage/*"],
+			"@SearchPage/*": ["src/pages/SearchPage/*"],
+			"@GlobalComponents/*": ["src/pages/GlobalComponents/*"]
+		}
+	}
+}

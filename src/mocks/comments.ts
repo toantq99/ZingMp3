@@ -1,6 +1,6 @@
 import { datetimeFormat } from "./chart";
-import { Comment } from "../constants/types/songDetailTypes";
-import { emptyComment } from "../constants/emptyValue/songDetail";
+import { Comment } from "@constants/types/songDetailTypes";
+import { emptyComment } from "@constants/emptyValue/songDetail";
 
 const comments: Comment[] = new Array(4).fill(emptyComment);
 const generateComment: () => Comment = () => ({

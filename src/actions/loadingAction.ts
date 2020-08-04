@@ -1,9 +1,9 @@
-import { albumActionTypes } from "../constants/types/albumTypes";
-import { homeActionTypes } from "../constants/types/homeTypes";
-import { detailActionTypes } from "../constants/types/songDetailTypes";
-import { searchActionTypes } from "../constants/types/searchTypes";
+import { albumActionTypes } from "@constants/types/albumTypes";
+import { homeActionTypes } from "@constants/types/homeTypes";
+import { detailActionTypes } from "@constants/types/songDetailTypes";
+import { searchActionTypes } from "@constants/types/searchTypes";
 
-import { LoadingAction } from "../constants/types/loadingTypes";
+import { LoadingAction } from "@constants/types/loadingTypes";
 import { Dispatch } from "react";
 
 const setLoadingAlbum = (isLoading: boolean) => (

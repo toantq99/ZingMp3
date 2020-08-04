@@ -3,7 +3,7 @@ import SongItem from "./SongItem";
 import { RightOutlined } from "@ant-design/icons";
 import { Row, Col } from "antd";
 import "./style.scss";
-import { SongDetail } from "../../../constants/types/songDetailTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	name: string;

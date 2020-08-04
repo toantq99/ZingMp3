@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Collection from "../../components/Collection";
+import Collection from "@HomePage/components/Collection";
 
-import { getCollection } from "../../../../actions/homeAction";
-import withLoading from "../../../../HOCs/withLoading";
-import { RootState } from "../../../../constants/state";
+import { getCollection } from "@actions/homeAction";
+import withLoading from "@HOCs/withLoading";
+import { RootState } from "@constants/state";
 
 const queryList = ["spring", "autumn", "winter"];
 

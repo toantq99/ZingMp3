@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RightOutlined } from "@ant-design/icons";
-import HotArtistItem from "../../../HomePage/dumps/HotArtistItem";
+import HotArtistItem from "@HomePage/dumps/HotArtistItem";
 import "./style.scss";
 
-import { getArtistChart } from "../../../../actions/homeAction";
+import { getArtistChart } from "@actions/homeAction";
 
-import withLoading from "../../../../HOCs/withLoading";
-import { RootState } from "../../../../constants/state";
+import withLoading from "@HOCs/withLoading";
+import { RootState } from "@constants/state";
 
 const HotArtist: React.FC = () => {
 	const dispatch = useDispatch();

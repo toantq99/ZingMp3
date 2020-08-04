@@ -6,11 +6,11 @@ import {
 	LineOutlined,
 	CaretDownOutlined,
 } from "@ant-design/icons";
-import Thumbnail from "../../../GlobalComponents/Thumbnail";
-import ButtonGroup from "../../../GlobalComponents/ButtonGroup";
+import Thumbnail from "@GlobalComponents/Thumbnail";
+import ButtonGroup from "@GlobalComponents/ButtonGroup";
 
 import "./style.scss";
-import { SongDetail } from "../../../../constants/types/songDetailTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	rank: number;

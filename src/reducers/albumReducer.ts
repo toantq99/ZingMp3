@@ -1,7 +1,7 @@
-import { albumActionTypes, AlbumAction } from "../constants/types/albumTypes";
-import { AlbumState } from "../constants/state";
-import { LoadingAction } from "../constants/types/loadingTypes";
-import { emptyAlbumDetail } from "../constants/emptyValue/album";
+import { albumActionTypes, AlbumAction } from "@constants/types/albumTypes";
+import { AlbumState } from "@constants/state";
+import { LoadingAction } from "@constants/types/loadingTypes";
+import { emptyAlbumDetail } from "@constants/emptyValue/album";
 
 const initialState: AlbumState = {
 	isLoading: false,

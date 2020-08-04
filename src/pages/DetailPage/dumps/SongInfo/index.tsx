@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SongDetail } from "../../../../constants/types/songDetailTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	song: SongDetail;

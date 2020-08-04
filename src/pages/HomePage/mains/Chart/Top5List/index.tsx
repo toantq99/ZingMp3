@@ -1,6 +1,6 @@
 import React from "react";
-import Top5Item from "../../../components/Top5Item";
-import { SongDetail } from "../../../../../constants/types/songDetailTypes";
+import Top5Item from "@HomePage/components/Top5Item";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 const Top5List: React.FC<{ list: SongDetail[] }> = ({ list }) => {
 	return (

@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col } from "antd";
 import { RightOutlined } from "@ant-design/icons";
-import NewsItem from "../../dumps/NewsItem";
-import NewsHeader from "../../dumps/NewsHeader";
+import NewsItem from "@HomePage/dumps/NewsItem";
+import NewsHeader from "@HomePage/dumps/NewsHeader";
 
 const News: React.FC = () => {
 	return (

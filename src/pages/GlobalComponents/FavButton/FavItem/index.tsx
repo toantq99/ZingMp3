@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { Row, Col, Button, Spin } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import Thumbnail from "../../../GlobalComponents/Thumbnail";
+import Thumbnail from "@GlobalComponents/Thumbnail";
 
-import { removeFav, getFullFavItem } from "../../../../actions/favListAction";
-import { SongDetail } from "../../../../constants/types/songDetailTypes";
+import { removeFav, getFullFavItem } from "@actions/favListAction";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	id: string;

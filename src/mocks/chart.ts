@@ -1,4 +1,4 @@
-import { SongDetail } from "../constants/types/songDetailTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 const hourArr: number[] = new Array(24)
 	.fill(new Date().getHours())

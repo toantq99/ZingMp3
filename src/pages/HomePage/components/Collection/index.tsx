@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 
-import CollectionItem from "../../dumps/CollectionItem";
+import CollectionItem from "@HomePage/dumps/CollectionItem";
 import "./style.scss";
-import { SongDetail } from "../../../../constants/types/songDetailTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	name: string;

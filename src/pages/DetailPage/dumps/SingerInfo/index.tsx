@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
-import { Singer } from "../../../../constants/types/songDetailTypes";
+import { Singer } from "@constants/types/songDetailTypes";
 
 interface Props {
 	singer: Singer;

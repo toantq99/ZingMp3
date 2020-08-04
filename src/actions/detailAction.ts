@@ -4,13 +4,13 @@ import {
 	SimilarSongAction,
 	CommentAction,
 	EmptyAction,
-} from "../constants/types/songDetailTypes";
-import { setLoadingDetail } from "../actions/loadingAction";
+} from "@constants/types/songDetailTypes";
+import { setLoadingDetail } from "@actions/loadingAction";
+import { LoadingDispatchAction } from "@constants/types/loadingTypes";
 import axios from "axios";
-import comments from "../mocks/comments";
+import comments from "@mocks/comments";
 import { proxy } from "./corsProxy";
 import { Dispatch } from "react";
-import { LoadingDispatchAction } from "../constants/types/loadingTypes";
 
 export const getSongDetail = (id: string) => (dispatch: Dispatch<any>) => {
 	dispatch(setLoadingDetail("songdetail", true));

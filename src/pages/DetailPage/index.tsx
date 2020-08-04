@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 import MainSong from "./mains/MainSong";
 import Comments from "./mains/Comments";
-import SongList from "../GlobalComponents/SongList";
-import { getSongDetail, emptyDetail } from "../../actions/detailAction";
+import SongList from "@GlobalComponents/SongList";
+import { getSongDetail, emptyDetail } from "@actions/detailAction";
 import "./style.scss";
 
-import withLoading from "../../HOCs/withLoading";
-import { RootState } from "../../constants/state";
+import withLoading from "@HOCs/withLoading";
+import { RootState } from "@constants/state";
 
 interface Props {
 	match: {

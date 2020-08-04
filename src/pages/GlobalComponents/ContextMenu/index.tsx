@@ -1,14 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
-import {
-	SongInAlbum,
-	SongDetail,
-} from "../../../constants/types/songDetailTypes";
-import { Album } from "../../../constants/types/albumTypes";
+import { SongInAlbum, SongDetail } from "@constants/types/songDetailTypes";
+import { Album } from "@constants/types/albumTypes";
 import { useDispatch, useSelector } from "react-redux";
-import { addFav, removeFav } from "../../../actions/favListAction";
-import { RootState } from "../../../constants/state";
+import { addFav, removeFav } from "@actions/favListAction";
+import { RootState } from "@constants/state";
 
 interface Props {
 	type?: string;

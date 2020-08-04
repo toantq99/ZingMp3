@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAlbumDetail } from "../../actions/albumAction";
-import { RootState } from "../../constants/state/index";
-import withLoading from "../../HOCs/withLoading";
+import { getAlbumDetail } from "@actions/albumAction";
+import { RootState } from "@constants/state/index";
+import withLoading from "@HOCs/withLoading";
 import TrackInfo from "./TrackInfo";
-import Player from "../DetailPage/components/Player";
-import SingerInfo from "../DetailPage/dumps/SingerInfo";
-import ButtonGroup from "../DetailPage/components/ButtonGroup";
+import Player from "@DetailPage/components/Player";
+import SingerInfo from "@DetailPage/dumps/SingerInfo";
+import ButtonGroup from "@DetailPage/components/ButtonGroup";
 import "./style.scss";
 import TrackList from "./TrackList";
 

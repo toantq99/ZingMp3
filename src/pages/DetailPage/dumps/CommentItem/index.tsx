@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 import "./style.scss";
-import { Comment } from "../../../../constants/types/songDetailTypes";
+import { Comment } from "@constants/types/songDetailTypes";
 
 interface Props {
 	cmt: Comment;

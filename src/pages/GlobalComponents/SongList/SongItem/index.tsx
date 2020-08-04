@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
-import Thumbnail from "../../../GlobalComponents/Thumbnail";
-import ButtonGroup from "../../../GlobalComponents/ButtonGroup";
+import Thumbnail from "@GlobalComponents/Thumbnail";
+import ButtonGroup from "@GlobalComponents/ButtonGroup";
 import "./style.scss";
-import { SongDetail } from "../../../../constants/types/songDetailTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 const formarDuration = (duration: number) => {
 	const mins = Math.floor(duration / 60);

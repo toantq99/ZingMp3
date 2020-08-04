@@ -3,7 +3,7 @@ import { Row, Col, Progress } from "antd";
 import { Link } from "react-router-dom";
 import { SmileTwoTone } from "@ant-design/icons";
 import "./style.scss";
-import { SongInAlbum } from "../../../../constants/types/songDetailTypes";
+import { SongInAlbum } from "@constants/types/songDetailTypes";
 
 const formarDuration = (duration: number) => {
 	const mins = Math.floor(duration / 60);

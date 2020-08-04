@@ -3,16 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { PlayCircleFilled, ShareAltOutlined } from "@ant-design/icons";
 import { Line } from "react-chartjs-2";
-import Tag from "../../../GlobalComponents/Tag";
+import Tag from "@GlobalComponents/Tag";
 import Top5List from "./Top5List";
 import Top3List from "./Top3List";
 import "./style.scss";
 
-import { getSongChart } from "../../../../actions/homeAction";
-import { generateData, options, datetimeFormat } from "../../../../mocks/chart";
+import { getSongChart } from "@actions/homeAction";
+import { generateData, options, datetimeFormat } from "@mocks/chart";
 
-import withLoading from "../../../../HOCs/withLoading";
-import { RootState } from "../../../../constants/state";
+import withLoading from "@HOCs/withLoading";
+import { RootState } from "@constants/state";
 
 const Chart: React.FC = () => {
 	const dispatch = useDispatch();

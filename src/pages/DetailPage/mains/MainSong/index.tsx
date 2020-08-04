@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.scss";
-import Player from "../../components/Player";
-import ButtonGroup from "../../components/ButtonGroup";
-import SingerInfo from "../../dumps/SingerInfo";
-import SongInfo from "../../dumps/SongInfo";
-import { SongDetail } from "../../../../constants/types/songDetailTypes";
+import Player from "@DetailPage/components/Player";
+import ButtonGroup from "@DetailPage/components/ButtonGroup";
+import SingerInfo from "@DetailPage/dumps/SingerInfo";
+import SongInfo from "@DetailPage/dumps/SongInfo";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	song: SongDetail;

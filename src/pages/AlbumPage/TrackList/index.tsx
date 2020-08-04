@@ -1,6 +1,6 @@
 import React from "react";
 import TrackItem from "./TrackItem";
-import { SongInAlbum } from "../../../constants/types/songDetailTypes";
+import { SongInAlbum } from "@constants/types/songDetailTypes";
 
 interface Props {
 	list: SongInAlbum[];

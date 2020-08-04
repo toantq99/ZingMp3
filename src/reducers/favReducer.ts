@@ -1,5 +1,5 @@
-import { favActionTypes, FavListAction } from "../constants/types/favListTypes";
-import { FavListState } from "../constants/state";
+import { favActionTypes, FavListAction } from "@constants/types/favListTypes";
+import { FavListState } from "@constants/state";
 
 const initialState: FavListState = [];
 

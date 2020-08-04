@@ -1,8 +1,8 @@
 import React from "react";
 import { PaginateProps } from "../PaginateBot";
 import { LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
-import { Affix, Button } from "antd";
-import { useEventListener } from "../../../hooks/useEventListener";
+import { Button } from "antd";
+import { useEventListener } from "@hooks/useEventListener";
 import "./style.scss";
 const PaginateAside: React.FC<PaginateProps> = ({
 	total,
@@ -20,11 +20,9 @@ const PaginateAside: React.FC<PaginateProps> = ({
 			pageChangeHandler(query, page - 1, pageSize);
 		}
 	});
+
 	return (
-		<Affix
-			offsetTop={window.innerHeight / 2}
-			className="paginate-aside-wrapper"
-		>
+		<div className="paginate-aside-wrapper">
 			<Button
 				type="primary"
 				shape="circle"
@@ -43,7 +41,7 @@ const PaginateAside: React.FC<PaginateProps> = ({
 				title="Trang sau"
 				onClick={() => pageChangeHandler(query, page + 1, pageSize)}
 			/>
-		</Affix>
+		</div>
 	);
 };
 export default PaginateAside;

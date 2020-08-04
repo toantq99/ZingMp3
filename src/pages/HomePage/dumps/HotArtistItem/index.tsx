@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
-import { Singer } from "../../../../constants/types/songDetailTypes";
+import { Singer } from "@constants/types/songDetailTypes";
 
 interface Props {
 	width: number;

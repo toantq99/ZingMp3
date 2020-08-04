@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
-import ButtonGroup from "../../../../GlobalComponents/ButtonGroup";
+import ButtonGroup from "@GlobalComponents/ButtonGroup";
 import "./style.scss";
-import { SongDetail } from "../../../../../constants/types/songDetailTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	rank: number;

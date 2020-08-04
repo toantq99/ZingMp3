@@ -8,9 +8,9 @@ import {
 } from "@ant-design/icons";
 import "./style.scss";
 
-import { addFav, removeFav } from "../../../actions/favListAction";
-import { SongDetail } from "../../../constants/types/songDetailTypes";
-import { RootState } from "../../../constants/state";
+import { addFav, removeFav } from "@actions/favListAction";
+import { SongDetail } from "@constants/types/songDetailTypes";
+import { RootState } from "@constants/state";
 
 interface Props {
 	item: SongDetail;

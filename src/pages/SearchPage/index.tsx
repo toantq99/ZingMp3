@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import SongList from "../GlobalComponents/SongList";
+import SongList from "@GlobalComponents/SongList";
 
-import { searchSong, emptySearch } from "../../actions/searchAction";
-import withLoading from "../../HOCs/withLoading";
+import { searchSong, emptySearch } from "@actions/searchAction";
+import withLoading from "@HOCs/withLoading";
 import "./style.scss";
-import { RootState } from "../../constants/state";
+import { RootState } from "@constants/state";
 import PaginateBot from "./PaginateBot";
 import PaginateAside from "./PaginateAside";
 import { useHistory } from "react-router-dom";

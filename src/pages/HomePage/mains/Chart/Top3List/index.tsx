@@ -1,7 +1,7 @@
 import React from "react";
-import Top3Item from "../../../components/Top3Item";
+import Top3Item from "@HomePage/components/Top3Item";
 import "./style.scss";
-import { SongDetail } from "../../../../../constants/types/songDetailTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 const Top3List: React.FC<{ list: SongDetail[] }> = ({ list }) => {
 	return (

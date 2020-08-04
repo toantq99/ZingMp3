@@ -2,9 +2,9 @@ import React from "react";
 import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import "./style.scss";
-import { SongDetail } from "../../../../../constants/types/songDetailTypes";
-import { Album } from "../../../../../constants/types/albumTypes";
-import { WeekChartType } from "../../../mains/WeekChartList";
+import { SongDetail } from "@constants/types/songDetailTypes";
+import { Album } from "@constants/types/albumTypes";
+import { WeekChartType } from "@HomePage/mains/WeekChartList";
 
 interface Props {
 	item: SongDetail | Album;

@@ -1,8 +1,8 @@
 import React from "react";
-import Thumbnail from "../../../../GlobalComponents/Thumbnail";
+import Thumbnail from "@GlobalComponents/Thumbnail";
 import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
-import { Album } from "../../../../../constants/types/albumTypes";
+import { Album } from "@constants/types/albumTypes";
 import "./style.scss";
 
 interface Props {

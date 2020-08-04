@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SongList from "../../../GlobalComponents/SongList";
-import { getSuggestList } from "../../../../actions/homeAction";
-import withLoading from "../../../../HOCs/withLoading";
+import SongList from "@GlobalComponents/SongList";
+import { getSuggestList } from "@actions/homeAction";
+import withLoading from "@HOCs/withLoading";
 import "./style.scss";
-import { RootState } from "../../../../constants/state";
+import { RootState } from "@constants/state";
 
 const queryList = ["aimyon", "yonezu kenshi"];
 

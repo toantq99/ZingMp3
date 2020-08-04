@@ -1,9 +1,6 @@
-import {
-	searchActionTypes,
-	SearchAction,
-} from "../constants/types/searchTypes";
-import { SearchState } from "../constants/state";
-import { LoadingAction } from "../constants/types/loadingTypes";
+import { searchActionTypes, SearchAction } from "@constants/types/searchTypes";
+import { SearchState } from "@constants/state";
+import { LoadingAction } from "@constants/types/loadingTypes";
 
 const initialState: SearchState = {
 	isLoading: false,

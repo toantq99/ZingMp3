@@ -1,6 +1,6 @@
 import axios from "axios";
-import { albumActionTypes, AlbumAction } from "../constants/types/albumTypes";
-import { LoadingDispatchAction } from "../constants/types/loadingTypes";
+import { albumActionTypes, AlbumAction } from "@constants/types/albumTypes";
+import { LoadingDispatchAction } from "@constants/types/loadingTypes";
 import { setLoadingAlbum } from "./loadingAction";
 import { Dispatch } from "react";
 

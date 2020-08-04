@@ -4,10 +4,10 @@ import {
 	SimilarSongAction,
 	CommentAction,
 	EmptyAction,
-} from "../constants/types/songDetailTypes";
-import { SongDetailState } from "../constants/state";
-import { LoadingAction } from "../constants/types/loadingTypes";
-import { emptySongDetail } from "../constants/emptyValue/songDetail";
+} from "@constants/types/songDetailTypes";
+import { SongDetailState } from "@constants/state";
+import { LoadingAction } from "@constants/types/loadingTypes";
+import { emptySongDetail } from "@constants/emptyValue/songDetail";
 
 const initialState: SongDetailState = {
 	song: {

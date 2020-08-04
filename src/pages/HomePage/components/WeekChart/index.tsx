@@ -3,8 +3,8 @@ import Header from "./Header";
 import Body from "./Body";
 import { RightOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import "./style.scss";
-import { SongDetail } from "../../../../constants/types/songDetailTypes";
-import { Album } from "../../../../constants/types/albumTypes";
+import { SongDetail } from "@constants/types/songDetailTypes";
+import { Album } from "@constants/types/albumTypes";
 
 interface Props {
 	name: string;

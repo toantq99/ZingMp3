@@ -3,10 +3,7 @@ import { Row, Col } from "antd";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import "./style.scss";
-import {
-	SongInAlbum,
-	SongDetail,
-} from "../../../../constants/types/songDetailTypes";
+import { SongInAlbum, SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	song: SongInAlbum | SongDetail;

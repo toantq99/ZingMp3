@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Carousel } from "antd";
 
-import carouselList from "../../../../mocks/carousel";
+import carouselList from "@mocks/carousel";
 const CarouselBanner: React.FC = () => {
 	return (
 		<Carousel autoplay>

@@ -1,5 +1,5 @@
-import { homeActionTypes } from "../constants/types/homeTypes";
-import { HomeState } from "../constants/state";
+import { homeActionTypes } from "@constants/types/homeTypes";
+import { HomeState } from "@constants/state";
 
 const initialState: HomeState = {
 	suggestList: { isLoading: false },

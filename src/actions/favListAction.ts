@@ -1,8 +1,8 @@
 import axios from "axios";
 import { notification } from "antd";
 import { Dispatch } from "react";
-import { SongDetail, SongInAlbum } from "../constants/types/songDetailTypes";
-import { favActionTypes, FavListAction } from "../constants/types/favListTypes";
+import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
+import { favActionTypes, FavListAction } from "@constants/types/favListTypes";
 
 export const addFav = (song: SongDetail | SongInAlbum) => (
 	dispatch: Dispatch<FavListAction>

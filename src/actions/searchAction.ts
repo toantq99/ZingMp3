@@ -1,11 +1,8 @@
 import axios from "axios";
 import { Dispatch } from "react";
-import {
-	searchActionTypes,
-	SearchAction,
-} from "../constants/types/searchTypes";
+import { searchActionTypes, SearchAction } from "@constants/types/searchTypes";
 import { setLoadingSearch } from "./loadingAction";
-import { LoadingDispatchAction } from "../constants/types/loadingTypes";
+import { LoadingDispatchAction } from "@constants/types/loadingTypes";
 
 export const searchSong = (query: string, page: number, pageSize: number) => (
 	dispatch: Dispatch<SearchAction | LoadingDispatchAction>
@@ -25,19 +22,15 @@ export const searchSong = (query: string, page: number, pageSize: number) => (
 			limit: pageSize,
 			index: (page - 1) * pageSize,
 		},
-	})
-		.then((response) => {
-			if (response.status === 200) {
-				dispatch({
-					type: searchActionTypes.SEARCH_SONG,
-					payload: response.data,
-				});
-				dispatch(setLoadingSearch(false));
-			}
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+	}).then((response) => {
+		if (response.status === 200) {
+			dispatch({
+				type: searchActionTypes.SEARCH_SONG,
+				payload: response.data,
+			});
+			dispatch(setLoadingSearch(false));
+		}
+	});
 };
 
 export const emptySearch = () => (dispatch: Dispatch<{ type: string }>) => {

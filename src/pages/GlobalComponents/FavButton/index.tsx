@@ -4,7 +4,7 @@ import { Drawer, Empty, Row, Col, Badge } from "antd";
 import { HeartFilled } from "@ant-design/icons";
 import "./style.scss";
 import FavItem from "./FavItem";
-import { RootState } from "../../../constants/state";
+import { RootState } from "@constants/state";
 
 const FavButton: React.FC = () => {
 	const [show, setShow] = useState(false);

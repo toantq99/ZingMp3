@@ -2,9 +2,9 @@ import React from "react";
 import { Row, Col } from "antd";
 import MusicItem from "../MusicItem";
 import AlbumItem from "../AlbumItem";
-import { SongDetail } from "../../../../../constants/types/songDetailTypes";
-import { Album } from "../../../../../constants/types/albumTypes";
-import { WeekChartType } from "../../../mains/WeekChartList";
+import { SongDetail } from "@constants/types/songDetailTypes";
+import { Album } from "@constants/types/albumTypes";
+import { WeekChartType } from "@HomePage/mains/WeekChartList";
 
 interface Props {
 	list: (SongDetail | Album)[];

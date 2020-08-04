@@ -5,8 +5,8 @@ import {
 	HomeActionArtistChart,
 	HomeActionWeekChart,
 	HomeActionSongChart,
-} from "../constants/types/homeTypes";
-import { LoadingDispatchAction } from "../constants/types/loadingTypes";
+} from "@constants/types/homeTypes";
+import { LoadingDispatchAction } from "@constants/types/loadingTypes";
 import { setLoadingHome } from "./loadingAction";
 import { proxy } from "./corsProxy";
 import { Dispatch } from "react";

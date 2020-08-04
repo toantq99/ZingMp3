@@ -4,6 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"@ant-design/icons": "^4.2.1",
+		"@craco/craco": "^5.6.4",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.5.0",
 		"@testing-library/user-event": "^7.2.1",
@@ -16,7 +17,6 @@
 		"antd": "^4.5.1",
 		"axios": "^0.19.2",
 		"chart.js": "^2.9.3",
-		"customize-cra": "^1.0.0",
 		"node-sass": "^4.14.1",
 		"react": "^16.13.1",
 		"react-chartjs-2": "^2.9.0",
@@ -31,9 +31,9 @@
 		"typescript": "^3.7.5"
 	},
 	"scripts": {
-		"start": "react-app-rewired start",
-		"build": "react-app-rewired build",
-		"test": "react-app-rewired test",
+		"start": "craco start",
+		"build": "craco build",
+		"test": "craco test",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
@@ -50,8 +50,5 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	},
-	"devDependencies": {
-		"react-app-rewired": "^2.1.6"
 	}
 }
