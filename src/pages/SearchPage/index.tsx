@@ -8,8 +8,8 @@ import { searchSong, emptySearch } from "@actions/searchAction";
 import withLoading from "@HOCs/withLoading";
 import "./style.scss";
 import { RootState } from "@constants/state";
-import PaginateBot from "./PaginateBot";
-import PaginateAside from "./PaginateAside";
+import PaginateBot from "./mains/PaginateBot";
+import PaginateAside from "./mains/PaginateAside";
 import { useHistory } from "react-router-dom";
 
 interface Props {
@@ -47,23 +47,19 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 
 	return withLoading(isLoading)(
 		<div className="search-page-wrapper">
-			<div className="col-span-3">
-				<SongList
-					name={`${(page - 1) * pageSize + 1}-${
-						page * pageSize < data.total ? page * pageSize : data.total
-					}/${data.total} kết quả tìm kiếm cho ${query}`}
-					list={data.data || []}
-					size="large"
-				/>
-				<PaginateBot
-					{...{ total: data.total, page, pageSize, query, pageChangeHandler }}
-				/>
-			</div>
-			<div className="col-span-1" style={{ textAlign: "center" }}>
-				<PaginateAside
-					{...{ total: data.total, page, pageSize, query, pageChangeHandler }}
-				/>
-			</div>
+			<SongList
+				name={`${(page - 1) * pageSize + 1}-${
+					page * pageSize < data.total ? page * pageSize : data.total
+				}/${data.total} kết quả tìm kiếm cho ${query}`}
+				list={data.data || []}
+				size="large"
+			/>
+			<PaginateBot
+				{...{ total: data.total, page, pageSize, query, pageChangeHandler }}
+			/>
+			<PaginateAside
+				{...{ total: data.total, page, pageSize, query, pageChangeHandler }}
+			/>
 		</div>
 	);
 };

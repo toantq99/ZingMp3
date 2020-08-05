@@ -38,13 +38,9 @@ const DetailPage: React.FC<Props> = ({ match }) => {
 		isLoadingSong || isLoadingComments || isLoadingSimilar || !dataSong.title
 	)(
 		<div className="detail-page-wrapper">
-			<div className="col-span-2">
-				<MainSong song={dataSong} />
-				<Comments list={dataComments} />
-			</div>
-			<div className="col-span-1">
-				<SongList name="Cùng ca sĩ" list={dataSimilar} />
-			</div>
+			<MainSong song={dataSong} />
+			<Comments list={dataComments} />
+			<SongList name="Cùng ca sĩ" list={dataSimilar} />
 		</div>
 	);
 };

@@ -21,18 +21,18 @@ const WeekChartList: React.FC = () => {
 	const weekChart = useSelector((state: RootState) => state.home.weekChart);
 	const { isLoading = true } = weekChart;
 	return withLoading(isLoading)(
-		<>
+		<div className="weekchart-list-wrapper">
 			<WeekChart
-				name="#zingchar tuần - bài hát"
+				name="#zingchart tuần - bài hát"
 				list={weekChart.tracks}
 				type={WeekChartType.Track}
 			/>
 			<WeekChart
-				name="#zingchar tuần - Album"
+				name="#zingchart tuần - Album"
 				list={weekChart.albums}
 				type={WeekChartType.Album}
 			/>
-		</>
+		</div>
 	);
 };
 export default WeekChartList;

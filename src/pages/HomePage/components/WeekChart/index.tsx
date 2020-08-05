@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "./Header";
-import Body from "./Body";
-import { RightOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import "./style.scss";
 import { SongDetail } from "@constants/types/songDetailTypes";
 import { Album } from "@constants/types/albumTypes";
+import WChartTitle from "../WChartTitle";
+import WChartHeader from "../WChartHeader";
+import WChartBody from "../WChartBody";
 
 interface Props {
 	name: string;
@@ -16,15 +16,9 @@ const WeekChart: React.FC<Props> = ({ name, list, type }) => {
 	const [top1, ...rest] = list;
 	return (
 		<div className="week-chart-wrapper">
-			<div className="week-chart-top">
-				<h3 className="title">
-					{name}
-					<RightOutlined />
-				</h3>
-				<PlayCircleOutlined className="play-btn" />
-			</div>
-			<Header item={top1} type={type} />
-			<Body list={rest} type={type} />
+			<WChartTitle name={name} />
+			<WChartHeader item={top1} type={type} />
+			<WChartBody list={rest} type={type} />
 		</div>
 	);
 };

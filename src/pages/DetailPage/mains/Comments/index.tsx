@@ -1,6 +1,5 @@
 import React from "react";
-import { Row, Col, Spin } from "antd";
-import CommentItem from "@DetailPage/dumps/CommentItem";
+import CommentItem from "@DetailPage/components/CommentItem";
 import { Comment } from "@constants/types/songDetailTypes";
 
 interface Props {
@@ -9,22 +8,12 @@ interface Props {
 
 const Comments: React.FC<Props> = ({ list }) => {
 	return (
-		<Row>
-			<Col span={24}>
-				<h1>Bình luận</h1>
-			</Col>
-			{list ? (
-				list.map((cmt, id) => (
-					<Col span={24} key={id}>
-						<CommentItem cmt={cmt} />
-					</Col>
-				))
-			) : (
-				<Col span={24}>
-					<Spin />
-				</Col>
-			)}
-		</Row>
+		<div className="comments-wrapper">
+			<h2>Bình luận</h2>
+			{list.map((cmt, id) => (
+				<CommentItem cmt={cmt} key={id} />
+			))}
+		</div>
 	);
 };
 

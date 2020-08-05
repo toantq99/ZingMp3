@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAlbumDetail } from "@actions/albumAction";
 import { RootState } from "@constants/state/index";
 import withLoading from "@HOCs/withLoading";
-import TrackInfo from "./TrackInfo";
-import Player from "@DetailPage/components/Player";
-import SingerInfo from "@DetailPage/dumps/SingerInfo";
+import TrackInfo from "./mains/TrackInfo";
+import SingerInfo from "@DetailPage/components/SingerInfo";
 import ButtonGroup from "@DetailPage/components/ButtonGroup";
 import "./style.scss";
-import TrackList from "./TrackList";
+import TrackList from "./mains/TrackList";
+import AlbumPlayer from "./mains/AlbumPlayer";
 
 interface Props {
 	match: {
@@ -34,42 +34,18 @@ const AlbumPage: React.FC<Props> = ({ match }) => {
 
 	return withLoading(isLoading)(
 		<div className="album-page-wrapper">
-			<div className="col-span-2">
-				<TrackInfo track={currentTrack} album={detail} />
-				<Player
-					song={currentTrack}
-					cover={detail.cover}
-					onListen={(e: any) => {
-						setCurrentTime(e.target.currentTime);
-						if (
-							Math.floor(e.target.currentTime) === Math.floor(duration) &&
-							currentTrackIndex < tracks.length - 1
-						) {
-							setCurrentTrackIndex(currentTrackIndex + 1);
-							setCurrentTime(0);
-						}
-					}}
-					onPlay={(e: any) => {
-						setDuration(e.target.duration);
-					}}
-				/>
-				<div className="margin-y">
-					<ButtonGroup song={currentTrack} />
-				</div>
-				<div className="margin-y">
-					<SingerInfo singer={detail.artist} />
-				</div>
-			</div>
-			<div className="col-span-1">
-				<TrackList
-					list={tracks}
-					currentTrackIndex={currentTrackIndex}
-					setCurrentTrackIndex={setCurrentTrackIndex}
-					setCurrentTime={setCurrentTime}
-					currentTime={currentTime}
-					duration={duration}
-				/>
-			</div>
+			<TrackInfo track={currentTrack} album={detail} />
+			<ButtonGroup song={currentTrack} />
+			<AlbumPlayer />
+			<SingerInfo singer={detail.artist} />
+			<TrackList
+				list={tracks}
+				currentTrackIndex={currentTrackIndex}
+				setCurrentTrackIndex={setCurrentTrackIndex}
+				setCurrentTime={setCurrentTime}
+				currentTime={currentTime}
+				duration={duration}
+			/>
 		</div>
 	);
 };

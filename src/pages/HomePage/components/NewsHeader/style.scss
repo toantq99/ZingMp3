@@ -1,0 +1,16 @@
+.news-header-wrapper {
+	background-image: url(https://znews-photo.zadn.vn/w480/Uploaded/wyhktpu/2020_07_15/Song_gio_thumb.jpg);
+	height: 170px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 10px;
+	span {
+		font-weight: bold;
+		color: white;
+	}
+}

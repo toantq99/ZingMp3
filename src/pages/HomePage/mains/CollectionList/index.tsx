@@ -18,9 +18,9 @@ const CollectionList: React.FC = () => {
 	const { isLoading = false } = collection;
 	return withLoading(isLoading)(
 		<>
-			<Collection name={queryList[0]} list={collection[queryList[0]] || []} />
-			<Collection name={queryList[1]} list={collection[queryList[1]] || []} />
-			<Collection name={queryList[2]} list={collection[queryList[2]] || []} />
+			{queryList.map((query, id) => (
+				<Collection key={id} name={query} list={collection[query] || []} />
+			))}
 		</>
 	);
 };
