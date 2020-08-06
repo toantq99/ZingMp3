@@ -1,26 +1,31 @@
+// Libs
 import React from "react";
-import { CaretUpOutlined, LineOutlined } from "@ant-design/icons";
+import {
+	CaretUpOutlined,
+	LineOutlined,
+	CaretDownOutlined,
+} from "@ant-design/icons";
+// SCSS
+import "./style.scss";
 
-const Top5ItemCaret = () => {
-	const fakeStatus = Math.floor(Math.random() * 10 - 5);
+const Top5ItemCaret: React.FC = () => {
+	const fakeStatus = Math.floor(Math.random() * 5);
 	return (
-		<span className="top5-item-caret-wrapper">
+		<div className="top5-item-caret-wrapper">
 			{fakeStatus > 0 ? (
 				<div className="status-up">
-					<CaretUpOutlined />
-					{fakeStatus}
+					<CaretUpOutlined /> {fakeStatus}
 				</div>
 			) : fakeStatus < 0 ? (
 				<div className="status-down">
-					<CaretUpOutlined />
-					{-fakeStatus}
+					<CaretDownOutlined /> {-fakeStatus}
 				</div>
 			) : (
 				<div className="status-neutral">
 					<LineOutlined />
 				</div>
 			)}
-		</span>
+		</div>
 	);
 };
 

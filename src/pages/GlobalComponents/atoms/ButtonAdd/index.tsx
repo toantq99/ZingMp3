@@ -1,12 +1,10 @@
+// Libs
 import React from "react";
+import { PlusOutlined } from "@ant-design/icons";
 
-const ButtonAdd = () => {
+const ButtonAdd: React.FC<{ handleAdd: () => void }> = ({ handleAdd }) => {
 	return (
-		<button
-			className="btn-icon"
-			title="Thêm vào danh sách yêu thích"
-			onClick={() => dispatch(addFav(item))}
-		>
+		<button title="Thêm vào danh sách yêu thích" onClick={handleAdd}>
 			<PlusOutlined />
 		</button>
 	);

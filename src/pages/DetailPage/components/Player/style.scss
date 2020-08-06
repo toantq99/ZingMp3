@@ -5,77 +5,15 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	background-blend-mode: darken;
 	height: 300px;
-	margin: 10px 0 0 0;
 	position: relative;
 	padding: 20px 20px;
-	background-blend-mode: darken;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-
-	img {
-		border-radius: 50%;
-		width: 100%;
-		-webkit-animation: rotating 10s linear infinite;
-		-moz-animation: rotating 10s linear infinite;
-		-ms-animation: rotating 10s linear infinite;
-		-o-animation: rotating 10s linear infinite;
-		animation: rotating 10s linear infinite;
-
-		@-webkit-keyframes rotating /* Safari and Chrome */ {
-			from {
-				-webkit-transform: rotate(0deg);
-				-o-transform: rotate(0deg);
-				transform: rotate(0deg);
-			}
-			to {
-				-webkit-transform: rotate(360deg);
-				-o-transform: rotate(360deg);
-				transform: rotate(360deg);
-			}
-		}
-		@keyframes rotating {
-			from {
-				-ms-transform: rotate(0deg);
-				-moz-transform: rotate(0deg);
-				-webkit-transform: rotate(0deg);
-				-o-transform: rotate(0deg);
-				transform: rotate(0deg);
-			}
-			to {
-				-ms-transform: rotate(360deg);
-				-moz-transform: rotate(360deg);
-				-webkit-transform: rotate(360deg);
-				-o-transform: rotate(360deg);
-				transform: rotate(360deg);
-			}
-		}
-	}
-
-	.info {
-		* {
-			color: white;
-			text-align: center;
-		}
-	}
-
-	.player {
-		width: 100%;
-		outline: none;
-		border: none;
-		background: none;
-		button {
-			outline: none;
-		}
-		.rhap_progress-container {
-			outline: none;
-		}
-		.rhap_time {
-			color: white;
-		}
-		.rhap_volume-bar-area {
-			outline: none;
-		}
+	margin: 20px 0 10px 0;
+	.player-header {
+		display: flex;
 	}
 }

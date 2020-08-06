@@ -1,17 +1,22 @@
+// Libs
 import React from "react";
+// Types
 import { Singer } from "@constants/types/songDetailTypes";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	singer: Singer;
-	className?: string;
 }
 
-const SingerInfo: React.FC<Props> = ({ singer, className }) => {
+const SingerInfo: React.FC<Props> = ({ singer }) => {
 	return (
-		<div>
-			<img src={singer.picture} alt="singer" />
-			<h2>{singer.name}</h2>
-			<div>Singer description</div>
+		<div className="singer-info-wrapper">
+			<img src={singer.picture} alt={singer.name} />
+			<div className="info">
+				<h2>{singer.name}</h2>
+				<div>Singer description</div>
+			</div>
 		</div>
 	);
 };

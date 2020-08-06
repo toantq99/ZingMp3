@@ -1,5 +1,8 @@
+// Libs
 import React from "react";
+// Components
 import TrackItem from "../../components/TrackItem";
+// Types
 import { SongInAlbum } from "@constants/types/songDetailTypes";
 
 interface Props {

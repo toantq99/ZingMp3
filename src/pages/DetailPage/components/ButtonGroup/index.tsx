@@ -1,18 +1,24 @@
+// Libs
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "./style.scss";
-
+// Components
+import ButtonRemove from "@DetailPage/atoms/ButtonRemove";
+import ButtonAdd from "@DetailPage/atoms/ButtonAdd";
+import ButtonShare from "@DetailPage/atoms/ButtonShare";
+// Types
 import { RootState } from "@constants/state";
 import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
-import ButtonRemove from "@pages/DetailPage/atoms/ButtonRemove";
-import ButtonAdd from "@pages/DetailPage/atoms/ButtonAdd";
-import ButtonShare from "@pages/DetailPage/atoms/ButtonShare";
+// Actions
+import { addFav, removeFav } from "@actions/favListAction";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	song: SongDetail | SongInAlbum;
 }
 
 const ButtonGroup: React.FC<Props> = ({ song }) => {
+	const dispatch = useDispatch();
 	let isAdded = useSelector((state: RootState) =>
 		state.favList.includes(song.id)
 	);
@@ -20,12 +26,23 @@ const ButtonGroup: React.FC<Props> = ({ song }) => {
 	useEffect(() => {
 		setAdded(isAdded);
 	}, [isAdded]);
-	const dispatch = useDispatch();
+	const handleAdd = () => {
+		dispatch(addFav(song));
+		setAdded(true);
+	};
+	const handleRemove = () => {
+		dispatch(removeFav(song));
+		setAdded(false);
+	};
 
 	return (
 		<span className="button-group-wrapper">
-			{added ? <ButtonRemove /> : <ButtonAdd />}
-			<ButtonShare />
+			{added ? (
+				<ButtonRemove handleRemove={handleRemove} />
+			) : (
+				<ButtonAdd handleAdd={handleAdd} />
+			)}
+			<ButtonShare song={song} />
 		</span>
 	);
 };

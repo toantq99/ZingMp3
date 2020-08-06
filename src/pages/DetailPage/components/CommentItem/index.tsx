@@ -1,17 +1,17 @@
+// Libs
 import React from "react";
-import "./style.scss";
-import { Comment } from "@constants/types/songDetailTypes";
+// Components
 import CommentContent from "../CommentContent";
+// Types
+import { Comment } from "@constants/types/songDetailTypes";
+// SCSS
+import "./style.scss";
 
-interface Props {
-	cmt: Comment;
-}
-
-const CommentItem: React.FC<Props> = ({ cmt }) => {
+const CommentItem: React.FC<{ cmt: Comment }> = ({ cmt }) => {
 	return (
 		<div className="comment-item-wrapper">
-			<img src={cmt.author.picture} alt="avatar" id="avatar" />
-			<CommentContent />
+			<img src={cmt.author.picture} alt="avatar" className="avatar" />
+			<CommentContent cmt={cmt} />
 		</div>
 	);
 };

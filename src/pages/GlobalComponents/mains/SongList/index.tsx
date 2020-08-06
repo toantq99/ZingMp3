@@ -1,9 +1,10 @@
+// Libs
 import React from "react";
+// Components
 import SongItem from "../../components/SongItem";
-import { Row, Col } from "antd";
-import "./style.scss";
-import { SongDetail } from "@constants/types/songDetailTypes";
 import TitleWithArrow from "../TitleWithArrow";
+// Types
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	name: string;

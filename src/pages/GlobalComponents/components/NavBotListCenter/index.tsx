@@ -1,8 +1,12 @@
+// Libs
 import React from "react";
+import { Link } from "react-router-dom";
+// SCSS
+import "./style.scss";
 
-const NavBotListCenter = () => {
+const NavBotListCenter: React.FC = () => {
 	return (
-		<ul className="nav-list-bot">
+		<ul className="navbot-list-center-wrapper">
 			{[
 				"Nhạc cá nhân",
 				"#zingchart",

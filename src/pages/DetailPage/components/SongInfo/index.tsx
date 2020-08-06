@@ -1,7 +1,10 @@
+// Libs
 import React from "react";
-import { SongDetail } from "@constants/types/songDetailTypes";
+// Components
 import SongInfoAlbum from "../SongInfoAlbum";
 import SongInfoDate from "../SongInfoDate";
+// Types
+import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
 	song: SongDetail;
@@ -13,8 +16,8 @@ const SongInfo: React.FC<Props> = ({ song }) => {
 			<h2>
 				{song.title} - {song.artist.name}
 			</h2>
-			<SongInfoAlbum />
-			<SongInfoDate />
+			<SongInfoAlbum song={song} />
+			<SongInfoDate song={song} />
 		</div>
 	);
 };

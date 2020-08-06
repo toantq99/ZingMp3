@@ -1,6 +1,8 @@
+// Libs
 import React from "react";
 import { Pagination } from "antd";
-
+// SCSS
+import "./style.scss";
 export interface PaginateProps {
 	total: number;
 	page: number;
@@ -34,6 +36,7 @@ const PaginateBot: React.FC<PaginateProps> = ({
 			onShowSizeChange={(_currentSize, newSize) =>
 				pageChangeHandler(query, page, newSize)
 			}
+			className="paginate-bot-wrapper"
 		/>
 	);
 };

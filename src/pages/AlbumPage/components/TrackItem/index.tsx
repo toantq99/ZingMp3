@@ -1,8 +1,13 @@
+// Libs
 import React from "react";
 import { Link } from "react-router-dom";
-import "./style.scss";
-import { SongInAlbum } from "@constants/types/songDetailTypes";
+// Components
 import TrackProgress from "../TrackProgress";
+// Types
+import { SongInAlbum } from "@constants/types/songDetailTypes";
+// SCSS
+import "./style.scss";
+import ButtonGroupInline from "@GlobalComponents/mains/ButtonGroupInline";
 
 interface Props {
 	item: SongInAlbum;
@@ -31,9 +36,15 @@ const TrackItem: React.FC<Props> = ({
 				setCurrentTime(0);
 			}}
 		>
-			<Link to={`/bai-hat/${item.id}`}>{item.title_short}</Link>
-			<div>{(item.artist || {}).name}</div>
-			{isPlaying ? <TrackProgress /> : null}
+			<div className="info">
+				<Link to={`/bai-hat/${item.id}`}>{item.title_short}</Link>
+				<div>{(item.artist || {}).name}</div>
+			</div>
+			{isPlaying ? (
+				<TrackProgress currentTime={currentTime} duration={duration} />
+			) : (
+				<ButtonGroupInline item={item} />
+			)}
 		</div>
 	);
 };

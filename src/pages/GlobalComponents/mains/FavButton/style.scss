@@ -1,14 +1,16 @@
-.btn-fav {
-	background: #242424;
-	position: fixed;
-	bottom: 100px;
-	right: 30px;
-	height: 45px;
-	width: 45px;
-	text-align: center;
-	border-radius: 50%;
-	border: none;
-	color: #ff4d4f;
-	outline: none;
-	cursor: pointer;
+.fav-button-wrapper {
+	.fav-button {
+		background: #242424;
+		position: fixed;
+		bottom: 100px;
+		right: 30px;
+		height: 45px;
+		width: 45px;
+		text-align: center;
+		border-radius: 50%;
+		border: none;
+		color: #ff4d4f;
+		outline: none;
+		cursor: pointer;
+	}
 }

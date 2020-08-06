@@ -1,32 +1,34 @@
+// Libs
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./style.scss";
+// Types
 import { Singer } from "@constants/types/songDetailTypes";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	width: number;
 	height: number;
 	item: Singer;
+	area: string;
 }
 
-const HotArtistItem: React.FC<Props> = ({ width, height, item }) => {
+const HotArtistItem: React.FC<Props> = ({ width, height, item, area }) => {
 	const [hovering, setHovering] = useState(false);
 	return (
-		<Link to="/">
-			<div
-				className="hot-artist-item-wrapper"
-				onMouseEnter={() => setHovering(true)}
-				onMouseLeave={() => setHovering(false)}
-			>
-				<img
-					src={item.picture_big}
-					alt={item.name}
-					width={width}
-					height={height}
-				/>
-				{hovering ? <div>{item.name}</div> : null}
-			</div>
-		</Link>
+		<div
+			className="hot-artist-item-wrapper"
+			style={{ gridArea: area }}
+			onMouseEnter={() => setHovering(true)}
+			onMouseLeave={() => setHovering(false)}
+		>
+			<img
+				src={item.picture_big}
+				alt={item.name}
+				width={width}
+				height={height}
+			/>
+			{hovering ? <div className="artist">{item.name}</div> : null}
+		</div>
 	);
 };
 

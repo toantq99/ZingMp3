@@ -1,9 +1,15 @@
+// Libs
 import React from "react";
-import { PaginateProps } from "../PaginateBot";
 import { LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
-import { useEventListener } from "@hooks/useEventListener";
-import "./style.scss";
+// Components
 import PaginateButton from "@SearchPage/components/PaginateButton";
+// Types
+import { PaginateProps } from "../PaginateBot";
+// Hooks
+import { useEventListener } from "@hooks/useEventListener";
+// SCSS
+import "./style.scss";
+
 const PaginateAside: React.FC<PaginateProps> = ({
 	total,
 	page,
@@ -22,7 +28,7 @@ const PaginateAside: React.FC<PaginateProps> = ({
 	});
 
 	return (
-		<div className="paginate-aside-wrapper">
+		<span className="paginate-aside-wrapper">
 			<PaginateButton
 				icon={<LeftCircleFilled />}
 				title="Trang trước"
@@ -35,7 +41,7 @@ const PaginateAside: React.FC<PaginateProps> = ({
 				onClick={() => pageChangeHandler(query, page + 1, pageSize)}
 				disabled={!hasNext}
 			/>
-		</div>
+		</span>
 	);
 };
 export default PaginateAside;

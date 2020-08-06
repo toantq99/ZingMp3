@@ -75,7 +75,7 @@ export const getComments = (song: SongDetail) => (
 			payload: comments,
 		});
 		dispatch(setLoadingDetail("comments", false));
-	}, 1500);
+	}, 1000);
 };
 
 export const emptyDetail = () => (dispatch: Dispatch<EmptyAction>) => {

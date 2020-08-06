@@ -1,23 +1,10 @@
-.hot-artist-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 10px 8px;
-
-	.col-span-1 {
-		grid-column: span 1;
-		height: 100%;
-	}
-	.col-span-2 {
-		grid-column: span 2;
-		height: 100%;
-	}
-
-	.small-grid {
+.hot-artist-wrapper {
+	.hot-artist-body {
+		margin: 20px 0;
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-gap: 10px 8px;
-		.col {
-			grid-column: span 1;
-		}
+		grid-template:
+			"top1 top1 top2 top3 top4 top5"
+			"top1 top1 top6 top7 top8 top9";
+		gap: 5px;
 	}
 }

@@ -1,19 +1,9 @@
-.cmt-item {
-	border-bottom: 1px solid;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
-
-	#avartar-container {
-		margin-left: 10px;
-	}
-	#avatar {
+.comment-item-wrapper {
+	border-bottom: 1px solid #dbdbdb;
+	padding: 10px 0;
+	display: flex;
+	.avatar {
 		width: 70px;
 		height: 70px;
-	}
-
-	.content {
-		small {
-			float: right;
-		}
 	}
 }

@@ -1,20 +1,11 @@
-.footer {
+.footer-wrapper {
 	background-color: #2e2e2e;
 	color: white;
 	.footer-container {
 		padding: 20px 0;
 		width: 1000px;
 		margin: auto;
-		.logo-footer {
-			width: 56px;
-			height: 56px;
-		}
-		.pull-right {
-			text-align: right;
-			.img-social {
-				width: 34px;
-				height: 34px;
-			}
-		}
+		display: flex;
+		justify-content: space-between;
 	}
 }

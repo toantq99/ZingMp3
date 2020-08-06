@@ -1,29 +1,14 @@
 .nav-bot-wrapper {
 	padding: 7px 0;
 	background-color: #e4e4e4;
-	color: black;
 	.nav-bot-container {
 		width: 1000px;
 		margin: auto;
-		.nav-logo {
-			height: 36px;
-		}
-		.nav-list-bot {
-			overflow: hidden;
-			display: flex;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-			li {
-				margin: 0 10px;
-			}
-		}
-		.pull-right {
-			display: flex;
-			justify-content: flex-end;
-		}
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		a {
-			color: black;
+			color: #242424;
 		}
 	}
 }

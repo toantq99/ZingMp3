@@ -1,12 +1,11 @@
 import React from "react";
+import { DeleteFilled } from "@ant-design/icons";
 
-const ButtonRemove = () => {
+const ButtonRemove: React.FC<{ handleRemove: () => void }> = ({
+	handleRemove,
+}) => {
 	return (
-		<button
-			className="btn-remove"
-			title="Xóa khỏi danh sách yêu thích"
-			onClick={() => dispatch(removeFav(item))}
-		>
+		<button title="Xóa khỏi danh sách yêu thích" onClick={handleRemove}>
 			<DeleteFilled />
 		</button>
 	);

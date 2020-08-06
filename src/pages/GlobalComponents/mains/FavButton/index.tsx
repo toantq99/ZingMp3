@@ -1,15 +1,16 @@
+// Libs
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Drawer, Empty, Row, Col, Badge } from "antd";
+import { Badge } from "antd";
 import { HeartFilled } from "@ant-design/icons";
-import "./style.scss";
-import FavItem from "../../components/FavItem";
-import { RootState } from "@constants/state";
-import {
-	dispatchListFromStorage,
-	// saveListToStorage,
-} from "@actions/favListAction";
+// Components
 import FavDrawer from "@GlobalComponents/components/FavDrawer";
+// Types
+import { RootState } from "@constants/state";
+// Actions
+import { dispatchListFromStorage } from "@actions/favListAction";
+// SCSS
+import "./style.scss";
 
 const FavButton: React.FC = () => {
 	const [show, setShow] = useState(false);
@@ -25,9 +26,9 @@ const FavButton: React.FC = () => {
 	}, [dispatch, isFirstMount]);
 
 	return (
-		<>
+		<span className="fav-button-wrapper">
 			<button
-				className="btn-fav"
+				className="fav-button"
 				onClick={() => {
 					setShow(true);
 				}}
@@ -36,8 +37,8 @@ const FavButton: React.FC = () => {
 					<HeartFilled style={{ fontSize: 16 }} />
 				</Badge>
 			</button>
-			<FavDrawer />
-		</>
+			<FavDrawer favList={favList} show={show} setShow={setShow} />
+		</span>
 	);
 };
 export default FavButton;

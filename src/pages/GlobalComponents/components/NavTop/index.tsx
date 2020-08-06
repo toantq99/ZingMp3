@@ -1,9 +1,12 @@
+// Libs
 import React from "react";
 import { Link } from "react-router-dom";
-import NavSearch from "../NavSearch";
-import "./style.scss";
+// Components
 import NavTopLogo from "@GlobalComponents/atoms/NavTopLogo";
-import NavTopListCenter from "../NavTopListCenter";
+import NavSearch from "../NavSearch";
+import NavTopList from "../NavTopList";
+// SCSS
+import "./style.scss";
 
 const NavTop: React.FC = () => {
 	return (
@@ -11,7 +14,7 @@ const NavTop: React.FC = () => {
 			<div className="nav-top-container">
 				<NavTopLogo />
 				<NavSearch />
-				<NavTopListCenter />
+				<NavTopList />
 				<Link to="/">Đăng nhập</Link>
 			</div>
 		</div>

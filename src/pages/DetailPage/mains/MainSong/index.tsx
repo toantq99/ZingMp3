@@ -1,10 +1,11 @@
+// Libs
 import React from "react";
-import "./style.scss";
+// Components
 import Player from "@DetailPage/components/Player";
-import ButtonGroup from "@DetailPage/components/ButtonGroup";
-import SingerInfo from "@pages/DetailPage/components/SingerInfo";
+import SingerInfo from "@DetailPage/components/SingerInfo";
 import SongInfo from "@DetailPage/components/SongInfo";
-import ListenCount from "@DetailPage/atoms/ListenCount";
+import PlayerBottom from "@DetailPage/components/PlayerBottom";
+// Types
 import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
@@ -16,8 +17,7 @@ const MainSong: React.FC<Props> = ({ song }) => {
 		<div className="main-song-wrapper">
 			<SongInfo song={song} />
 			<Player song={song} />
-			<ButtonGroup song={song} />
-			<ListenCount />
+			<PlayerBottom song={song} />
 			<SingerInfo singer={song.artist} />
 		</div>
 	);

@@ -1,0 +1,14 @@
+.top5-item-caret-wrapper {
+	flex: 50px 0 0;
+	text-align: center;
+
+	.status-up {
+		color: #19a63a;
+	}
+	.status-down {
+		color: #cf1919;
+	}
+	.status-neutral {
+		color: #5d615e;
+	}
+}

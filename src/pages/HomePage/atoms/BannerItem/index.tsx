@@ -1,6 +1,7 @@
+// Libs
 import React from "react";
 
-const BannerItem = () => {
+const BannerItem: React.FC<{ item: { image: string } }> = ({ item }) => {
 	return (
 		<img
 			src={item.image}

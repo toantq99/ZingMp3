@@ -1,12 +1,14 @@
+// Libs
 import React from "react";
 import { Link } from "react-router-dom";
+// Types
+import { SongDetail } from "@constants/types/songDetailTypes";
 
-const SongInfoAlbum = () => {
+const SongInfoAlbum: React.FC<{ song: SongDetail }> = ({ song }) => {
 	return (
 		<div className="song-info-album-wrapper">
-			<span>Album: </span>
 			<span>
-				<Link to={`/album/${song.album.id}`}>{song.album.title}</Link>
+				Album: <Link to={`/album/${song.album.id}`}>{song.album.title}</Link>
 			</span>
 		</div>
 	);

@@ -1,8 +1,11 @@
+// Libs
 import React from "react";
-import { SongInAlbum } from "@constants/types/songDetailTypes";
-import { AlbumDetail } from "@constants/types/albumTypes";
+// Components
 import TrackInfoAlbum from "@AlbumPage/components/TrackInfoAlbum";
 import TrackInfoDate from "@AlbumPage/components/TrackInfoDate";
+//Types
+import { SongInAlbum } from "@constants/types/songDetailTypes";
+import { AlbumDetail } from "@constants/types/albumTypes";
 
 interface Props {
 	track: SongInAlbum;
@@ -15,8 +18,8 @@ const TrackInfo: React.FC<Props> = ({ track, album }) => {
 			<h2>
 				{track.title} - {track.artist.name}
 			</h2>
-			<TrackInfoAlbum />
-			<TrackInfoDate />
+			<TrackInfoAlbum album={album} />
+			<TrackInfoDate album={album} />
 		</div>
 	);
 };

@@ -1,5 +1,7 @@
-.img-partner {
-	width: 80px;
-	height: 50px;
-	border: 1px solid gray;
+.partner-wrapper {
+	.partner-list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 }

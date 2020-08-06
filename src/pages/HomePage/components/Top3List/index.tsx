@@ -1,13 +1,17 @@
+// Libs
 import React from "react";
+// Components
 import Top3Item from "@HomePage/components/Top3Item";
-import "./style.scss";
+// Types
 import { SongDetail } from "@constants/types/songDetailTypes";
+// SCSS
+import "./style.scss";
 
 const Top3List: React.FC<{ list: SongDetail[] }> = ({ list }) => {
 	return (
 		<div className="top3-list-wrapper">
 			{list.map((item, id) => (
-				<Top3Item rank={id + 1} item={item} />
+				<Top3Item rank={id + 1} item={item} key={id} />
 			))}
 		</div>
 	);

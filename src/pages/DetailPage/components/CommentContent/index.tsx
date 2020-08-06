@@ -1,9 +1,14 @@
+// Libs
 import React from "react";
+// Types
+import { Comment } from "@constants/types/songDetailTypes";
+// SCSS
+import "./style.scss";
 
-const CommentContent = () => {
+const CommentContent: React.FC<{ cmt: Comment }> = ({ cmt }) => {
 	return (
 		<div className="comment-content-wrapper">
-			<h3>
+			<h3 className="info">
 				{cmt.author.name}
 				<small>{cmt.date}</small>
 			</h3>

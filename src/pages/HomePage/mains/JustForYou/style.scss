@@ -2,16 +2,7 @@
 	background: url("https://static-zmp3.zadn.vn/skins/zmp3-v5.1/images/discover_background.png")
 		center center / cover no-repeat;
 	height: 130px;
-	padding: 18px;
+	padding: 15px;
 	display: flex;
-	margin-bottom: 10px;
-	img {
-		width: 90px;
-		margin-right: 10px;
-	}
-
-	.jfy-text {
-		display: flex;
-		flex-direction: column;
-	}
+	align-items: center;
 }

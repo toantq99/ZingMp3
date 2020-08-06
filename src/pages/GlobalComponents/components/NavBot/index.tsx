@@ -1,15 +1,20 @@
+// Libs
 import React from "react";
-import "./style.scss";
+// Components
+import NavBotHome from "@GlobalComponents/atoms/NavBotHome";
 import NavBotListCenter from "@GlobalComponents/components/NavBotListCenter";
 import NavBotListRight from "@GlobalComponents/components/NavBotListRight";
-import NavBotHome from "@GlobalComponents/atoms/NavBotHome";
+// SCSS
+import "./style.scss";
 
 const NavBot: React.FC = () => {
 	return (
 		<div className="nav-bot-wrapper">
 			<div className="nav-bot-container">
-				<NavBotHome />
-				<NavBotListCenter />
+				<div>
+					<NavBotHome />
+					<NavBotListCenter />
+				</div>
 				<NavBotListRight />
 			</div>
 		</div>

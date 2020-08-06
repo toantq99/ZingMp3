@@ -1,17 +1,17 @@
+// Libs
 import React from "react";
-import "./style.scss";
-import { Link } from "react-router-dom";
+// Components
 import JFYImage from "@HomePage/atoms/JFYImage";
 import JFYText from "@HomePage/components/JFYText";
+// SCSS
+import "./style.scss";
 
-const JustForYou = () => {
+const JustForYou: React.FC = () => {
 	return (
-		<Link to="/">
-			<div className="just-for-you-wrapper">
-				<JFYImage />
-				<JFYText />
-			</div>
-		</Link>
+		<div className="just-for-you-wrapper">
+			<JFYImage />
+			<JFYText />
+		</div>
 	);
 };
 

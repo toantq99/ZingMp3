@@ -5,24 +5,8 @@
 	.nav-top-container {
 		width: 1000px;
 		margin: auto;
-		.nav-logo {
-			height: 36px;
-		}
-		.nav-list-top {
-			overflow: hidden;
-			display: flex;
-			list-style: none;
-			margin: 0 10px;
-			padding: 0;
-			li {
-				margin: 0 10px;
-			}
-		}
-		.text-right {
-			text-align: right;
-		}
-		a {
-			color: white;
-		}
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 }

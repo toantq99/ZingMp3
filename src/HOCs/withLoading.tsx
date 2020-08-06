@@ -4,8 +4,8 @@ import { Spin, Row, Col } from "antd";
 const withLoading = (isLoading: boolean) => (Component: any) => {
 	if (isLoading)
 		return (
-			<Row gutter={[0, 30]} style={{ minHeight: 300 }} align="middle">
-				<Col span={24} style={{ textAlign: "center" }}>
+			<Row align="middle" justify="center" style={{ height: 300 }}>
+				<Col>
 					<Spin size="large" />
 				</Col>
 			</Row>

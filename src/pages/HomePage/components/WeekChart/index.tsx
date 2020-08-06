@@ -1,10 +1,14 @@
+// Libs
 import React from "react";
-import "./style.scss";
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+// Components
 import WChartTitle from "../WChartTitle";
 import WChartHeader from "../WChartHeader";
 import WChartBody from "../WChartBody";
+// Types
+import { SongDetail } from "@constants/types/songDetailTypes";
+import { Album } from "@constants/types/albumTypes";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	name: string;

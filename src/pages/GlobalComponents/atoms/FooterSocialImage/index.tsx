@@ -1,12 +1,13 @@
+// Libs
 import React from "react";
 
-const FooterSocialImage = () => {
+const FooterSocialImage: React.FC = () => {
 	return (
 		<img
-			key={item}
 			src="https://www.iconninja.com/files/387/198/566/logo-social-fb-facebook-icon.svg"
 			alt="social"
-			className="img-social"
+			width={34}
+			height={34}
 		/>
 	);
 };

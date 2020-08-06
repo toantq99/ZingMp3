@@ -1,7 +1,9 @@
 .track-item-wrapper {
-	padding: 10px 5px;
-	border-bottom: 1px solid gray;
-
+	padding: 10px 0px;
+	border-bottom: 1px solid #dbdbdb;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	.title {
 		overflow: hidden;
 		display: block;

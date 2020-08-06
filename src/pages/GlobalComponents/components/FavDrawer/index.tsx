@@ -1,8 +1,18 @@
+// Libs
 import React from "react";
-import FavItem from "../FavItem";
 import { Empty, Drawer } from "antd";
+// Components
+import FavItem from "../FavItem";
+// Types
+import { FavList } from "@constants/types/favListTypes";
 
-const FavDrawer = () => {
+interface Props {
+	favList: FavList;
+	show: boolean;
+	setShow: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const FavDrawer: React.FC<Props> = ({ favList, show, setShow }) => {
 	return (
 		<Drawer
 			title={`${favList.length} bài hát trong danh sách`}

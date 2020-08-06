@@ -1,5 +1,8 @@
+// Libs
 import React from "react";
+// Components
 import CommentItem from "@DetailPage/components/CommentItem";
+// Types
 import { Comment } from "@constants/types/songDetailTypes";
 
 interface Props {

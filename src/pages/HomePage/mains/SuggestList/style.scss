@@ -1,5 +1,6 @@
 .suggest-list-wrapper {
+	margin: 20px 0;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 20px;
+	grid-template-columns: auto auto;
+	grid-gap: 16px;
 }

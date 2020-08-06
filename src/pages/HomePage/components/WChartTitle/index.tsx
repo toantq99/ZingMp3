@@ -1,11 +1,13 @@
+// Libs
 import React from "react";
 import { PlayCircleOutlined } from "@ant-design/icons";
-import TitleWithArrow from "@GlobalComponents/mains/TitleWithArrow";
+// SCSS
+import "./style.scss";
 
-const WChartTitle = ({ name }) => {
+const WChartTitle: React.FC<{ name: string }> = ({ name }) => {
 	return (
-		<div className="week-chart-title-wrapper">
-			<TitleWithArrow title={name} />
+		<div className="weekchart-title-wrapper">
+			<h3>{name}</h3>
 			<PlayCircleOutlined className="play-btn" />
 		</div>
 	);

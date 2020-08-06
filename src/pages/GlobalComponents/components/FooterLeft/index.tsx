@@ -1,15 +1,19 @@
+// Libs
 import React from "react";
+// Components
+import FooterLogo from "@GlobalComponents/atoms/FooterLogo";
+// SCSS
+import "./style.scss";
 
-export default function FooterLeft() {
+const FooterLeft: React.FC = () => {
 	return (
-		<div>
-			<img
-				src="https://static-zmp3.zadn.vn/skins/zmp3-v5.1/images/icon_zing_mp3_60.png"
-				alt="logo"
-				className="logo-footer"
-			/>
-			<div>© 2015 VNG Corporation</div>
-			<div>Giấy phép MXH số 314/GP-BTTTT.</div>
+		<div className="footer-left-wrapper">
+			<FooterLogo />
+			<div>
+				<div>© 2015 VNG Corporation</div>
+				<div>Giấy phép MXH số 314/GP-BTTTT.</div>
+			</div>
 		</div>
 	);
-}
+};
+export default FooterLeft;

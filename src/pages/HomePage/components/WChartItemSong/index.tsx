@@ -1,8 +1,12 @@
+// Libs
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+// Components
 import ButtonGroupInline from "@GlobalComponents/mains/ButtonGroupInline";
-import "./style.scss";
+// Types
 import { SongDetail } from "@constants/types/songDetailTypes";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	rank: number;
@@ -14,16 +18,22 @@ const WChartItemSong: React.FC<Props> = ({ rank, item }) => {
 	const [hovering, setHovering] = useState(false);
 	return (
 		<div
-			className="wchart-item-song"
+			className="wchart-item-song-wrapper"
 			onMouseEnter={() => setHovering(true)}
 			onMouseLeave={() => setHovering(false)}
 		>
-			<div>{rank < 10 ? "0" + rank : rank}</div>
-			<div className="title">
+			<div className="rank">{rank < 10 ? "0" + rank : rank}</div>
+			<div className="info">
 				<Link to={`/bai-hat/${item.id}`}>{item.title_short}</Link>
+				<div>{item.artist.name}</div>
 			</div>
-			<div>{item.artist.name}</div>
-			{hovering ? <ButtonGroupInline item={item} /> : <span>{fakeCount}</span>}
+			<div className="count">
+				{hovering ? (
+					<ButtonGroupInline item={item} />
+				) : (
+					<span>{fakeCount}</span>
+				)}
+			</div>
 		</div>
 	);
 };

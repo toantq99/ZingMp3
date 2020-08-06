@@ -1,0 +1,15 @@
+.wchart-header-buttons-wrapper {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	button {
+		background: #f2f2f2;
+		border: none;
+		outline: none;
+		height: 40px;
+		border-radius: 0;
+		&.active {
+			background: none;
+			border-top: 2px solid #5c017d;
+		}
+	}
+}

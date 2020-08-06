@@ -4,6 +4,7 @@
 		"paths": {
 			"@constants/*": ["src/constants/*"],
 			"@actions/*": ["src/actions/*"],
+			"@images/*": ["src/images/*"],
 			"@reducers/*": ["src/reducers/*"],
 			"@hooks/*": ["src/hooks/*"],
 			"@mocks/*": ["src/mocks/*"],

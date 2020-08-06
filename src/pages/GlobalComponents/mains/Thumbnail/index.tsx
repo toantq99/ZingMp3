@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// Libs
+import React from "react";
 import { Dropdown } from "antd";
+// Components
 import ContextMenu from "../ContextMenu";
-import "./style.scss";
+import ThumbnailImage from "@GlobalComponents/components/ThumbnailImage";
+// Types
 import { SongDetail } from "@constants/types/songDetailTypes";
 import { Album } from "@constants/types/albumTypes";
-import ThumbnailImage from "@GlobalComponents/components/ThumbnailImage";
+import { Link } from "react-router-dom";
 
 interface Props {
 	width: number;
 	height: number;
 	item: SongDetail | Album;
 }
-
 const Thumbnail: React.FC<Props> = ({ width, height, item }) => {
-	const [hover, setHover] = useState(false);
 	return (
 		<Dropdown
 			overlay={() => <ContextMenu item={item} type={item.type} />}
@@ -23,7 +23,7 @@ const Thumbnail: React.FC<Props> = ({ width, height, item }) => {
 			<Link
 				to={item.type === "track" ? `/bai-hat/${item.id}` : `/album/${item.id}`}
 			>
-				<ThumbnailImage />
+				<ThumbnailImage {...{ width, height, item }} />
 			</Link>
 		</Dropdown>
 	);

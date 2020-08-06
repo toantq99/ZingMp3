@@ -1,12 +1,15 @@
+// Libs
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Collection from "@HomePage/components/Collection";
-
-import { getCollection } from "@actions/homeAction";
+// Components
 import withLoading from "@HOCs/withLoading";
+import Collection from "@HomePage/components/Collection";
+// Types
 import { RootState } from "@constants/state";
-
-const queryList = ["spring", "autumn", "winter"];
+// Actions
+import { getCollection } from "@actions/homeAction";
+// Mocks
+const queryList = ["spring", "summer", "autumn", "winter"];
 
 const CollectionList: React.FC = () => {
 	const dispatch = useDispatch();
@@ -17,11 +20,11 @@ const CollectionList: React.FC = () => {
 	const collection = useSelector((state: RootState) => state.home.collection);
 	const { isLoading = false } = collection;
 	return withLoading(isLoading)(
-		<>
+		<div className="collection-list-wrapper">
 			{queryList.map((query, id) => (
 				<Collection key={id} name={query} list={collection[query] || []} />
 			))}
-		</>
+		</div>
 	);
 };
 export default CollectionList;

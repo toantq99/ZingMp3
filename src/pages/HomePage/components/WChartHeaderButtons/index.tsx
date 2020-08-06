@@ -1,12 +1,23 @@
-import React from "react";
+// Libs
+import React, { useState } from "react";
+import classNames from "classnames";
+// SCSS
+import "./style.scss";
 
-const WChartHeaderButtons = () => {
+const WChartHeaderButtons: React.FC = () => {
+	const [active, setActive] = useState(0);
 	return (
-		<>
-			<button className="active">Việt Nam</button>
-			<button>US-UK</button>
-			<button>K-Pop</button>
-		</>
+		<div className="wchart-header-buttons-wrapper">
+			{["Việt Nam", "US-UK", "K-Pop"].map((item, id) => (
+				<button
+					key={id}
+					className={classNames({ active: id === active })}
+					onClick={() => setActive(id)}
+				>
+					{item}
+				</button>
+			))}
+		</div>
 	);
 };
 

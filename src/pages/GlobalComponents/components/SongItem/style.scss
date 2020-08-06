@@ -1,28 +1,13 @@
-.song-item {
-	border-bottom: 1px solid gray;
-
-	.temp-title {
-		overflow: hidden;
-		display: block;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 1;
-		text-overflow: ellipsis;
-	}
-
-	.small-title {
-		@extend .temp-title;
-		width: 160px;
-	}
-
-	.large-title {
-		@extend .temp-title;
-		font-size: 20px;
-		font-weight: bold;
-		width: 380px;
-	}
-
-	.large-singer {
-		font-size: 20px;
+.song-list-wrapper {
+	.song-item-wrapper {
+		border-bottom: 1px solid #dbdbdb;
+		display: flex;
+		align-items: center;
+		padding: 10px 0;
+		width: 100%;
+		.button-group-container {
+			flex: 50px 0 0;
+			margin-left: auto;
+		}
 	}
 }

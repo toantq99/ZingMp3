@@ -1,7 +1,11 @@
+// Libs
 import React from "react";
+// Components
 import TitleWithArrow from "@GlobalComponents/mains/TitleWithArrow";
-import NewsItem from "@HomePage/components/NewsItem";
 import NewsHeader from "@HomePage/components/NewsHeader";
+import NewsItem from "@HomePage/components/NewsItem";
+// SCSS
+import "./style.scss";
 
 const News: React.FC = () => {
 	return (

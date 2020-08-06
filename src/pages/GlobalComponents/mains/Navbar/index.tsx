@@ -1,6 +1,6 @@
 import React from "react";
-import NavTop from "../../components/NavTop";
-import NavBot from "../../components/NavBot";
+import NavTop from "@GlobalComponents/components/NavTop";
+import NavBot from "@GlobalComponents/components/NavBot";
 
 const Navbar: React.FC = () => {
 	return (

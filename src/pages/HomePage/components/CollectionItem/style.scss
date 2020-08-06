@@ -1,8 +1,12 @@
 .collection-item-wrapper {
-	.title {
-		color: black;
-	}
-	.singer {
-		color: gray;
+	.title,
+	.artist {
+		overflow: hidden;
+		display: block;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		text-overflow: ellipsis;
+		width: 150px;
 	}
 }

@@ -1,5 +1,7 @@
+// Libs
 import React from "react";
 import { UpOutlined } from "@ant-design/icons";
+// SCSS
 import "./style.scss";
 
 const ToTopButton: React.FC = () => {

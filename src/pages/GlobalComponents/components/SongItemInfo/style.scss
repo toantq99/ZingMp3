@@ -1,0 +1,12 @@
+.song-item-info-wrapper {
+	margin-left: 10px;
+	.title,
+	.artist {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		text-overflow: ellipsis;
+		width: 200px;
+	}
+}

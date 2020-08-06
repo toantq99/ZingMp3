@@ -1,14 +1,19 @@
+// Libs
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAlbumDetail } from "@actions/albumAction";
-import { RootState } from "@constants/state/index";
+// Components
 import withLoading from "@HOCs/withLoading";
-import TrackInfo from "./mains/TrackInfo";
 import SingerInfo from "@DetailPage/components/SingerInfo";
-import ButtonGroup from "@DetailPage/components/ButtonGroup";
-import "./style.scss";
-import TrackList from "./mains/TrackList";
+import TrackInfo from "./mains/TrackInfo";
 import AlbumPlayer from "./mains/AlbumPlayer";
+import TrackList from "./mains/TrackList";
+import ButtonGroup from "@DetailPage/components/ButtonGroup";
+// Types
+import { RootState } from "@constants/state/index";
+// Actions
+import { getAlbumDetail } from "@actions/albumAction";
+//SCSS
+import "./style.scss";
 
 interface Props {
 	match: {
@@ -20,32 +25,51 @@ interface Props {
 
 const AlbumPage: React.FC<Props> = ({ match }) => {
 	const dispatch = useDispatch();
-	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 	const [currentTime, setCurrentTime] = useState(0);
+	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+	const [duration, setDuration] = useState(-1);
+
+	// Fetching data
 	useEffect(() => {
 		dispatch(getAlbumDetail(parseInt(match.params.id)));
 	}, [dispatch, match.params.id]);
 
 	const { isLoading, detail } = useSelector((state: RootState) => state.album);
 	const { data: tracks } = detail.tracks;
-
-	const [duration, setDuration] = useState(-1);
 	const currentTrack = tracks[currentTrackIndex] || { artist: {} };
 
 	return withLoading(isLoading)(
 		<div className="album-page-wrapper">
-			<TrackInfo track={currentTrack} album={detail} />
-			<ButtonGroup song={currentTrack} />
-			<AlbumPlayer />
-			<SingerInfo singer={detail.artist} />
-			<TrackList
-				list={tracks}
-				currentTrackIndex={currentTrackIndex}
-				setCurrentTrackIndex={setCurrentTrackIndex}
-				setCurrentTime={setCurrentTime}
-				currentTime={currentTime}
-				duration={duration}
-			/>
+			<div className="main">
+				<TrackInfo track={currentTrack} album={detail} />
+				<AlbumPlayer
+					{...{
+						currentTrackIndex,
+						setCurrentTrackIndex,
+						duration,
+						setDuration,
+						setCurrentTime,
+						maxLength: tracks.length,
+						detail,
+						currentTrack,
+					}}
+				/>
+				{/* <PlayerBottom song={currentTrack} /> */}
+				<ButtonGroup song={currentTrack} />
+				<SingerInfo singer={detail.artist} />
+			</div>
+			<div className="album-list">
+				<TrackList
+					{...{
+						list: tracks,
+						currentTrackIndex,
+						setCurrentTrackIndex,
+						currentTime,
+						setCurrentTime,
+						duration,
+					}}
+				/>
+			</div>
 		</div>
 	);
 };

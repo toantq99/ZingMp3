@@ -1,17 +1,18 @@
+// Libs
 import React from "react";
 import { Button } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
-import { removeFav } from "@actions/favListAction";
 
-const ButtonRemoveInDrawer = () => {
+const ButtonRemoveInDrawer: React.FC<{ handleRemove: () => void }> = ({
+	handleRemove,
+}) => {
 	return (
 		<Button
-			type="primary"
-			shape="round"
+			type="ghost"
+			danger
+			shape="circle"
 			icon={<DeleteFilled />}
-			onClick={() => {
-				dispatch(removeFav(fullItem));
-			}}
+			onClick={handleRemove}
 			title="Xóa khỏi danh sách yêu thích"
 		/>
 	);

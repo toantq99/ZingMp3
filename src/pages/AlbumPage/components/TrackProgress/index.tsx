@@ -1,9 +1,16 @@
+// Libs
 import React from "react";
 import { Progress } from "antd";
 import { SmileTwoTone } from "@ant-design/icons";
+// Utils
 import { formatDuration } from "@AlbumPage/utils";
 
-const TrackProgress: React.FC<> = () => (
+interface Props {
+	currentTime: number;
+	duration: number;
+}
+
+const TrackProgress: React.FC<Props> = ({ currentTime, duration }) => (
 	<Progress
 		type="circle"
 		percent={(currentTime * 100) / duration}
