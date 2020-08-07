@@ -1,0 +1,13 @@
+.song-list-wrapper {
+	.song-item-wrapper {
+		border-bottom: 1px solid #dbdbdb;
+		display: flex;
+		align-items: center;
+		padding: 10px 0;
+		width: 100%;
+		.button-group-container {
+			flex: 50px 0 0;
+			margin-left: auto;
+		}
+	}
+}

@@ -7,12 +7,12 @@ import {
 } from "@constants/types/songDetailTypes";
 import { SongDetailState } from "@constants/state";
 import { LoadingAction } from "@constants/types/loadingTypes";
-import { emptySongDetail } from "@constants/emptyValue/songDetail";
+import { EMPTY_SONG_DETAIL } from "@constants/emptyValue/songDetail";
 
 const initialState: SongDetailState = {
 	song: {
 		isLoading: false,
-		data: emptySongDetail,
+		data: EMPTY_SONG_DETAIL,
 	},
 	similar: { isLoading: false, data: [] },
 	comments: { isLoading: false, data: [] },

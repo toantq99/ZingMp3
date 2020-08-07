@@ -1,0 +1,16 @@
+.track-item-wrapper {
+	padding: 10px 0px;
+	border-bottom: 1px solid #dbdbdb;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.title {
+		overflow: hidden;
+		display: block;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		text-overflow: ellipsis;
+		width: 200px;
+	}
+}

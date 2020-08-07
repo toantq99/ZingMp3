@@ -1,0 +1,11 @@
+.navbot-list-right-wrapper {
+	align-self: flex-end;
+	overflow: hidden;
+	display: inline-flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		margin-left: 10px;
+	}
+}

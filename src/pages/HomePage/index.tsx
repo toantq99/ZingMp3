@@ -1,48 +1,36 @@
+// Libs
 import React from "react";
-import CarouselBanner from "./dumps/CarouselBanner";
+// Components
+import CarouselBanner from "./mains/CarouselBanner";
 import Chart from "./mains/Chart";
 import CollectionList from "./mains/CollectionList";
 import SuggestList from "./mains/SuggestList";
-import WeekChartList from "./mains/WeekChartList";
 import HotArtist from "./mains/HotArtist";
-import HotTopic from "./components/HotTopic";
-import News from "./components/News";
-import Partner from "./dumps/Partner";
-
+import JustForYou from "./mains/JustForYou";
+import HotTopic from "./mains/HotTopic";
+import WeekChartList from "./mains/WeekChartList";
+import News from "./mains/News";
+import Partner from "./mains/Partner";
+// SCSS
 import "./style.scss";
 
 const HomePage: React.FC = () => {
 	return (
 		<div className="home-page-wrapper">
-			<div className="col-span-2">
-				<div className="section">
-					<CarouselBanner />
-				</div>
-				<div className="section">
-					<Chart />
-				</div>
-				<div className="section">
-					<CollectionList />
-				</div>
-				<div className="section">
-					<SuggestList />
-				</div>
-				<div className="section">
-					<HotArtist />
-				</div>
+			<div className="home-left">
+				<CarouselBanner />
+				<Chart />
+				<CollectionList />
+				<SuggestList />
+				<HotArtist />
 			</div>
-			<div className="col-span-1">
-				<div className="section">
-					<HotTopic />
-				</div>
-				<div className="section">
-					<WeekChartList />
-				</div>
-				<div className="section">
-					<News />
-				</div>
+			<div className="home-right">
+				<JustForYou />
+				<HotTopic />
+				<WeekChartList />
+				<News />
 			</div>
-			<div className="col-span-3">
+			<div className="home-bot">
 				<Partner />
 			</div>
 		</div>

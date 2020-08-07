@@ -22,6 +22,11 @@ export const homeActionTypes = {
 	},
 };
 
+export enum WeekChartType {
+	Track,
+	Album,
+}
+
 export type HomeActionWithQuery = {
 	type: string;
 	payload: {

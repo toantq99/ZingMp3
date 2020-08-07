@@ -1,16 +1,15 @@
 import React from "react";
 import { Spin, Row, Col } from "antd";
 
-export default function withLoading(isLoading: boolean) {
-	return function withLoadingComponent(Component: any) {
-		if (isLoading)
-			return (
-				<Row gutter={[0, 30]} style={{ minHeight: 300 }} align="middle">
-					<Col span={24} style={{ textAlign: "center" }}>
-						<Spin size="large" />
-					</Col>
-				</Row>
-			);
-		else return Component;
-	};
-}
+const withLoading = (isLoading: boolean) => (Component: any) => {
+	if (isLoading)
+		return (
+			<Row align="middle" justify="center" style={{ height: 300 }}>
+				<Col>
+					<Spin size="large" />
+				</Col>
+			</Row>
+		);
+	else return Component;
+};
+export default withLoading;

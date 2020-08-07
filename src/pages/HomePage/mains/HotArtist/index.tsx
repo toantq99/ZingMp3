@@ -1,13 +1,16 @@
+// Libs
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RightOutlined } from "@ant-design/icons";
-import HotArtistItem from "@HomePage/dumps/HotArtistItem";
-import "./style.scss";
-
-import { getArtistChart } from "@actions/homeAction";
-
+// Components
 import withLoading from "@HOCs/withLoading";
+import TitleWithArrow from "@GlobalComponents/mains/TitleWithArrow";
+import HotArtistItem from "@HomePage/components/HotArtistItem";
+// Actions
+import { getArtistChart } from "@actions/homeAction";
+// Types
 import { RootState } from "@constants/state";
+// SCSS
+import "./style.scss";
 
 const HotArtist: React.FC = () => {
 	const dispatch = useDispatch();
@@ -22,23 +25,18 @@ const HotArtist: React.FC = () => {
 
 	return withLoading(isLoading || !first)(
 		<div className="hot-artist-wrapper">
-			<h2>
-				NGHỆ SĨ HOT
-				<RightOutlined />
-			</h2>
-			<div className="hot-artist-grid">
-				<div className="col-span-1">
-					<HotArtistItem item={first} width={210} height={210} />
-				</div>
-				<div className="col-span-2">
-					<div className="small-grid">
-						{rest.map((item, id) => (
-							<div className="col" key={id}>
-								<HotArtistItem item={item} width={100} height={100} />
-							</div>
-						))}
-					</div>
-				</div>
+			<TitleWithArrow title="nghệ sĩ hot" />
+			<div className="hot-artist-body">
+				<HotArtistItem item={first} width={215} height={215} area="top1" />
+				{rest.map((artist, id) => (
+					<HotArtistItem
+						item={artist}
+						width={100}
+						height={100}
+						key={id}
+						area={"top" + (id + 2)}
+					/>
+				))}
 			</div>
 		</div>
 	);

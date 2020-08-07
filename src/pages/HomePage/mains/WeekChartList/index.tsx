@@ -1,38 +1,36 @@
+// Libs
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import WeekChart from "@HomePage/components/WeekChart";
-import { getWeekChart } from "@actions/homeAction";
-
+// Components
 import withLoading from "@HOCs/withLoading";
+import WeekChart from "@HomePage/components/WeekChart";
+// Types
 import { RootState } from "@constants/state";
-
-export enum WeekChartType {
-	Track = 0,
-	Album = 1,
-}
+import { WeekChartType } from "@constants/types/homeTypes";
+// Actions
+import { getWeekChart } from "@actions/homeAction";
 
 const WeekChartList: React.FC = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getWeekChart(["tracks", "albums"]));
-		return () => {};
 	}, [dispatch]);
 
 	const weekChart = useSelector((state: RootState) => state.home.weekChart);
 	const { isLoading = true } = weekChart;
 	return withLoading(isLoading)(
-		<>
+		<div className="weekchart-list-wrapper">
 			<WeekChart
-				name="#zingchar tuần - bài hát"
+				name="#zingchart tuần - bài hát"
 				list={weekChart.tracks}
 				type={WeekChartType.Track}
 			/>
 			<WeekChart
-				name="#zingchar tuần - Album"
+				name="#zingchart tuần - Album"
 				list={weekChart.albums}
 				type={WeekChartType.Album}
 			/>
-		</>
+		</div>
 	);
 };
 export default WeekChartList;

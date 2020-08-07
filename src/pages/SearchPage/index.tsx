@@ -1,16 +1,18 @@
+// Libs
 import React, { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-
-import SongList from "@GlobalComponents/SongList";
-
-import { searchSong, emptySearch } from "@actions/searchAction";
-import withLoading from "@HOCs/withLoading";
-import "./style.scss";
-import { RootState } from "@constants/state";
-import PaginateBot from "./PaginateBot";
-import PaginateAside from "./PaginateAside";
 import { useHistory } from "react-router-dom";
+// Components
+import withLoading from "@HOCs/withLoading";
+import PaginateBot from "./mains/PaginateBot";
+import PaginateAside from "./mains/PaginateAside";
+import SongList from "@GlobalComponents/mains/SongList";
+// Actions
+import { searchSong, emptySearch } from "@actions/searchAction";
+// Types
+import { RootState } from "@constants/state";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	location: {
@@ -47,7 +49,7 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 
 	return withLoading(isLoading)(
 		<div className="search-page-wrapper">
-			<div className="col-span-3">
+			<div className="left">
 				<SongList
 					name={`${(page - 1) * pageSize + 1}-${
 						page * pageSize < data.total ? page * pageSize : data.total
@@ -59,7 +61,7 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 					{...{ total: data.total, page, pageSize, query, pageChangeHandler }}
 				/>
 			</div>
-			<div className="col-span-1" style={{ textAlign: "center" }}>
+			<div className="right">
 				<PaginateAside
 					{...{ total: data.total, page, pageSize, query, pageChangeHandler }}
 				/>

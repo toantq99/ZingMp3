@@ -1,53 +1,13 @@
 .top3-item-wrapper {
-	border: gray 1px solid;
+	border: #dbdbdb 1px solid;
 	border-radius: 3px;
 	color: white;
 	padding: 2px 3px;
-	z-index: 100;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+	background-color: rgba(255, 255, 255, 0.08);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	// :hover {
-	// 	background: rgba(255, 255, 255, 0.15) !important;
-	// }
-
-	.top3-item-center {
-		display: flex;
-		align-items: center;
-
-		.img {
-			width: 32px;
-			height: 32px;
-			margin: 0 3px;
-		}
-
-		.info {
-			overflow: hidden;
-			display: block;
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-			-webkit-line-clamp: 1;
-			text-overflow: ellipsis;
-			width: 100px;
-			.title {
-				font-size: 12px;
-			}
-		}
-	}
-
-	.rank-1 {
-		color: blue;
-	}
-	.rank-2 {
-		color: green;
-	}
-	.rank-3 {
-		color: red;
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.3);
 	}
 }

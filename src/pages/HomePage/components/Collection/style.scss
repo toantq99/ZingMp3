@@ -1,6 +1,8 @@
 .collection-wrapper {
-	.text-upper {
-		font-size: 25px;
-		text-transform: uppercase;
+	margin: 20px 0;
+	.collection-body {
+		display: grid;
+		grid-template-columns: auto auto auto auto;
+		gap: 10px;
 	}
 }

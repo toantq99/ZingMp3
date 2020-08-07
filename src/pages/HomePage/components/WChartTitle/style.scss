@@ -1,0 +1,13 @@
+.weekchart-title-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	h3 {
+		text-transform: uppercase;
+		margin: 0;
+	}
+	span {
+		font-size: 20px;
+	}
+}

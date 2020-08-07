@@ -1,23 +1,18 @@
-import axios from "axios";
+// Libs
+import { Dispatch } from "react";
+// Types
 import { albumActionTypes, AlbumAction } from "@constants/types/albumTypes";
 import { LoadingDispatchAction } from "@constants/types/loadingTypes";
+// Actions
 import { setLoadingAlbum } from "./loadingAction";
-import { Dispatch } from "react";
+// Fetcher
+import { fetcher } from "./fetcher";
 
 export const getAlbumDetail = (id: number) => (
 	dispatch: Dispatch<AlbumAction | LoadingDispatchAction>
 ) => {
 	dispatch(setLoadingAlbum(true));
-	axios({
-		method: "GET",
-		url: "https://deezerdevs-deezer.p.rapidapi.com/album/" + id,
-		headers: {
-			"content-type": "application/octet-stream",
-			"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-			"x-rapidapi-key": "3319f523f7msh49e3d6c5c3ee4b4p19f9fajsn66e90ad6334c",
-			useQueryString: true,
-		},
-	})
+	fetcher({ url: "https://deezerdevs-deezer.p.rapidapi.com/album/" + id })
 		.then((response) => {
 			if (response.status === 200) {
 				dispatch({

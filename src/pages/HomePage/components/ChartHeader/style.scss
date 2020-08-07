@@ -1,0 +1,12 @@
+.chart-header-wrapper {
+	display: flex;
+	justify-content: space-between;
+	.date {
+		margin: 0 5px 0 10px;
+		color: gray;
+	}
+	.btn {
+		color: white;
+		font-size: 15px;
+	}
+}

@@ -1,5 +1,7 @@
 import { homeActionTypes } from "@constants/types/homeTypes";
 import { HomeState } from "@constants/state";
+import { EMPTY_ALBUM } from "@constants/emptyValue/album";
+import { EMPTY_SONG_DETAIL } from "@constants/emptyValue/songDetail";
 
 const initialState: HomeState = {
 	suggestList: { isLoading: false },
@@ -10,8 +12,8 @@ const initialState: HomeState = {
 	},
 	weekChart: {
 		isLoading: false,
-		albums: [],
-		tracks: [],
+		albums: [EMPTY_ALBUM],
+		tracks: [EMPTY_SONG_DETAIL],
 	},
 };
 

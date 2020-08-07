@@ -1,22 +1,19 @@
-import axios from "axios";
+// Libs
 import { Dispatch } from "react";
+// Types
 import { searchActionTypes, SearchAction } from "@constants/types/searchTypes";
-import { setLoadingSearch } from "./loadingAction";
 import { LoadingDispatchAction } from "@constants/types/loadingTypes";
+// Actions
+import { setLoadingSearch } from "./loadingAction";
+// Fetcher
+import { fetcher } from "./fetcher";
 
 export const searchSong = (query: string, page: number, pageSize: number) => (
 	dispatch: Dispatch<SearchAction | LoadingDispatchAction>
 ) => {
 	dispatch(setLoadingSearch(true));
-	axios({
-		method: "GET",
+	fetcher({
 		url: "https://deezerdevs-deezer.p.rapidapi.com/search",
-		headers: {
-			"content-type": "application/octet-stream",
-			"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-			"x-rapidapi-key": "3319f523f7msh49e3d6c5c3ee4b4p19f9fajsn66e90ad6334c",
-			useQueryString: true,
-		},
 		params: {
 			q: query,
 			limit: pageSize,

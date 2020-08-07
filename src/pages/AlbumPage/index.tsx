@@ -1,14 +1,19 @@
+// Libs
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAlbumDetail } from "@actions/albumAction";
-import { RootState } from "@constants/state/index";
+// Components
 import withLoading from "@HOCs/withLoading";
-import TrackInfo from "./TrackInfo";
-import Player from "@DetailPage/components/Player";
-import SingerInfo from "@DetailPage/dumps/SingerInfo";
-import ButtonGroup from "@DetailPage/components/ButtonGroup";
+import SingerInfo from "@DetailPage/components/SingerInfo";
+import PlayerBottom from "@DetailPage/components/PlayerBottom";
+import TrackInfo from "./mains/TrackInfo";
+import AlbumPlayer from "./mains/AlbumPlayer";
+import TrackList from "./mains/TrackList";
+// Types
+import { RootState } from "@constants/state/index";
+// Actions
+import { getAlbumDetail } from "@actions/albumAction";
+//SCSS
 import "./style.scss";
-import TrackList from "./TrackList";
 
 interface Props {
 	match: {
@@ -20,54 +25,48 @@ interface Props {
 
 const AlbumPage: React.FC<Props> = ({ match }) => {
 	const dispatch = useDispatch();
-	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 	const [currentTime, setCurrentTime] = useState(0);
+	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+	const [duration, setDuration] = useState(-1);
+
+	// Fetching data
 	useEffect(() => {
 		dispatch(getAlbumDetail(parseInt(match.params.id)));
 	}, [dispatch, match.params.id]);
 
 	const { isLoading, detail } = useSelector((state: RootState) => state.album);
 	const { data: tracks } = detail.tracks;
-
-	const [duration, setDuration] = useState(-1);
 	const currentTrack = tracks[currentTrackIndex] || { artist: {} };
 
 	return withLoading(isLoading)(
 		<div className="album-page-wrapper">
-			<div className="col-span-2">
+			<div className="main">
 				<TrackInfo track={currentTrack} album={detail} />
-				<Player
-					song={currentTrack}
-					cover={detail.cover}
-					onListen={(e: any) => {
-						setCurrentTime(e.target.currentTime);
-						if (
-							Math.floor(e.target.currentTime) === Math.floor(duration) &&
-							currentTrackIndex < tracks.length - 1
-						) {
-							setCurrentTrackIndex(currentTrackIndex + 1);
-							setCurrentTime(0);
-						}
-					}}
-					onPlay={(e: any) => {
-						setDuration(e.target.duration);
+				<AlbumPlayer
+					{...{
+						currentTrackIndex,
+						setCurrentTrackIndex,
+						duration,
+						setDuration,
+						setCurrentTime,
+						maxLength: tracks.length,
+						detail,
+						currentTrack,
 					}}
 				/>
-				<div className="margin-y">
-					<ButtonGroup song={currentTrack} />
-				</div>
-				<div className="margin-y">
-					<SingerInfo singer={detail.artist} />
-				</div>
+				<PlayerBottom song={currentTrack} />
+				<SingerInfo singer={detail.artist} />
 			</div>
-			<div className="col-span-1">
+			<div className="album-list">
 				<TrackList
-					list={tracks}
-					currentTrackIndex={currentTrackIndex}
-					setCurrentTrackIndex={setCurrentTrackIndex}
-					setCurrentTime={setCurrentTime}
-					currentTime={currentTime}
-					duration={duration}
+					{...{
+						list: tracks,
+						currentTrackIndex,
+						setCurrentTrackIndex,
+						currentTime,
+						setCurrentTime,
+						duration,
+					}}
 				/>
 			</div>
 		</div>

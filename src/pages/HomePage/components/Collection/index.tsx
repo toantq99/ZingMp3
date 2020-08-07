@@ -1,11 +1,12 @@
+// Libs
 import React from "react";
-import { Link } from "react-router-dom";
-import { Row, Col } from "antd";
-import { RightOutlined } from "@ant-design/icons";
-
-import CollectionItem from "@HomePage/dumps/CollectionItem";
-import "./style.scss";
+// Components
+import CollectionItem from "@HomePage/components/CollectionItem";
+import TitleWithArrow from "@GlobalComponents/mains/TitleWithArrow";
+// Types
 import { SongDetail } from "@constants/types/songDetailTypes";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	name: string;
@@ -15,19 +16,12 @@ interface Props {
 const Collection: React.FC<Props> = ({ name, list }) => {
 	return (
 		<div className="collection-wrapper">
-			<Link to="/">
-				<h2 className="text-upper">
-					{name}
-					<RightOutlined />
-				</h2>
-			</Link>
-			<Row gutter={[16, 16]}>
+			<TitleWithArrow title={name} />
+			<div className="collection-body">
 				{list.map((item, id) => (
-					<Col span={6} key={id}>
-						<CollectionItem item={item} width={150} height={150} />
-					</Col>
+					<CollectionItem key={id} item={item} width={150} height={150} />
 				))}
-			</Row>
+			</div>
 		</div>
 	);
 };

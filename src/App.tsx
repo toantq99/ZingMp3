@@ -1,17 +1,21 @@
-import React from "react";
+// Libs
+import React, { Suspense } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
+// Store
 import store from "./store";
-
-import Navbar from "./pages/GlobalComponents/Navbar";
-import Footer from "./pages/GlobalComponents/Footer";
-import ToTopButton from "./pages/GlobalComponents/ToTopButton";
-import FavButton from "./pages/GlobalComponents/FavButton";
-import HomePage from "./pages/HomePage";
-import DetailPage from "./pages/DetailPage";
-import SearchPage from "./pages/SearchPage";
-import AlbumPage from "./pages/AlbumPage";
+// Components
+import Navbar from "@GlobalComponents/mains/Navbar";
+import Footer from "@GlobalComponents/mains/Footer";
+import ToTopButton from "@GlobalComponents/mains/ToTopButton";
+import FavButton from "@GlobalComponents/mains/FavButton";
+// SCSS
 import "./index.scss";
+// Lazy Components
+const DetailPage = React.lazy(() => import("./pages/DetailPage"));
+const HomePage = React.lazy(() => import("./pages/HomePage"));
+const SearchPage = React.lazy(() => import("./pages/SearchPage"));
+const AlbumPage = React.lazy(() => import("./pages/AlbumPage"));
 
 const App: React.FC = () => {
 	return (
@@ -19,12 +23,14 @@ const App: React.FC = () => {
 			<BrowserRouter>
 				<Navbar />
 				<div className="app-wrapper">
-					<Switch>
-						<Route exact path="/" component={HomePage} />
-						<Route path="/bai-hat/:id" component={DetailPage} />
-						<Route path="/album/:id" component={AlbumPage} />
-						<Route path="/tim-kiem/" component={SearchPage} />
-					</Switch>
+					<Suspense fallback={<div>...Loading</div>}>
+						<Switch>
+							<Route exact path="/" component={HomePage} />
+							<Route path="/bai-hat/:id" component={DetailPage} />
+							<Route path="/album/:id" component={AlbumPage} />
+							<Route path="/tim-kiem/" component={SearchPage} />
+						</Switch>
+					</Suspense>
 				</div>
 				<Footer />
 				<ToTopButton />

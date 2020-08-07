@@ -1,14 +1,17 @@
+// Libs
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+// Components
+import withLoading from "@HOCs/withLoading";
 import MainSong from "./mains/MainSong";
 import Comments from "./mains/Comments";
-import SongList from "@GlobalComponents/SongList";
+import SongList from "@GlobalComponents/mains/SongList";
+// Actions
 import { getSongDetail, emptyDetail } from "@actions/detailAction";
-import "./style.scss";
-
-import withLoading from "@HOCs/withLoading";
+// Types
 import { RootState } from "@constants/state";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	match: {
@@ -19,6 +22,7 @@ interface Props {
 }
 
 const DetailPage: React.FC<Props> = ({ match }) => {
+	// Fetching data
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getSongDetail(parseInt(match.params.id)));
@@ -26,7 +30,6 @@ const DetailPage: React.FC<Props> = ({ match }) => {
 			dispatch(emptyDetail());
 		};
 	}, [dispatch, match.params.id]);
-
 	const { song, similar, comments } = useSelector(
 		(state: RootState) => state.detail
 	);
@@ -38,11 +41,11 @@ const DetailPage: React.FC<Props> = ({ match }) => {
 		isLoadingSong || isLoadingComments || isLoadingSimilar || !dataSong.title
 	)(
 		<div className="detail-page-wrapper">
-			<div className="col-span-2">
+			<div className="main">
 				<MainSong song={dataSong} />
 				<Comments list={dataComments} />
 			</div>
-			<div className="col-span-1">
+			<div className="recommend">
 				<SongList name="Cùng ca sĩ" list={dataSimilar} />
 			</div>
 		</div>

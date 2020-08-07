@@ -1,0 +1,14 @@
+.nav-bot-wrapper {
+	padding: 7px 0;
+	background-color: #e4e4e4;
+	.nav-bot-container {
+		width: 1000px;
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		a {
+			color: #242424;
+		}
+	}
+}

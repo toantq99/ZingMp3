@@ -1,6 +1,6 @@
 import { Album, AlbumDetail } from "../types/albumTypes";
 
-export const emptyAlbum: Album = {
+export const EMPTY_ALBUM: Album = {
 	id: 0,
 	title: "",
 	artist: {
@@ -19,8 +19,8 @@ export const emptyAlbum: Album = {
 	type: "album",
 };
 
-export const emptyAlbumDetail: AlbumDetail = {
-	...emptyAlbum,
+export const EMPTY_ALBUM_DETAIL: AlbumDetail = {
+	...EMPTY_ALBUM,
 	tracks: {
 		data: [],
 	},

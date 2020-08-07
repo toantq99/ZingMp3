@@ -1,0 +1,22 @@
+.wchart-item-song-wrapper {
+	border-bottom: 1px solid #dbdbdb;
+	padding: 15px 10px;
+	display: flex;
+	align-items: center;
+	.rank {
+		margin-right: 10px;
+		font-size: 20px;
+	}
+	.info {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		text-overflow: ellipsis;
+		width: 200px;
+	}
+	.count {
+		margin-left: auto;
+		font-size: 15px;
+	}
+}

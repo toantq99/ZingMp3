@@ -1,0 +1,13 @@
+.news-item-wrapper {
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #dbdbdb;
+	img {
+		width: 100px;
+		height: 70px;
+	}
+	.content {
+		margin-left: 10px;
+	}
+}

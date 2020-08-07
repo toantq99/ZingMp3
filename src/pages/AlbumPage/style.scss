@@ -1,15 +1,10 @@
 .album-page-wrapper {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 20px;
-
-	@for $i from 1 through 3 {
-		.col-span-#{$i} {
-			grid-column: span $i;
-		}
+	grid-template-columns: 66.67% 33.33%;
+	.main {
+		margin-right: 8px;
 	}
-
-	.margin-y {
-		margin: 20px 0;
+	.album-list {
+		margin-left: 8px;
 	}
 }

@@ -4,9 +4,9 @@ import {
 	Comment,
 	SongInAlbum,
 } from "../types/songDetailTypes";
-import { emptyAlbum } from "./album";
+import { EMPTY_ALBUM } from "./album";
 
-export const emptySinger: Singer = {
+export const EMPTY_SINGER: Singer = {
 	id: 0,
 	name: "",
 	link: "",
@@ -15,7 +15,7 @@ export const emptySinger: Singer = {
 	tracklist: "",
 };
 
-export const emptySongInAlbum: SongInAlbum = {
+export const EMPTY_SONG_IN_ALBUM: SongInAlbum = {
 	id: 0,
 	title: "",
 	title_short: "",
@@ -23,16 +23,16 @@ export const emptySongInAlbum: SongInAlbum = {
 	link: "",
 	preview: "",
 	release_date: "",
-	artist: emptySinger,
+	artist: EMPTY_SINGER,
 	type: "track",
 };
 
-export const emptySongDetail: SongDetail = {
-	...emptySongInAlbum,
-	album: emptyAlbum,
+export const EMPTY_SONG_DETAIL: SongDetail = {
+	...EMPTY_SONG_IN_ALBUM,
+	album: EMPTY_ALBUM,
 };
 
-export const emptyComment: Comment = {
+export const EMPTY_COMMENT: Comment = {
 	author: {
 		id: 0,
 		name: "",

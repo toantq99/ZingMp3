@@ -1,9 +1,11 @@
+// Libs
 import React from "react";
-import "./style.scss";
+// Components
 import Player from "@DetailPage/components/Player";
-import ButtonGroup from "@DetailPage/components/ButtonGroup";
-import SingerInfo from "@DetailPage/dumps/SingerInfo";
-import SongInfo from "@DetailPage/dumps/SongInfo";
+import SingerInfo from "@DetailPage/components/SingerInfo";
+import SongInfo from "@DetailPage/components/SongInfo";
+import PlayerBottom from "@DetailPage/components/PlayerBottom";
+// Types
 import { SongDetail } from "@constants/types/songDetailTypes";
 
 interface Props {
@@ -11,17 +13,11 @@ interface Props {
 }
 
 const MainSong: React.FC<Props> = ({ song }) => {
-	const fakeCount = Math.floor(Math.random() * 30000000);
 	return (
 		<div className="main-song-wrapper">
 			<SongInfo song={song} />
 			<Player song={song} />
-			<div className="player-bottom">
-				<span>
-					<ButtonGroup song={song} />
-				</span>
-				<span>{fakeCount} lượt nghe</span>
-			</div>
+			<PlayerBottom song={song} />
 			<SingerInfo singer={song.artist} />
 		</div>
 	);

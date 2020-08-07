@@ -16,7 +16,7 @@ const generateData = (top3: Array<SongDetail>) => {
 		datasets: top3.map((item, id) => ({
 			data: generateCount(id),
 			label: item.title,
-			borderColor: id === 0 ? "blue" : id === 1 ? "green" : "red",
+			borderColor: id === 0 ? "#19a63a" : id === 1 ? "#4d70e3" : "#cf1919",
 			fill: false,
 		})),
 	};

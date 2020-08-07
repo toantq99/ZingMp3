@@ -1,0 +1,16 @@
+.btn-thumbnail-wrapper {
+	border: none;
+	background: none;
+	outline: none;
+	position: absolute;
+	// transition: all 0.5s ease-in-out;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	pointer-events: none;
+	span {
+		font-size: 30px;
+		transition: all 0.5s ease-in-out;
+	}
+}

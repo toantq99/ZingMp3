@@ -1,0 +1,26 @@
+.hot-artist-item-wrapper {
+	position: relative;
+	overflow: hidden;
+	img {
+		transition: all 0.5s ease-in-out;
+		height: 100%;
+	}
+	.artist {
+		color: #ffffff;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+		transition: all 0.5s ease-in-out;
+	}
+	&:hover {
+		img {
+			filter: brightness(50%);
+			transform: scale(1.2);
+		}
+		.artist {
+			font-size: 20px;
+		}
+	}
+}
