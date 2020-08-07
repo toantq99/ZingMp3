@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 // Components
 import withLoading from "@HOCs/withLoading";
 import SingerInfo from "@DetailPage/components/SingerInfo";
+import PlayerBottom from "@DetailPage/components/PlayerBottom";
 import TrackInfo from "./mains/TrackInfo";
 import AlbumPlayer from "./mains/AlbumPlayer";
 import TrackList from "./mains/TrackList";
-import ButtonGroup from "@DetailPage/components/ButtonGroup";
 // Types
 import { RootState } from "@constants/state/index";
 // Actions
@@ -54,8 +54,7 @@ const AlbumPage: React.FC<Props> = ({ match }) => {
 						currentTrack,
 					}}
 				/>
-				{/* <PlayerBottom song={currentTrack} /> */}
-				<ButtonGroup song={currentTrack} />
+				<PlayerBottom song={currentTrack} />
 				<SingerInfo singer={detail.artist} />
 			</div>
 			<div className="album-list">

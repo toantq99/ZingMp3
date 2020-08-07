@@ -9,7 +9,7 @@ import {
 import "./style.scss";
 
 const Top5ItemCaret: React.FC = () => {
-	const fakeStatus = Math.floor(Math.random() * 5);
+	const fakeStatus = Math.floor(Math.random() * 10 - 5);
 	return (
 		<div className="top5-item-caret-wrapper">
 			{fakeStatus > 0 ? (

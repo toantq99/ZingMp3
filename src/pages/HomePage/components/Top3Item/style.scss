@@ -3,16 +3,11 @@
 	border-radius: 3px;
 	color: white;
 	padding: 2px 3px;
-	background: rgba(255, 255, 255, 0.08);
+	background-color: rgba(255, 255, 255, 0.08);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	* {
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.3);
 	}
 }
