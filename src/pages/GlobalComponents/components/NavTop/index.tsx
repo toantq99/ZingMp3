@@ -1,12 +1,12 @@
 // Libs
 import React from "react";
-import { Link } from "react-router-dom";
 // Components
 import NavTopLogo from "@GlobalComponents/atoms/NavTopLogo";
 import NavSearch from "../NavSearch";
 import NavTopList from "../NavTopList";
 // SCSS
 import "./style.scss";
+import NavLoginButton from "../NavLoginButton";
 
 const NavTop: React.FC = () => {
 	return (
@@ -15,7 +15,7 @@ const NavTop: React.FC = () => {
 				<NavTopLogo />
 				<NavSearch />
 				<NavTopList />
-				<Link to="/">Đăng nhập</Link>
+				<NavLoginButton />
 			</div>
 		</div>
 	);
