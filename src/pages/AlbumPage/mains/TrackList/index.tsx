@@ -3,10 +3,10 @@ import React from "react";
 // Components
 import TrackItem from "../../components/TrackItem";
 // Types
-import { SongInAlbum } from "@constants/types/songDetailTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
 
 interface Props {
-	list: SongInAlbum[];
+	list: Track[];
 	currentTrackIndex: number;
 	currentTime: number;
 	duration: number;

@@ -4,10 +4,10 @@ import React from "react";
 import SongInfoAlbum from "../SongInfoAlbum";
 import SongInfoDate from "../SongInfoDate";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 
 interface Props {
-	song: SongDetail;
+	song: TrackDetail;
 }
 
 const SongInfo: React.FC<Props> = ({ song }) => {

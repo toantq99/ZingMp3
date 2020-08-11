@@ -3,14 +3,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // Components
-import withLoading from "@HOCs/withLoading";
+import withFetching from "@HOCs/withFetching";
 import PaginateBot from "./mains/PaginateBot";
 import PaginateAside from "./mains/PaginateAside";
 import SongList from "@GlobalComponents/mains/SongList";
 // Actions
-import { searchSong, emptySearch } from "@actions/searchAction";
+import { searchSong, emptySearch } from "@actions/SearchAction";
 // Types
-import { RootState } from "@constants/state";
+import { RootState } from "@constants/State";
 // SCSS
 import "./style.scss";
 
@@ -25,8 +25,8 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
 	const query = searchParams.get("query") || "";
-	const page = parseInt(searchParams.get("page") || "");
-	const pageSize = parseInt(searchParams.get("limit") || "");
+	const page = parseInt(searchParams.get("page") || "") || 1;
+	const pageSize = parseInt(searchParams.get("limit") || "") || 20;
 	useEffect(() => {
 		dispatch(searchSong(query, page, pageSize));
 		return () => {
@@ -34,7 +34,9 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 		};
 	}, [dispatch, query, page, pageSize]);
 
-	const { isLoading, data } = useSelector((state: RootState) => state.search);
+	const { isLoading = true, searchResult, error } = useSelector(
+		(state: RootState) => state.search
+	);
 
 	const pageChangeHandler = (
 		_query: string,
@@ -47,23 +49,37 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
-	return withLoading(isLoading)(
+	return withFetching({ isLoading, error })(
 		<div className="search-page-wrapper">
 			<div className="left">
 				<SongList
 					name={`${(page - 1) * pageSize + 1}-${
-						page * pageSize < data.total ? page * pageSize : data.total
-					}/${data.total} kết quả tìm kiếm cho ${query}`}
-					list={data.data || []}
+						page * pageSize < searchResult.total
+							? page * pageSize
+							: searchResult.total
+					}/${searchResult.total} kết quả tìm kiếm cho ${query}`}
+					list={searchResult.data || []}
 					size="large"
 				/>
 				<PaginateBot
-					{...{ total: data.total, page, pageSize, query, pageChangeHandler }}
+					{...{
+						total: searchResult.total,
+						page,
+						pageSize,
+						query,
+						pageChangeHandler,
+					}}
 				/>
 			</div>
 			<div className="right">
 				<PaginateAside
-					{...{ total: data.total, page, pageSize, query, pageChangeHandler }}
+					{...{
+						total: searchResult.total,
+						page,
+						pageSize,
+						query,
+						pageChangeHandler,
+					}}
 				/>
 			</div>
 		</div>

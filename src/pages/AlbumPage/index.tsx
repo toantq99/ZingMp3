@@ -2,16 +2,17 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Components
-import withLoading from "@HOCs/withLoading";
+import withFetching from "@HOCs/withFetching";
 import SingerInfo from "@DetailPage/components/SingerInfo";
 import PlayerBottom from "@DetailPage/components/PlayerBottom";
 import TrackInfo from "./mains/TrackInfo";
 import AlbumPlayer from "./mains/AlbumPlayer";
 import TrackList from "./mains/TrackList";
 // Types
-import { RootState } from "@constants/state/index";
+import { RootState } from "@constants/State/index";
+import { EMPTY_ALBUM_DETAIL } from "@constants/EmptyValues/Album";
 // Actions
-import { getAlbumDetail } from "@actions/albumAction";
+import { getAlbumDetail } from "@actions/AlbumAction";
 //SCSS
 import "./style.scss";
 
@@ -34,14 +35,16 @@ const AlbumPage: React.FC<Props> = ({ match }) => {
 		dispatch(getAlbumDetail(parseInt(match.params.id)));
 	}, [dispatch, match.params.id]);
 
-	const { isLoading, detail } = useSelector((state: RootState) => state.album);
-	const { data: tracks } = detail.tracks;
+	const { isLoading, data: album = EMPTY_ALBUM_DETAIL, error } = useSelector(
+		(state: RootState) => state.album
+	);
+	const { data: tracks } = album.tracks;
 	const currentTrack = tracks[currentTrackIndex] || { artist: {} };
 
-	return withLoading(isLoading)(
+	return withFetching({ isLoading, error })(
 		<div className="album-page-wrapper">
 			<div className="main">
-				<TrackInfo track={currentTrack} album={detail} />
+				<TrackInfo track={currentTrack} album={album} />
 				<AlbumPlayer
 					{...{
 						currentTrackIndex,
@@ -50,12 +53,12 @@ const AlbumPage: React.FC<Props> = ({ match }) => {
 						setDuration,
 						setCurrentTime,
 						maxLength: tracks.length,
-						detail,
+						album,
 						currentTrack,
 					}}
 				/>
 				<PlayerBottom song={currentTrack} />
-				<SingerInfo singer={detail.artist} />
+				<SingerInfo singer={album.artist} />
 			</div>
 			<div className="album-list">
 				<TrackList

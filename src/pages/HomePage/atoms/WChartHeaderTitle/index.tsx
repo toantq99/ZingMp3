@@ -2,20 +2,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
-import { WeekChartType } from "@constants/types/homeTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
+import { MainTypes } from "@constants/DataTypes/HomeTypes";
 
 const WChartHeaderItemTitle: React.FC<{
-	item: Album | SongDetail;
+	item: Album | TrackDetail;
 	type: number;
 }> = ({ item, type }) => {
 	return (
 		<Link
 			to={item.type === "track" ? `/bai-hat/${item.id}` : `/album/${item.id}`}
 		>
-			{type === WeekChartType.Track
-				? (item as SongDetail).title_short
+			{type === MainTypes.Track
+				? (item as TrackDetail).title_short
 				: (item as Album).title}
 		</Link>
 	);

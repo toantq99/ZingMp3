@@ -1,14 +1,25 @@
 import React from "react";
-import { Spin, Row, Col } from "antd";
+import { Spin } from "antd";
 
-const withLoading = (isLoading: boolean) => (Component: any) => {
+const withLoading = (isLoading: boolean, key?: number, height?: number) => (
+	Component: any
+) => {
 	if (isLoading)
 		return (
-			<Row align="middle" justify="center" style={{ height: 300 }}>
-				<Col>
-					<Spin size="large" />
-				</Col>
-			</Row>
+			<div
+				className="spin-wrapper"
+				style={{
+					margin: "20px 0",
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+					width: "100%",
+					height: height || 300,
+				}}
+				key={key}
+			>
+				<Spin size="large" />
+			</div>
 		);
 	else return Component;
 };

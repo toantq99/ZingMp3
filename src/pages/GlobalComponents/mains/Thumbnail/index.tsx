@@ -5,14 +5,14 @@ import { Dropdown } from "antd";
 import ContextMenu from "../ContextMenu";
 import ThumbnailImage from "@GlobalComponents/components/ThumbnailImage";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
 import { Link } from "react-router-dom";
 
 interface Props {
 	width: number;
 	height: number;
-	item: SongDetail | Album;
+	item: TrackDetail | Album;
 }
 const Thumbnail: React.FC<Props> = ({ width, height, item }) => {
 	return (

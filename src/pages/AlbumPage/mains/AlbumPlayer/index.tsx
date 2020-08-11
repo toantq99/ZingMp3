@@ -3,8 +3,8 @@ import React from "react";
 // Components
 import Player from "@DetailPage/components/Player";
 // Types
-import { SongInAlbum } from "@constants/types/songDetailTypes";
-import { AlbumDetail } from "@constants/types/albumTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
+import { AlbumDetail } from "@constants/DataTypes/AlbumTypes";
 
 interface Props {
 	duration: number;
@@ -12,9 +12,9 @@ interface Props {
 	currentTrackIndex: number;
 	setCurrentTrackIndex: React.Dispatch<React.SetStateAction<number>>;
 	setCurrentTime: React.Dispatch<React.SetStateAction<number>>;
-	detail: AlbumDetail;
+	album: AlbumDetail;
 	maxLength: number;
-	currentTrack: SongInAlbum;
+	currentTrack: Track;
 }
 
 const AlbumPlayer: React.FC<Props> = ({
@@ -23,13 +23,13 @@ const AlbumPlayer: React.FC<Props> = ({
 	currentTrackIndex,
 	setCurrentTrackIndex,
 	setCurrentTime,
-	detail,
+	album,
 	maxLength,
 	currentTrack,
 }) => (
 	<Player
 		song={currentTrack}
-		cover={detail.cover}
+		cover={album.cover}
 		onListen={(e: any) => {
 			setCurrentTime(e.target.currentTime);
 			if (

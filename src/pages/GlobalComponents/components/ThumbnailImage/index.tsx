@@ -3,14 +3,14 @@ import React from "react";
 // Components
 import ButtonThumbnail from "@GlobalComponents/atoms/ButtonThumbnail";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
 // SCSS
 import "./style.scss";
 interface Props {
 	width: number;
 	height: number;
-	item: SongDetail | Album;
+	item: TrackDetail | Album;
 }
 
 const ThumbnailImage: React.FC<Props> = ({ item, width, height }) => {

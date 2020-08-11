@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import homeReducer from "./homeReducer";
-import detailReducer from "./detailReducer";
-import favReducer from "./favReducer";
-import searchReducer from "./searchReducer";
-import albumReducer from "./albumReducer";
+import homeReducer from "./HomeReducer";
+import detailReducer from "./DetailReducer";
+import favReducer from "./FavReducer";
+import searchReducer from "./SearchReducer";
+import albumReducer from "./AlbumReducer";
 export default combineReducers({
 	home: homeReducer,
 	detail: detailReducer,

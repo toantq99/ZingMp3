@@ -4,11 +4,11 @@ import React from "react";
 import TrackInfoAlbum from "@AlbumPage/components/TrackInfoAlbum";
 import TrackInfoDate from "@AlbumPage/components/TrackInfoDate";
 //Types
-import { SongInAlbum } from "@constants/types/songDetailTypes";
-import { AlbumDetail } from "@constants/types/albumTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
+import { AlbumDetail } from "@constants/DataTypes/AlbumTypes";
 
 interface Props {
-	track: SongInAlbum;
+	track: Track;
 	album: AlbumDetail;
 }
 

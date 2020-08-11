@@ -4,13 +4,11 @@ import React from "react";
 import ListenCount from "@DetailPage/atoms/ListenCount";
 import ButtonGroup from "../ButtonGroup";
 // Types
-import { SongInAlbum, SongDetail } from "@constants/types/songDetailTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
-const PlayerBottom: React.FC<{ song: SongInAlbum | SongDetail }> = ({
-	song,
-}) => {
+const PlayerBottom: React.FC<{ song: Track }> = ({ song }) => {
 	return (
 		<div className="player-bottom-wrapper">
 			<ButtonGroup song={song} />

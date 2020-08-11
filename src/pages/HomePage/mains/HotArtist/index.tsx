@@ -2,13 +2,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Components
-import withLoading from "@HOCs/withLoading";
+import withFetching from "@HOCs/withFetching";
 import TitleWithArrow from "@GlobalComponents/mains/TitleWithArrow";
 import HotArtistItem from "@HomePage/components/HotArtistItem";
 // Actions
-import { getArtistChart } from "@actions/homeAction";
+import { getArtistChart } from "@actions/HomeAction";
 // Types
-import { RootState } from "@constants/state";
+import { RootState } from "@constants/State";
 // SCSS
 import "./style.scss";
 
@@ -19,25 +19,28 @@ const HotArtist: React.FC = () => {
 		return () => {};
 	}, [dispatch]);
 
-	const { artistChart } = useSelector((state: RootState) => state.home.chart);
-	const { isLoading = false, data = [] } = artistChart;
-	const [first, ...rest] = data;
+	const { isLoading, data = [], error } = useSelector(
+		(state: RootState) => state.home.artistChart
+	);
+	const [first, ...rest] = data || [];
 
-	return withLoading(isLoading || !first)(
+	return (
 		<div className="hot-artist-wrapper">
 			<TitleWithArrow title="nghệ sĩ hot" />
-			<div className="hot-artist-body">
-				<HotArtistItem item={first} width={215} height={215} area="top1" />
-				{rest.map((artist, id) => (
-					<HotArtistItem
-						item={artist}
-						width={100}
-						height={100}
-						key={id}
-						area={"top" + (id + 2)}
-					/>
-				))}
-			</div>
+			{withFetching({ isLoading: isLoading || !first, error })(
+				<div className="hot-artist-body">
+					<HotArtistItem item={first} width={215} height={215} area="top1" />
+					{rest.map((artist, id) => (
+						<HotArtistItem
+							item={artist}
+							width={100}
+							height={100}
+							key={id}
+							area={"top" + (id + 2)}
+						/>
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

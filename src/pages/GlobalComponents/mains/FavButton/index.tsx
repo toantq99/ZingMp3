@@ -6,9 +6,9 @@ import { HeartFilled } from "@ant-design/icons";
 // Components
 import FavDrawer from "@GlobalComponents/components/FavDrawer";
 // Types
-import { RootState } from "@constants/state";
+import { RootState } from "@constants/State";
 // Actions
-import { dispatchListFromStorage } from "@actions/favListAction";
+import { dispatchListFromStorage } from "@actions/FavListAction";
 // SCSS
 import "./style.scss";
 

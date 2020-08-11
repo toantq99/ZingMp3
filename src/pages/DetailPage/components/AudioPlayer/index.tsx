@@ -2,12 +2,12 @@
 import React from "react";
 import AudioPlayer from "react-h5-audio-player";
 // Types
-import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
-	song: SongDetail | SongInAlbum;
+	song: Track;
 	onListen: any;
 	onPlay: any;
 }

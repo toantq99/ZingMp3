@@ -7,14 +7,14 @@ import Thumbnail from "@GlobalComponents/mains/Thumbnail";
 import Top5ItemInfo from "@HomePage/components/Top5ItemInfo";
 import ButtonGroupInline from "@GlobalComponents/mains/ButtonGroupInline";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 import Top5ItemCount from "@HomePage/atoms/Top5ItemCount";
 
 interface Props {
 	rank: number;
-	item: SongDetail;
+	item: TrackDetail;
 }
 
 const Top5Item: React.FC<Props> = ({ rank, item }) => {

@@ -1,18 +1,23 @@
-import axios from "axios";
-import { notification } from "antd";
+// Libs
 import { Dispatch } from "react";
-import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
+// Fetcher
+import { fetcher } from "./Fetcher";
+import { notification } from "antd";
+import { TrackDetail, Track } from "@constants/DataTypes/TrackTypes";
 import {
-	favActionTypes,
-	FavListAction,
-	FavListStorageAction,
-} from "@constants/types/favListTypes";
+	Action_UpdateFavList,
+	Action_GetFavListStorage,
+	FavList,
+	FavItem,
+} from "@constants/DataTypes/FavListTypes";
+import { ActionType_FavList } from "@constants/ActionTypes/FavListActions";
+import { EMPTY_TRACK_DETAIL } from "@constants/EmptyValues/Track";
 
-export const addFav = (song: SongDetail | SongInAlbum) => (
-	dispatch: Dispatch<FavListAction>
+export const addFav = (song: Track | TrackDetail) => (
+	dispatch: Dispatch<Action_UpdateFavList>
 ) => {
 	dispatch({
-		type: favActionTypes.ADD_FAV,
+		type: ActionType_FavList.ADD_FAV,
 		payload: song.id,
 	});
 	const list = getListFromStorage();
@@ -25,11 +30,11 @@ export const addFav = (song: SongDetail | SongInAlbum) => (
 	openSuccessNoti(song);
 };
 
-export const removeFav = (song: SongDetail | SongInAlbum) => (
-	dispatch: Dispatch<FavListAction>
+export const removeFav = (song: Track | TrackDetail) => (
+	dispatch: Dispatch<Action_UpdateFavList>
 ) => {
 	dispatch({
-		type: favActionTypes.REMOVE_FAV,
+		type: ActionType_FavList.REMOVE_FAV,
 		payload: song.id,
 	});
 	const list = getListFromStorage();
@@ -55,25 +60,18 @@ export const getListFromStorage = () => {
 };
 
 export const dispatchListFromStorage = () => (
-	dispatch: Dispatch<FavListStorageAction>
+	dispatch: Dispatch<Action_GetFavListStorage>
 ) => {
 	dispatch({
-		type: favActionTypes.GET_FAV_STORAGE,
+		type: ActionType_FavList.GET_FAV_STORAGE,
 		payload: getListFromStorage(),
 	});
 };
 
-export const getFullFavList = (list: number[]) => {
+export const getFullFavList = (list: FavList) => {
 	const promises = list.map((id) => {
-		return axios({
-			method: "GET",
+		return fetcher({
 			url: `https://deezerdevs-deezer.p.rapidapi.com/track/${id}`,
-			headers: {
-				"content-type": "application/octet-stream",
-				"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-				"x-rapidapi-key": "3319f523f7msh49e3d6c5c3ee4b4p19f9fajsn66e90ad6334c",
-				useQueryString: true,
-			},
 		}).then((res) => {
 			if (res.status === 200) return res.data;
 			else return null;
@@ -82,35 +80,46 @@ export const getFullFavList = (list: number[]) => {
 	return Promise.all(promises);
 };
 
-export const getFullFavItem = (id: number) => {
-	return axios({
-		method: "GET",
+export const getFullFavItem = (id: FavItem) => {
+	return fetcher({
 		url: `https://deezerdevs-deezer.p.rapidapi.com/track/${id}`,
-		headers: {
-			"content-type": "application/octet-stream",
-			"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-			"x-rapidapi-key": "3319f523f7msh49e3d6c5c3ee4b4p19f9fajsn66e90ad6334c",
-			useQueryString: true,
-		},
 	})
 		.then((res) => {
-			if (res.status === 200) return res.data;
-			else return null;
+			console.log(res);
+			const { error } = res.data;
+			if (error) {
+				return {
+					data: {
+						...EMPTY_TRACK_DETAIL,
+						id,
+					},
+					error,
+				};
+			} else return { data: res.data };
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => {
+			console.log(err);
+			return {
+				data: {
+					...EMPTY_TRACK_DETAIL,
+					id,
+				},
+				error: err,
+			};
+		});
 };
 
-const openSuccessNoti = (song: SongDetail | SongInAlbum) => {
+const openSuccessNoti = (track: Track) => {
 	notification["success"]({
 		message: "Thêm thành công",
-		description: `${song.title} - ${song.artist.name} đã được thêm vào danh sách yêu thích`,
+		description: `${track.title} - ${track.artist.name} đã được thêm vào danh sách yêu thích`,
 		placement: "topRight",
 	});
 };
-const openErrorNoti = (song: SongDetail | SongInAlbum) => {
+const openErrorNoti = (track: Track) => {
 	notification["error"]({
 		message: "Xóa thành công",
-		description: `${song.title} - ${song.artist.name} đã được xóa khỏi danh sách yêu thích`,
+		description: `${track.title} - ${track.artist.name} đã được xóa khỏi danh sách yêu thích`,
 		placement: "topRight",
 	});
 };

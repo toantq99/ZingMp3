@@ -4,7 +4,7 @@ import { Empty, Drawer } from "antd";
 // Components
 import FavItem from "../FavItem";
 // Types
-import { FavList } from "@constants/types/favListTypes";
+import { FavList } from "@constants/DataTypes/FavListTypes";
 
 interface Props {
 	favList: FavList;

@@ -5,12 +5,12 @@ import ButtonGroupInline from "@GlobalComponents/mains/ButtonGroupInline";
 import SongItemInfo from "../SongItemInfo";
 import Thumbnail from "@GlobalComponents/mains/Thumbnail";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
-	item: SongDetail;
+	item: TrackDetail;
 	size?: string;
 }
 
@@ -24,7 +24,7 @@ const SongItem: React.FC<Props> = ({ item, size }) => {
 			/>
 			<SongItemInfo item={item} size={size} />
 			<div className="button-group-container">
-				<ButtonGroupInline item={item} size={size} />
+				<ButtonGroupInline item={item} />
 			</div>
 		</div>
 	);

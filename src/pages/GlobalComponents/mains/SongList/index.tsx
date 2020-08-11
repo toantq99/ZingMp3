@@ -4,11 +4,12 @@ import React from "react";
 import SongItem from "../../components/SongItem";
 import TitleWithArrow from "../TitleWithArrow";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Empty } from "antd";
 
 interface Props {
 	name: string;
-	list: SongDetail[];
+	list: TrackDetail[];
 	size?: string;
 }
 
@@ -16,9 +17,11 @@ const SongList: React.FC<Props> = ({ name, list, size }) => {
 	return (
 		<div className="song-list-wrapper">
 			<TitleWithArrow title={name} />
-			{list.map((item, id) => (
-				<SongItem key={id} item={item} size={size} />
-			))}
+			{list.length ? (
+				list.map((item, id) => <SongItem key={id} item={item} size={size} />)
+			) : (
+				<Empty />
+			)}
 		</div>
 	);
 };

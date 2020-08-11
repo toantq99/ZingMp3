@@ -3,9 +3,9 @@ import React from "react";
 // Components
 import Top5Item from "@HomePage/components/Top5Item";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 
-const Top5List: React.FC<{ list: SongDetail[] }> = ({ list }) => {
+const Top5List: React.FC<{ list: TrackDetail[] }> = ({ list }) => {
 	return (
 		<div className="top5-list-wrapper">
 			{list.map((item, id) => (

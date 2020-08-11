@@ -1,11 +1,11 @@
 import React from "react";
-import { WeekChartType } from "@constants/types/homeTypes";
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+import { MainTypes } from "@constants/DataTypes/HomeTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
 
 interface Props {
 	type: number;
-	item: SongDetail | Album;
+	item: TrackDetail | Album;
 }
 
 const WChartHeaderBackground: React.FC<Props> = ({ type, item, children }) => {
@@ -14,8 +14,8 @@ const WChartHeaderBackground: React.FC<Props> = ({ type, item, children }) => {
 			className="header-background"
 			style={{
 				background: `linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,1)), url("${
-					type === WeekChartType.Track
-						? (item as SongDetail).album.cover
+					type === MainTypes.Track
+						? (item as TrackDetail).album.cover
 						: (item as Album).cover
 				}")`,
 			}}

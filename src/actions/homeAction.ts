@@ -1,111 +1,170 @@
 // Libs
 import { Dispatch } from "react";
-// Types
-import {
-	homeActionTypes,
-	HomeActionWithQuery,
-	HomeActionArtistChart,
-	HomeActionWeekChart,
-	HomeActionSongChart,
-} from "@constants/types/homeTypes";
-import { LoadingDispatchAction } from "@constants/types/loadingTypes";
-// Actions
-import { setLoadingHome } from "./loadingAction";
 // Fetcher
-import { fetcher } from "./fetcher";
+import { fetcher } from "./Fetcher";
+// Types
+import { Album } from "@constants/DataTypes/AlbumTypes";
+import { Dispatch_Loading } from "@constants/DataTypes/LoadingTypes";
+import {
+	Action_GetListWithQuery,
+	Action_GetList,
+} from "@constants/DataTypes/HomeTypes";
+import { TrackDetail, Artist } from "@constants/DataTypes/TrackTypes";
+import { ActionType_Home } from "@constants/ActionTypes/HomeActions";
+// Actions
+import {
+	setLoadingSuggestList,
+	setLoadingCollection,
+	setLoadingTrackChart,
+	setLoadingArtistChart,
+	setLoadingWeekChartTracks,
+	setLoadingWeekChartAlbums,
+} from "./LoadingAction";
 
-export const getSuggestList = (queryList: string[]) => (
-	dispatch: Dispatch<LoadingDispatchAction | HomeActionWithQuery>
+export const getSuggestList = (query: string) => (
+	dispatch: Dispatch<Dispatch_Loading | Action_GetListWithQuery<TrackDetail>>
 ) => {
-	dispatch(setLoadingHome("suggest", true));
-	Promise.all(
-		queryList.map(async (query) => {
-			const response = await fetcher({
-				url: "https://deezerdevs-deezer.p.rapidapi.com/search",
-				params: { q: query, limit: 10 },
-			});
-			return dispatch({
-				type: homeActionTypes.suggest.GET_SUGGEST,
-				payload: { query, data: response.data.data },
-			});
-		})
-	).then(() => dispatch(setLoadingHome("suggest", false)));
-};
-
-export const getCollection = (queryList: string[]) => (
-	dispatch: Dispatch<LoadingDispatchAction | HomeActionWithQuery>
-) => {
-	dispatch(setLoadingHome("collection", true));
-
-	Promise.all(
-		queryList.map(async (query) => {
-			const response = await fetcher({
-				url: "https://deezerdevs-deezer.p.rapidapi.com/search",
-				params: {
-					q: query,
-					limit: 8,
-				},
-			});
-			return dispatch({
-				type: homeActionTypes.collection.GET_COLLECTION,
-				payload: { query, data: response.data.data },
-			});
-		})
-	).then(() => dispatch(setLoadingHome("collection", false)));
-};
-
-export const getSongChart = () => (
-	dispatch: Dispatch<HomeActionSongChart | LoadingDispatchAction>
-) => {
-	dispatch(setLoadingHome("songchart", true));
-	fetcher({ url: "https://api.deezer.com/chart/tracks/tracks", useProxy: true })
+	dispatch(setLoadingSuggestList(query, true));
+	fetcher({
+		url: "https://deezerdevs-deezer.p.rapidapi.com/search",
+		params: { q: query, limit: 10 },
+	})
 		.then((response) => {
-			dispatch({
-				type: homeActionTypes.chart.GET_SONG_CHART,
-				payload: response.data.data.slice(0, 5),
+			const { error, data } = response.data;
+			return dispatch({
+				type: ActionType_Home.suggestList.GET_SUGGESTLIST,
+				payload: { query, data, error },
 			});
-			dispatch(setLoadingHome("songchart", false));
 		})
+		.then(() => dispatch(setLoadingSuggestList(query, false)))
+		.catch((error) =>
+			dispatch({
+				type: ActionType_Home.suggestList.GET_SUGGESTLIST,
+				payload: { query, error },
+			})
+		);
+};
+
+export const getCollection = (query: string) => (
+	dispatch: Dispatch<Dispatch_Loading | Action_GetListWithQuery<TrackDetail>>
+) => {
+	dispatch(setLoadingCollection(query, true));
+	fetcher({
+		url: "https://deezerdevs-deezer.p.rapidapi.com/search",
+		params: { q: query, limit: 8 },
+	})
+		.then((response) => {
+			const { error, data } = response.data;
+			return dispatch({
+				type: ActionType_Home.collection.GET_COLLECTION,
+				payload: { query, data, error },
+			});
+		})
+		.then(() => dispatch(setLoadingCollection(query, false)))
+		.catch((error) =>
+			dispatch({
+				type: ActionType_Home.collection.GET_COLLECTION,
+				payload: { query, error },
+			})
+		);
+};
+
+export const getTrackChart = () => (
+	dispatch: Dispatch<Dispatch_Loading | Action_GetList<TrackDetail>>
+) => {
+	dispatch(setLoadingTrackChart(true));
+	fetcher({
+		url: "https://api.deezer.com/chart/tracks/tracks",
+		useProxy: true,
+		params: {
+			limit: 5,
+		},
+	})
+		.then((response) => {
+			const { error, data } = response.data;
+			dispatch({
+				type: ActionType_Home.trackChart.GET_TRACKCHART,
+				payload: { data, error },
+			});
+		})
+		.then(() => dispatch(setLoadingTrackChart(false)))
 		.catch((error) => {
-			console.log(error);
+			dispatch({
+				type: ActionType_Home.trackChart.GET_TRACKCHART,
+				payload: { error },
+			});
 		});
 };
 
 export const getArtistChart = () => (
-	dispatch: Dispatch<LoadingDispatchAction | HomeActionArtistChart>
+	dispatch: Dispatch<Dispatch_Loading | Action_GetList<Artist>>
 ) => {
-	dispatch(setLoadingHome("artistchart", true));
-
-	fetcher({ url: "https://api.deezer.com/chart/0/artists", useProxy: true })
+	dispatch(setLoadingArtistChart(true));
+	fetcher({
+		url: "https://api.deezer.com/chart/artists/artists",
+		useProxy: true,
+		params: { limit: 9 },
+	})
 		.then((response) => {
-			if (response.status === 200) {
-				dispatch({
-					type: homeActionTypes.chart.GET_ARTIST_CHART,
-					payload: response.data.data.slice(0, -1),
-				});
-				dispatch(setLoadingHome("artistchart", false));
-			}
+			const { error, data } = response.data;
+			dispatch({
+				type: ActionType_Home.artistChart.GET_ARTISTCHART,
+				payload: { data, error },
+			});
 		})
+		.then(() => dispatch(setLoadingArtistChart(false)))
 		.catch((error) => {
-			console.log(error);
+			dispatch({
+				type: ActionType_Home.artistChart.GET_ARTISTCHART,
+				payload: { error },
+			});
 		});
 };
 
-export const getWeekChart = (typeList: string[]) => (
-	dispatch: Dispatch<LoadingDispatchAction | HomeActionWeekChart>
+export const getWeekChartTracks = () => (
+	dispatch: Dispatch<Dispatch_Loading | Action_GetList<TrackDetail>>
 ) => {
-	dispatch(setLoadingHome("weekchart", true));
-
-	Promise.all(
-		typeList.map(async (type) => {
-			const response = await fetcher({
-				url: `https://api.deezer.com/chart/${type}/${type}`,
-				useProxy: true,
-			});
+	dispatch(setLoadingWeekChartTracks(true));
+	fetcher({
+		url: `https://api.deezer.com/chart/tracks/tracks`,
+		useProxy: true,
+	})
+		.then((response) => {
+			const { error, data } = response.data;
 			return dispatch({
-				type: homeActionTypes.weekChart.GET_WEEK_CHART,
-				payload: { type, data: response.data.data },
+				type: ActionType_Home.weekChart.GET_WEEKCHART_TRACKS,
+				payload: { error, data },
 			});
 		})
-	).then(() => dispatch(setLoadingHome("weekchart", false)));
+		.then(() => dispatch(setLoadingWeekChartTracks(false)))
+		.catch((error) => {
+			dispatch({
+				type: ActionType_Home.weekChart.GET_WEEKCHART_TRACKS,
+				payload: { error },
+			});
+		});
+};
+
+export const getWeekChartAlbums = () => (
+	dispatch: Dispatch<Dispatch_Loading | Action_GetList<Album>>
+) => {
+	dispatch(setLoadingWeekChartAlbums(true));
+	fetcher({
+		url: `https://api.deezer.com/chart/albums/albums`,
+		useProxy: true,
+	})
+		.then((response) => {
+			const { error, data } = response.data;
+			return dispatch({
+				type: ActionType_Home.weekChart.GET_WEEKCHART_ALBUMS,
+				payload: { error, data },
+			});
+		})
+		.then(() => dispatch(setLoadingWeekChartAlbums(false)))
+		.catch((error) => {
+			dispatch({
+				type: ActionType_Home.weekChart.GET_WEEKCHART_ALBUMS,
+				payload: { error },
+			});
+		});
 };

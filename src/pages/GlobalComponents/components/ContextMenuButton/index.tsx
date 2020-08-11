@@ -2,13 +2,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
 // Actions
-import { removeFav, addFav } from "@actions/favListAction";
+import { removeFav, addFav } from "@actions/FavListAction";
 
 const ContextMenuButton: React.FC<{
-	item: SongDetail | Album;
+	item: TrackDetail | Album;
 	isAdded: boolean;
 }> = ({ item, isAdded }) => {
 	const dispatch = useDispatch();

@@ -5,15 +5,15 @@ import { useSelector } from "react-redux";
 import ContextMenuLink from "@GlobalComponents/atoms/ContextMenuLink";
 import ContextMenuButton from "@GlobalComponents/components/ContextMenuButton";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
-import { RootState } from "@constants/state";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
+import { RootState } from "@constants/State";
 // SCSS
 import "./style.scss";
 
 interface Props {
 	type?: string;
-	item: SongDetail | Album;
+	item: TrackDetail | Album;
 }
 
 const ContextMenu: React.FC<Props> = ({ item, type }) => {

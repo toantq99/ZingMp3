@@ -1,65 +1,57 @@
-import { AlbumDetail, Album } from "../types/albumTypes";
-import { SongDetail, Singer, Comment } from "../types/songDetailTypes";
-import { FavList } from "../types/favListTypes";
-export type RootState = {
+// DataTypes
+import {
+	FetchError,
+	FetchResult,
+	FetchResultDetail,
+} from "@constants/DataTypes/HomeTypes";
+import { TrackDetail, Artist, Comment } from "@constants/DataTypes/TrackTypes";
+import { Album, AlbumDetail } from "@constants/DataTypes/AlbumTypes";
+import { FavList } from "@constants/DataTypes/FavListTypes";
+
+export interface RootState {
+	home: HomeState;
+	detail: DetailState;
 	search: SearchState;
 	album: AlbumState;
-	detail: SongDetailState;
-	home: HomeState;
 	favList: FavListState;
-};
-
-export interface AlbumState {
-	isLoading: boolean;
-	detail: AlbumDetail;
 }
 
-export type HomeState = {
+export interface IFetchAndLoadingDetail<T> extends FetchResultDetail<T> {
+	isLoading: boolean;
+}
+export interface IFetchAndLoading<T> extends FetchResult<T> {
+	isLoading: boolean;
+}
+
+export interface AlbumState extends IFetchAndLoadingDetail<AlbumDetail> {}
+
+export interface HomeState {
 	suggestList: {
-		isLoading: boolean;
-		[key: string]: any;
+		[key: string]: IFetchAndLoading<TrackDetail>;
 	};
 	collection: {
-		isLoading: boolean;
-		[key: string]: any;
+		[key: string]: IFetchAndLoading<TrackDetail>;
 	};
-	chart: {
-		songChart: {
-			isLoading: boolean;
-			data: SongDetail[];
-		};
-		artistChart: {
-			isLoading: boolean;
-			data: Singer[];
-		};
-	};
+	trackChart: IFetchAndLoading<TrackDetail>;
+	artistChart: IFetchAndLoading<Artist>;
 	weekChart: {
-		isLoading: boolean;
-		albums: Album[];
-		tracks: SongDetail[];
+		albums: IFetchAndLoading<Album>;
+		tracks: IFetchAndLoading<TrackDetail>;
 	};
-};
+}
 
-export type SearchState = {
+export interface SearchState {
 	isLoading: boolean;
-	data: {
-		data: SongDetail[];
+	searchResult: {
+		data: TrackDetail[];
 		total: number;
 	};
-};
+	error?: FetchError;
+}
 
-export type SongDetailState = {
-	song: {
-		isLoading: boolean;
-		data: SongDetail;
-	};
-	similar: {
-		isLoading: boolean;
-		data: SongDetail[];
-	};
-	comments: {
-		isLoading: boolean;
-		data: Comment[];
-	};
-};
-export type FavListState = FavList;
+export interface DetailState {
+	song: IFetchAndLoadingDetail<TrackDetail>;
+	similar: IFetchAndLoading<TrackDetail>;
+	comments: IFetchAndLoading<Comment>;
+}
+export interface FavListState extends FavList {}

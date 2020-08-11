@@ -1,11 +1,11 @@
 // Libs
 import React from "react";
 // Types
-import { SongInAlbum, SongDetail } from "@constants/types/songDetailTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
-const PlayerInfo: React.FC<{ song: SongInAlbum | SongDetail }> = ({ song }) => {
+const PlayerInfo: React.FC<{ song: Track }> = ({ song }) => {
 	return (
 		<div className="player-info-wrapper">
 			<h2 className="title">{song.title}</h2>

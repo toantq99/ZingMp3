@@ -1,77 +1,97 @@
 // Libs
 import { Dispatch } from "react";
-// Types
-import {
-	detailActionTypes,
-	SongDetail,
-	SimilarSongAction,
-	CommentAction,
-	EmptyAction,
-} from "@constants/types/songDetailTypes";
-import { LoadingDispatchAction } from "@constants/types/loadingTypes";
-// Actions
-import { setLoadingDetail } from "@actions/loadingAction";
-// Mocks
-import comments from "@mocks/comments";
 // Fetcher
-import { fetcher } from "./fetcher";
+import { fetcher } from "./Fetcher";
+// Types
+import { Dispatch_Loading } from "@constants/DataTypes/LoadingTypes";
+import {
+	Action_GetComments,
+	Action_GetSimilar,
+	TrackDetail,
+	Action_Empty,
+} from "@constants/DataTypes/TrackTypes";
+import { ActionType_Detail } from "@constants/ActionTypes/DetailActions";
+// Actions
+import {
+	setLoadingDetail,
+	setLoadingSimilar,
+	setLoadingComments,
+} from "./LoadingAction";
+// Mock
+import { generateComments } from "@mocks/comments";
 
 export const getSongDetail = (id: number) => (dispatch: Dispatch<any>) => {
-	dispatch(setLoadingDetail("songdetail", true));
-	dispatch(setLoadingDetail("similar", true));
-	dispatch(setLoadingDetail("comments", true));
+	dispatch(setLoadingDetail(true));
+	dispatch(setLoadingComments(true));
+	dispatch(setLoadingSimilar(true));
 
-	fetcher({ url: `https://deezerdevs-deezer.p.rapidapi.com/track/${id}` }).then(
-		(response) => {
-			if (response.status === 200) {
-				dispatch({
-					type: detailActionTypes.GET_SONG_DETAIL,
-					payload: response.data,
-				});
-				dispatch(setLoadingDetail("songdetail", false));
-				dispatch(getSimilarSong(response.data));
-				dispatch(getComments(response.data));
+	fetcher({ url: `https://deezerdevs-deezer.p.rapidapi.com/track/${id}` })
+		.then((response) => {
+			const { error } = response.data;
+			const data = response.data;
+			dispatch({
+				type: ActionType_Detail.GET_TRACK_DETAIL,
+				payload: { data, error },
+			});
+			dispatch(setLoadingDetail(false));
+			if (!error) {
+				dispatch(getSimilarSong(data));
+				dispatch(getComments(data, 5));
+			} else {
+				dispatch(setLoadingSimilar(false));
+				dispatch(setLoadingComments(false));
 			}
-		}
-	);
+		})
+		.catch((error) =>
+			dispatch({
+				type: ActionType_Detail.GET_TRACK_DETAIL,
+				payload: { error },
+			})
+		);
 };
 
-export const getSimilarSong = (song: SongDetail) => (
-	dispatch: Dispatch<LoadingDispatchAction | SimilarSongAction>
+export const getSimilarSong = (track: TrackDetail) => (
+	dispatch: Dispatch<Dispatch_Loading | Action_GetSimilar>
 ) => {
-	const url = song.artist.tracklist.slice(0, -2) + "15";
 	fetcher({
-		url: url,
+		url: track.artist.tracklist,
 		params: {
-			q: `${song.artist.name}`,
+			limit: 15,
 		},
 		useProxy: true,
-	}).then((response) => {
-		if (response.status === 200) {
+	})
+		.then((response) => {
+			const { data, error } = response.data;
 			dispatch({
-				type: detailActionTypes.GET_SIMILAR_SONG,
-				payload: response.data.data,
+				type: ActionType_Detail.GET_SIMILAR_SONGS,
+				payload: { data, error },
 			});
-			dispatch(setLoadingDetail("similar", false));
-		}
-	});
+		})
+		.then(() => dispatch(setLoadingSimilar(false)))
+		.catch((error) =>
+			dispatch({
+				type: ActionType_Detail.GET_SIMILAR_SONGS,
+				payload: { error },
+			})
+		);
 };
 
-export const getComments = (song: SongDetail) => (
-	dispatch: Dispatch<LoadingDispatchAction | CommentAction>
+export const getComments = (track: TrackDetail, limit: number) => (
+	dispatch: Dispatch<Dispatch_Loading | Action_GetComments>
 ) => {
 	setTimeout(() => {
 		dispatch({
-			type: detailActionTypes.GET_COMMENTS,
-			payload: comments,
+			type: ActionType_Detail.GET_COMMENTS,
+			payload: { data: generateComments(limit) },
 		});
-		dispatch(setLoadingDetail("comments", false));
+
+		dispatch(setLoadingComments(false));
 	}, 1000);
 };
 
-export const emptyDetail = () => (dispatch: Dispatch<EmptyAction>) => {
+export const emptyDetail = () => (dispatch: Dispatch<Action_Empty>) => {
 	dispatch({
-		type: detailActionTypes.EMPTY_DETAIL,
+		type: ActionType_Detail.EMPTY_DETAIL,
 		payload: null,
 	});
 };

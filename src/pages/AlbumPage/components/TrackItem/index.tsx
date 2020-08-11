@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 // Components
 import TrackProgress from "../TrackProgress";
 // Types
-import { SongInAlbum } from "@constants/types/songDetailTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 import ButtonGroupInline from "@GlobalComponents/mains/ButtonGroupInline";
 
 interface Props {
-	item: SongInAlbum;
+	item: Track;
 	index: number;
 	isPlaying: boolean;
 	duration: number;

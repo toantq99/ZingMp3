@@ -1,67 +1,95 @@
-import { albumActionTypes } from "@constants/types/albumTypes";
-import { homeActionTypes } from "@constants/types/homeTypes";
-import { detailActionTypes } from "@constants/types/songDetailTypes";
-import { searchActionTypes } from "@constants/types/searchTypes";
-
-import { LoadingAction } from "@constants/types/loadingTypes";
+// Libs
 import { Dispatch } from "react";
+// Types
+import {
+	Action_Loading,
+	Action_LoadingWithQuery,
+} from "@constants/DataTypes/LoadingTypes";
+import { ActionType_Album } from "@constants/ActionTypes/AlbumActions";
+import { ActionType_Detail } from "@constants/ActionTypes/DetailActions";
+import { ActionType_Search } from "@constants/ActionTypes/SearchActions";
+import { ActionType_Home } from "@constants/ActionTypes/HomeActions";
 
-const setLoadingAlbum = (isLoading: boolean) => (
-	dispatch: Dispatch<LoadingAction>
-) => dispatch({ type: albumActionTypes.SET_LOADING_ALBUM, payload: isLoading });
+export const setLoadingAlbum = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) => dispatch({ type: ActionType_Album.SET_LOADING_ALBUM, payload: isLoading });
 
-const setLoadingHome = (type: string, isLoading: boolean) => (
-	dispatch: Dispatch<LoadingAction>
+export const setLoadingDetail = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) =>
+	dispatch({
+		type: ActionType_Detail.SET_LOADING_TRACK_DETAIL,
+		payload: isLoading,
+	});
+
+export const setLoadingComments = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) =>
+	dispatch({
+		type: ActionType_Detail.SET_LOADING_COMMENTS,
+		payload: isLoading,
+	});
+
+export const setLoadingSimilar = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) =>
+	dispatch({
+		type: ActionType_Detail.SET_LOADING_SIMILAR,
+		payload: isLoading,
+	});
+
+export const setLoadingSearch = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
 ) => {
-	let actionType;
-	switch (type) {
-		case "songchart":
-			actionType = homeActionTypes.chart.SET_LOADING_SONGCHART;
-			break;
-		case "artistchart":
-			actionType = homeActionTypes.chart.SET_LOADING_ARTISTCHART;
-			break;
-		case "collection":
-			actionType = homeActionTypes.collection.SET_LOADING_COLLECTION;
-			break;
-		case "weekchart":
-			actionType = homeActionTypes.weekChart.SET_LOADING_WEEKCHART;
-			break;
-		case "suggest":
-			actionType = homeActionTypes.suggest.SET_LOADING_SUGGEST;
-			break;
-		default:
-			return;
-	}
-
-	dispatch({ type: actionType, payload: isLoading });
+	dispatch({ type: ActionType_Search.SET_LOADING_SEARCH, payload: isLoading });
 };
 
-const setLoadingDetail = (type: string, isLoading: boolean) => (
-	dispatch: Dispatch<LoadingAction>
+export const setLoadingSuggestList = (query: string, isLoading: boolean) => (
+	dispatch: Dispatch<Action_LoadingWithQuery>
 ) => {
-	let actionType;
-	switch (type) {
-		case "songdetail":
-			actionType = detailActionTypes.SET_LOADING_SONG_DETAIL;
-			break;
-		case "similar":
-			actionType = detailActionTypes.SET_LOADING_SIMILAR;
-			break;
-		case "comments":
-			actionType = detailActionTypes.SET_LOADING_COMMENTS;
-			break;
-		default:
-			return;
-	}
-
-	dispatch({ type: actionType, payload: isLoading });
+	dispatch({
+		type: ActionType_Home.suggestList.SET_LOADING_SUGGESTLIST,
+		payload: { isLoading, query },
+	});
+};
+export const setLoadingCollection = (query: string, isLoading: boolean) => (
+	dispatch: Dispatch<Action_LoadingWithQuery>
+) => {
+	dispatch({
+		type: ActionType_Home.collection.SET_LOADING_COLLECTION,
+		payload: { isLoading, query },
+	});
+};
+export const setLoadingTrackChart = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) => {
+	dispatch({
+		type: ActionType_Home.trackChart.SET_LOADING_TRACKCHART,
+		payload: isLoading,
+	});
 };
 
-const setLoadingSearch = (isLoading: boolean) => (
-	dispatch: Dispatch<LoadingAction>
+export const setLoadingArtistChart = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
 ) => {
-	dispatch({ type: searchActionTypes.SET_LOADING_SEARCH, payload: isLoading });
+	dispatch({
+		type: ActionType_Home.artistChart.SET_LOADING_ARTISTCHART,
+		payload: isLoading,
+	});
 };
-
-export { setLoadingAlbum, setLoadingHome, setLoadingDetail, setLoadingSearch };
+export const setLoadingWeekChartTracks = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) => {
+	dispatch({
+		type: ActionType_Home.weekChart.SET_LOADING_WEEKCHART_TRACKS,
+		payload: isLoading,
+	});
+};
+export const setLoadingWeekChartAlbums = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) => {
+	dispatch({
+		type: ActionType_Home.weekChart.SET_LOADING_WEEKCHART_ALBUMS,
+		payload: isLoading,
+	});
+};

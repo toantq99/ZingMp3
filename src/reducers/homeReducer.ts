@@ -1,105 +1,153 @@
-import { homeActionTypes } from "@constants/types/homeTypes";
-import { HomeState } from "@constants/state";
-import { EMPTY_ALBUM } from "@constants/emptyValue/album";
-import { EMPTY_SONG_DETAIL } from "@constants/emptyValue/songDetail";
+import { HomeState } from "@constants/State";
+import { EMPTY_ALBUM } from "@constants/EmptyValues/Album";
+import { EMPTY_TRACK_DETAIL } from "@constants/EmptyValues/Track";
+import { ActionType_Home } from "@constants/ActionTypes/HomeActions";
 
 const initialState: HomeState = {
-	suggestList: { isLoading: false },
-	collection: { isLoading: false },
-	chart: {
-		songChart: { data: [], isLoading: false },
-		artistChart: { data: [], isLoading: false },
-	},
+	suggestList: {},
+	collection: {},
+	trackChart: { data: [], isLoading: false },
+	artistChart: { data: [], isLoading: false },
 	weekChart: {
-		isLoading: false,
-		albums: [EMPTY_ALBUM],
-		tracks: [EMPTY_SONG_DETAIL],
+		albums: {
+			isLoading: false,
+			data: [EMPTY_ALBUM],
+		},
+		tracks: {
+			isLoading: false,
+			data: [EMPTY_TRACK_DETAIL],
+		},
 	},
 };
 
 export default (state = initialState, action: any) => {
 	switch (action.type) {
-		case homeActionTypes.suggest.GET_SUGGEST:
+		case ActionType_Home.suggestList.GET_SUGGESTLIST:
 			return {
 				...state,
 				suggestList: {
 					...state.suggestList,
-					[action.payload.query]: action.payload.data,
+					[action.payload.query]: {
+						...state.suggestList[action.payload.query],
+						data: action.payload.data,
+						error: action.payload.error,
+					},
 				},
 			};
-		case homeActionTypes.suggest.SET_LOADING_SUGGEST:
+		case ActionType_Home.suggestList.SET_LOADING_SUGGESTLIST:
 			return {
 				...state,
 				suggestList: {
 					...state.suggestList,
-					isLoading: action.payload,
+					[action.payload.query]: {
+						...state.suggestList[action.payload.query],
+						isLoading: action.payload.isLoading,
+					},
 				},
 			};
-		case homeActionTypes.collection.GET_COLLECTION:
+		case ActionType_Home.collection.GET_COLLECTION:
 			return {
 				...state,
 				collection: {
 					...state.collection,
-					[action.payload.query]: action.payload.data,
+					[action.payload.query]: {
+						...state.collection[action.payload.query],
+						data: action.payload.data,
+						error: action.payload.error,
+					},
 				},
 			};
-		case homeActionTypes.collection.SET_LOADING_COLLECTION:
+		case ActionType_Home.collection.SET_LOADING_COLLECTION:
 			return {
 				...state,
 				collection: {
 					...state.collection,
+					[action.payload.query]: {
+						...state.collection[action.payload.query],
+						isLoading: action.payload.isLoading,
+					},
+				},
+			};
+		case ActionType_Home.trackChart.GET_TRACKCHART:
+			return {
+				...state,
+				trackChart: {
+					...state.trackChart,
+					data: action.payload.data,
+					error: action.payload.error,
+				},
+			};
+		case ActionType_Home.trackChart.SET_LOADING_TRACKCHART:
+			return {
+				...state,
+				trackChart: {
+					...state.trackChart,
 					isLoading: action.payload,
 				},
 			};
-		case homeActionTypes.chart.GET_SONG_CHART:
+
+		case ActionType_Home.artistChart.GET_ARTISTCHART:
 			return {
 				...state,
-				chart: {
-					...state.chart,
-					songChart: { ...state.chart.songChart, data: action.payload },
+				artistChart: {
+					...state.artistChart,
+					data: action.payload.data,
+					error: action.payload.error,
 				},
 			};
-		case homeActionTypes.chart.SET_LOADING_SONGCHART:
+		case ActionType_Home.artistChart.SET_LOADING_ARTISTCHART:
 			return {
 				...state,
-				chart: {
-					...state.chart,
-					songChart: { ...state.chart.songChart, isLoading: action.payload },
+				artistChart: {
+					...state.artistChart,
+					isLoading: action.payload,
 				},
 			};
-		case homeActionTypes.chart.GET_ARTIST_CHART:
+		case ActionType_Home.weekChart.GET_WEEKCHART_TRACKS:
 			return {
 				...state,
-				chart: {
-					...state.chart,
-					artistChart: { ...state.chart.artistChart, data: action.payload },
+				weekChart: {
+					...state.weekChart,
+					tracks: {
+						...state.weekChart.tracks,
+						data: action.payload.data,
+						error: action.payload.error,
+					},
 				},
 			};
-		case homeActionTypes.chart.SET_LOADING_ARTISTCHART:
+		case ActionType_Home.weekChart.SET_LOADING_WEEKCHART_TRACKS:
 			return {
 				...state,
-				chart: {
-					...state.chart,
-					artistChart: {
-						...state.chart.artistChart,
+				weekChart: {
+					...state.weekChart,
+					tracks: {
+						...state.weekChart.tracks,
 						isLoading: action.payload,
 					},
 				},
 			};
-		case homeActionTypes.weekChart.GET_WEEK_CHART:
+
+		case ActionType_Home.weekChart.GET_WEEKCHART_ALBUMS:
 			return {
 				...state,
 				weekChart: {
 					...state.weekChart,
-					[action.payload.type]: action.payload.data,
+					albums: {
+						...state.weekChart.albums,
+						data: action.payload.data,
+						error: action.payload.error,
+					},
 				},
 			};
-		case homeActionTypes.weekChart.SET_LOADING_WEEKCHART:
+		case ActionType_Home.weekChart.SET_LOADING_WEEKCHART_ALBUMS:
 			return {
 				...state,
 				weekChart: {
 					...state.weekChart,
-					isLoading: action.payload,
+					albums: {
+						...state.weekChart.albums,
+						isLoading: action.payload,
+					},
 				},
 			};
 		default:

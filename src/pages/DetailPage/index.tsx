@@ -2,16 +2,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Components
-import withLoading from "@HOCs/withLoading";
 import MainSong from "./mains/MainSong";
 import Comments from "./mains/Comments";
 import SongList from "@GlobalComponents/mains/SongList";
 // Actions
-import { getSongDetail, emptyDetail } from "@actions/detailAction";
+import { getSongDetail, emptyDetail } from "@actions/DetailAction";
 // Types
-import { RootState } from "@constants/state";
+import { RootState } from "@constants/State";
 // SCSS
 import "./style.scss";
+import withFetching from "@HOCs/withFetching";
 
 interface Props {
 	match: {
@@ -33,20 +33,17 @@ const DetailPage: React.FC<Props> = ({ match }) => {
 	const { song, similar, comments } = useSelector(
 		(state: RootState) => state.detail
 	);
-	const { isLoading: isLoadingSong = true, data: dataSong } = song;
-	const { isLoading: isLoadingSimilar = true, data: dataSimilar } = similar;
-	const { isLoading: isLoadingComments = true, data: dataComments } = comments;
-
-	return withLoading(
-		isLoadingSong || isLoadingComments || isLoadingSimilar || !dataSong.title
-	)(
+	const { data = [], error, isLoading } = similar;
+	return (
 		<div className="detail-page-wrapper">
 			<div className="main">
-				<MainSong song={dataSong} />
-				<Comments list={dataComments} />
+				<MainSong song={song} />
+				<Comments list={comments} />
 			</div>
 			<div className="recommend">
-				<SongList name="Cùng ca sĩ" list={dataSimilar} />
+				{withFetching({ isLoading, error, title: "Cùng ca sĩ" })(
+					<SongList name="Cùng ca sĩ" list={data} />
+				)}
 			</div>
 		</div>
 	);

@@ -1,11 +1,11 @@
 // Libs
 import React from "react";
 import { Link } from "react-router-dom";
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
-const Top5ItemInfo: React.FC<{ item: SongDetail }> = ({ item }) => {
+const Top5ItemInfo: React.FC<{ item: TrackDetail }> = ({ item }) => {
 	return (
 		<div className="top5-item-info-wrapper">
 			<Link

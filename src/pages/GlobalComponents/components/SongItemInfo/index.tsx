@@ -2,13 +2,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 // Utils
 import { formarDuration } from "@GlobalComponents/utils";
 // SCSS
 import "./style.scss";
 
-const SongItemInfo: React.FC<{ item: SongDetail; size?: string }> = ({
+const SongItemInfo: React.FC<{ item: TrackDetail; size?: string }> = ({
 	item,
 	size,
 }) => {

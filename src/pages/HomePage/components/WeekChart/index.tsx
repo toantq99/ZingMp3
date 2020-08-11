@@ -1,24 +1,37 @@
 // Libs
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // Components
+import withFetching from "@HOCs/withFetching";
 import WChartTitle from "../WChartTitle";
 import WChartHeader from "../WChartHeader";
 import WChartBody from "../WChartBody";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+import { MainTypes } from "@constants/DataTypes/HomeTypes";
+import { RootState } from "@constants/State";
+// Actions
+import { getWeekChartTracks, getWeekChartAlbums } from "@actions/HomeAction";
 // SCSS
 import "./style.scss";
 
 interface Props {
 	name: string;
-	list: (SongDetail | Album)[];
-	type: number;
+	type: MainTypes;
 }
 
-const WeekChart: React.FC<Props> = ({ name, list, type }) => {
-	const [top1, ...rest] = list;
-	return (
+const WeekChart: React.FC<Props> = ({ name, type }) => {
+	const dispatch = useDispatch();
+	const typeName = type === MainTypes.Track ? "tracks" : "albums";
+	useEffect(() => {
+		dispatch(
+			type === MainTypes.Track ? getWeekChartTracks() : getWeekChartAlbums()
+		);
+	}, [dispatch, type]);
+	const { isLoading, data, error } = useSelector(
+		(state: RootState) => state.home.weekChart[typeName]
+	);
+	const [top1, ...rest] = data || [];
+	return withFetching({ isLoading, error })(
 		<div className="week-chart-wrapper">
 			<WChartTitle name={name} />
 			<WChartHeader item={top1} type={type} />

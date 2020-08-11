@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 // Components
 import Thumbnail from "@GlobalComponents/mains/Thumbnail";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
-	item: SongDetail;
+	item: TrackDetail;
 	height: number;
 	width: number;
 }

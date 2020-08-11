@@ -1,12 +1,12 @@
 // Libs
 import React from "react";
 // Types
-import { Singer } from "@constants/types/songDetailTypes";
+import { Artist } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
-	singer: Singer;
+	singer: Artist;
 }
 
 const SingerInfo: React.FC<Props> = ({ singer }) => {

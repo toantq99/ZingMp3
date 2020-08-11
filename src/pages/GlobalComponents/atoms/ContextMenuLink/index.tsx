@@ -2,12 +2,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
 
 const ContextMenuLink: React.FC<{
 	type: string;
-	item: Album | SongDetail;
+	item: Album | TrackDetail;
 }> = ({ item, type }) => {
 	return (
 		<Link to={type === "album" ? `/album/${item.id}` : `/bai-hat/${item.id}`}>

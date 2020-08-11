@@ -1,4 +1,4 @@
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 
 const hourArr: number[] = new Array(24)
 	.fill(new Date().getHours())
@@ -10,7 +10,7 @@ const generateCount = (rank: number) => {
 		.map(() => (3 - rank) * 500 + Math.floor(Math.random() * (3 - rank) * 300));
 };
 
-const generateData = (top3: Array<SongDetail>) => {
+const generateData = (top3: Array<TrackDetail>) => {
 	return {
 		labels: hourArr,
 		datasets: top3.map((item, id) => ({

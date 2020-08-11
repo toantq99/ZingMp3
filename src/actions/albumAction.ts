@@ -1,25 +1,34 @@
 // Libs
 import { Dispatch } from "react";
-// Types
-import { albumActionTypes, AlbumAction } from "@constants/types/albumTypes";
-import { LoadingDispatchAction } from "@constants/types/loadingTypes";
-// Actions
-import { setLoadingAlbum } from "./loadingAction";
 // Fetcher
-import { fetcher } from "./fetcher";
+import { fetcher } from "./Fetcher";
+// Types
+import { Dispatch_Loading } from "@constants/DataTypes/LoadingTypes";
+import { Action_GetAlbumDetail } from "@constants/DataTypes/AlbumTypes";
+import { ActionType_Album } from "@constants/ActionTypes/AlbumActions";
+// Actions
+import { setLoadingAlbum } from "./LoadingAction";
 
 export const getAlbumDetail = (id: number) => (
-	dispatch: Dispatch<AlbumAction | LoadingDispatchAction>
+	dispatch: Dispatch<Dispatch_Loading | Action_GetAlbumDetail>
 ) => {
 	dispatch(setLoadingAlbum(true));
 	fetcher({ url: "https://deezerdevs-deezer.p.rapidapi.com/album/" + id })
 		.then((response) => {
-			if (response.status === 200) {
-				dispatch({
-					type: albumActionTypes.GET_ALBUM_DETAIL,
-					payload: response.data,
-				});
-			}
+			const { error } = response.data;
+			let data;
+			if (error) data = undefined;
+			else data = response.data;
+			dispatch({
+				type: ActionType_Album.GET_ALBUM_DETAIL,
+				payload: { data, error },
+			});
 		})
-		.then(() => dispatch(setLoadingAlbum(false)));
+		.then(() => dispatch(setLoadingAlbum(false)))
+		.catch((error) =>
+			dispatch({
+				type: ActionType_Album.GET_ALBUM_DETAIL,
+				payload: { error },
+			})
+		);
 };

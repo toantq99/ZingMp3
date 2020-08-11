@@ -1,7 +1,7 @@
 // Libs
 import React from "react";
 // Types
-import { Comment } from "@constants/types/songDetailTypes";
+import { Comment } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 

@@ -1,7 +1,7 @@
 //Libs
 import React from "react";
 //Types
-import { AlbumDetail } from "@constants/types/albumTypes";
+import { AlbumDetail } from "@constants/DataTypes/AlbumTypes";
 
 const TrackInfoAlbum: React.FC<{ album: AlbumDetail }> = ({ album }) => {
 	return (

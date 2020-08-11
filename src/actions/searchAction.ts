@@ -1,15 +1,12 @@
-// Libs
 import { Dispatch } from "react";
-// Types
-import { searchActionTypes, SearchAction } from "@constants/types/searchTypes";
-import { LoadingDispatchAction } from "@constants/types/loadingTypes";
-// Actions
-import { setLoadingSearch } from "./loadingAction";
-// Fetcher
-import { fetcher } from "./fetcher";
+import { setLoadingSearch } from "./LoadingAction";
+import { fetcher } from "./Fetcher";
+import { Action_Search } from "@constants/DataTypes/SearchTypes";
+import { Dispatch_Loading } from "@constants/DataTypes/LoadingTypes";
+import { ActionType_Search } from "@constants/ActionTypes/SearchActions";
 
 export const searchSong = (query: string, page: number, pageSize: number) => (
-	dispatch: Dispatch<SearchAction | LoadingDispatchAction>
+	dispatch: Dispatch<Action_Search | Dispatch_Loading>
 ) => {
 	dispatch(setLoadingSearch(true));
 	fetcher({
@@ -19,17 +16,29 @@ export const searchSong = (query: string, page: number, pageSize: number) => (
 			limit: pageSize,
 			index: (page - 1) * pageSize,
 		},
-	}).then((response) => {
-		if (response.status === 200) {
+	})
+		.then((response) => {
+			const { data, error, total } = response.data;
 			dispatch({
-				type: searchActionTypes.SEARCH_SONG,
-				payload: response.data,
+				type: ActionType_Search.SEARCH_SONG,
+				payload: {
+					searchResult: {
+						data,
+						total,
+					},
+					error,
+				},
 			});
-			dispatch(setLoadingSearch(false));
-		}
-	});
+		})
+		.then(() => dispatch(setLoadingSearch(false)))
+		.catch((error) =>
+			dispatch({
+				type: ActionType_Search.SEARCH_SONG,
+				payload: { error },
+			})
+		);
 };
 
 export const emptySearch = () => (dispatch: Dispatch<{ type: string }>) => {
-	dispatch({ type: searchActionTypes.EMPTY_SEARCH });
+	dispatch({ type: ActionType_Search.EMPTY_SEARCH });
 };

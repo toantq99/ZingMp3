@@ -7,13 +7,16 @@
 		margin: 0 3px;
 	}
 	.info {
-		overflow: hidden;
-		display: block;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 1;
-		text-overflow: ellipsis;
-		width: 100px;
+		.title,
+		.artist {
+			overflow: hidden;
+			display: block;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 1;
+			text-overflow: ellipsis;
+			width: 100px;
+		}
 		.title {
 			font-size: 12px;
 		}

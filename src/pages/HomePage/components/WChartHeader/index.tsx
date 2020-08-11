@@ -5,13 +5,13 @@ import WChartHeaderButtons from "../WChartHeaderButtons";
 import WChartHeaderBackground from "../WChartHeaderBackground";
 import WChartHeaderItem from "../WChartHeaderItem";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
-	item: SongDetail | Album;
+	item: TrackDetail | Album;
 	type: number;
 }
 

@@ -1,9 +1,9 @@
 // Libs
 import React from "react";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 
-const SongInfoDate: React.FC<{ song: SongDetail }> = ({ song }) => {
+const SongInfoDate: React.FC<{ song: TrackDetail }> = ({ song }) => {
 	return (
 		<div className="song-info-date-wrapper">
 			<span>Release Date: </span>

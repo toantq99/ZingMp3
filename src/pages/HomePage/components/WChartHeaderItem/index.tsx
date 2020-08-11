@@ -4,13 +4,13 @@ import React from "react";
 import WChartHeaderItemTitle from "@HomePage/atoms/WChartHeaderTitle";
 import ButtonGroupInline from "@GlobalComponents/mains/ButtonGroupInline";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
-import { Album } from "@constants/types/albumTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
 // SCSS
 import "./style.scss";
 
 const WChartHeaderItem: React.FC<{
-	item: SongDetail | Album;
+	item: TrackDetail | Album;
 	type: number;
 }> = ({ item, type }) => {
 	return (

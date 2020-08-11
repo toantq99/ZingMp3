@@ -6,15 +6,15 @@ import ButtonRemove from "@DetailPage/atoms/ButtonRemove";
 import ButtonAdd from "@DetailPage/atoms/ButtonAdd";
 import ButtonShare from "@DetailPage/atoms/ButtonShare";
 // Types
-import { RootState } from "@constants/state";
-import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
+import { RootState } from "@constants/State";
+import { Track } from "@constants/DataTypes/TrackTypes";
 // Actions
-import { addFav, removeFav } from "@actions/favListAction";
+import { addFav, removeFav } from "@actions/FavListAction";
 // SCSS
 import "./style.scss";
 
 interface Props {
-	song: SongDetail | SongInAlbum;
+	song: Track;
 }
 
 const ButtonGroup: React.FC<Props> = ({ song }) => {

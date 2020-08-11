@@ -2,7 +2,7 @@
 import React from "react";
 
 // Types
-import { AlbumDetail } from "@constants/types/albumTypes";
+import { AlbumDetail } from "@constants/DataTypes/AlbumTypes";
 
 const TrackInfoDate: React.FC<{ album: AlbumDetail }> = ({ album }) => {
 	return (

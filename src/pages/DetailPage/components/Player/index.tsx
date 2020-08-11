@@ -5,13 +5,13 @@ import PlayerImage from "@DetailPage/atoms/PlayerImage";
 import PlayerInfo from "../PlayerInfo";
 import CustomAudioPlayer from "../AudioPlayer";
 // Types
-import { SongInAlbum, SongDetail } from "@constants/types/songDetailTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
 // Styles
 import "react-h5-audio-player/lib/styles.css";
 import "./style.scss";
 
 interface Props {
-	song: SongDetail | SongInAlbum;
+	song: Track;
 	cover?: string;
 	onListen?: any;
 	onPlay?: any;

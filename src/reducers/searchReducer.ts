@@ -1,22 +1,25 @@
-import { searchActionTypes, SearchAction } from "@constants/types/searchTypes";
-import { SearchState } from "@constants/state";
-import { LoadingAction } from "@constants/types/loadingTypes";
+import { SearchState } from "@constants/State";
+import { ActionType_Search } from "@constants/ActionTypes/SearchActions";
 
 const initialState: SearchState = {
 	isLoading: false,
-	data: {
+	searchResult: {
 		data: [],
 		total: -1,
 	},
 };
 
-export default (state = initialState, action: SearchAction | LoadingAction) => {
+export default (state = initialState, action: any) => {
 	switch (action.type) {
-		case searchActionTypes.SEARCH_SONG:
-			return { ...state, data: action.payload };
-		case searchActionTypes.SET_LOADING_SEARCH:
+		case ActionType_Search.SEARCH_SONG:
+			return {
+				...state,
+				searchResult: action.payload.searchResult,
+				error: action.payload.error,
+			};
+		case ActionType_Search.SET_LOADING_SEARCH:
 			return { ...state, isLoading: action.payload };
-		case searchActionTypes.EMPTY_SEARCH:
+		case ActionType_Search.EMPTY_SEARCH:
 			return initialState;
 		default:
 			return state;

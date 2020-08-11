@@ -6,19 +6,18 @@ import ButtonRemove from "@GlobalComponents/atoms/ButtonRemove";
 import ButtonAdd from "@GlobalComponents/atoms/ButtonAdd";
 import ButtonShare from "@GlobalComponents/atoms/ButtonShare";
 // Actions
-import { addFav, removeFav } from "@actions/favListAction";
+import { addFav, removeFav } from "@actions/FavListAction";
 // Types
-import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
-import { RootState } from "@constants/state";
+import { Track } from "@constants/DataTypes/TrackTypes";
+import { RootState } from "@constants/State";
 // SCSS
 import "./style.scss";
 
 interface Props {
-	item: SongDetail | SongInAlbum;
-	size?: string;
+	item: Track;
 }
 
-const ButtonGroupInline: React.FC<Props> = ({ item, size }) => {
+const ButtonGroupInline: React.FC<Props> = ({ item }) => {
 	const dispatch = useDispatch();
 	const isAdded = useSelector((state: RootState) =>
 		state.favList.includes(item.id)

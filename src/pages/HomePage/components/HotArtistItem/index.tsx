@@ -1,14 +1,14 @@
 // Libs
 import React, { useState } from "react";
 // Types
-import { Singer } from "@constants/types/songDetailTypes";
+import { Artist } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
 	width: number;
 	height: number;
-	item: Singer;
+	item: Artist;
 	area: string;
 }
 

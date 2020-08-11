@@ -1,10 +1,8 @@
 import React from "react";
 import { ShareAltOutlined } from "@ant-design/icons";
-import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
+import { Track } from "@constants/DataTypes/TrackTypes";
 
-const ButtonShare: React.FC<{ item: SongDetail | SongInAlbum }> = ({
-	item,
-}) => {
+const ButtonShare: React.FC<{ item: Track }> = ({ item }) => {
 	return (
 		<a href={item.link} target="_blank" rel="noopener noreferrer">
 			<button className="btn-icon" title="Liên kết">

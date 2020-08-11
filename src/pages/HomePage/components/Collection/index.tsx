@@ -1,16 +1,17 @@
 // Libs
 import React from "react";
+import { Empty } from "antd";
 // Components
 import CollectionItem from "@HomePage/components/CollectionItem";
 import TitleWithArrow from "@GlobalComponents/mains/TitleWithArrow";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
 	name: string;
-	list: SongDetail[];
+	list: TrackDetail[];
 }
 
 const Collection: React.FC<Props> = ({ name, list }) => {
@@ -18,9 +19,13 @@ const Collection: React.FC<Props> = ({ name, list }) => {
 		<div className="collection-wrapper">
 			<TitleWithArrow title={name} />
 			<div className="collection-body">
-				{list.map((item, id) => (
-					<CollectionItem key={id} item={item} width={150} height={150} />
-				))}
+				{list.length ? (
+					list.map((item, id) => (
+						<CollectionItem key={id} item={item} width={150} height={150} />
+					))
+				) : (
+					<Empty />
+				)}
 			</div>
 		</div>
 	);

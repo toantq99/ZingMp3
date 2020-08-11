@@ -1,12 +1,12 @@
 // Libs
 import React from "react";
 // Types
-import { SongDetail, SongInAlbum } from "@constants/types/songDetailTypes";
+import { Track, TrackDetail } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
-	song: SongDetail | SongInAlbum;
+	song: Track;
 	cover?: string;
 }
 
@@ -14,7 +14,7 @@ const PlayerImage: React.FC<Props> = ({ song, cover }) => {
 	return (
 		<img
 			src={
-				(song as SongDetail).album ? (song as SongDetail).album.cover : cover
+				(song as TrackDetail).album ? (song as TrackDetail).album.cover : cover
 			}
 			alt="song cover"
 			className="player-image"

@@ -1,4 +1,4 @@
-import { Album, AlbumDetail } from "../types/albumTypes";
+import { Album, AlbumDetail } from "../DataTypes/AlbumTypes";
 
 export const EMPTY_ALBUM: Album = {
 	id: 0,

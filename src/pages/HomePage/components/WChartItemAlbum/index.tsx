@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Components
 import Thumbnail from "@GlobalComponents/mains/Thumbnail";
 // Types
-import { Album } from "@constants/types/albumTypes";
+import { Album } from "@constants/DataTypes/AlbumTypes";
 // SCSS
 import "./style.scss";
 

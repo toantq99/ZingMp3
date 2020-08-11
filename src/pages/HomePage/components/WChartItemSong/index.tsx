@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 // Components
 import ButtonGroupInline from "@GlobalComponents/mains/ButtonGroupInline";
 // Types
-import { SongDetail } from "@constants/types/songDetailTypes";
+import { TrackDetail } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
 
 interface Props {
 	rank: number;
-	item: SongDetail;
+	item: TrackDetail;
 }
 
 const WChartItemSong: React.FC<Props> = ({ rank, item }) => {
