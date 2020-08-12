@@ -11,6 +11,7 @@ import { getArtistChart } from "@actions/HomeAction";
 import { RootState } from "@constants/State";
 // SCSS
 import "./style.scss";
+import { EMPTY_ARTIST } from "@constants/EmptyValues/Track";
 
 const HotArtist: React.FC = () => {
 	const dispatch = useDispatch();
@@ -22,12 +23,12 @@ const HotArtist: React.FC = () => {
 	const { isLoading, data = [], error } = useSelector(
 		(state: RootState) => state.home.artistChart
 	);
-	const [first, ...rest] = data || [];
+	const [first = EMPTY_ARTIST, ...rest] = data || [];
 
 	return (
 		<div className="hot-artist-wrapper">
 			<TitleWithArrow title="nghệ sĩ hot" />
-			{withFetching({ isLoading: isLoading || !first, error })(
+			{withFetching({ isLoading: isLoading, error })(
 				<div className="hot-artist-body">
 					<HotArtistItem item={first} width={215} height={215} area="top1" />
 					{rest.map((artist, id) => (

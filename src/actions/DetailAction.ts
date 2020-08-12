@@ -42,12 +42,25 @@ export const getSongDetail = (id: number) => (dispatch: Dispatch<any>) => {
 				dispatch(setLoadingComments(false));
 			}
 		})
-		.catch((error) =>
-			dispatch({
-				type: ActionType_Detail.GET_TRACK_DETAIL,
-				payload: { error },
-			})
-		);
+		.catch((error) => {
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Detail.GET_TRACK_DETAIL,
+					payload: { error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Detail.GET_TRACK_DETAIL,
+					payload: {
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+			dispatch(setLoadingDetail(false));
+			dispatch(setLoadingSimilar(false));
+			dispatch(setLoadingComments(false));
+		});
 };
 
 export const getSimilarSong = (track: TrackDetail) => (
@@ -67,13 +80,23 @@ export const getSimilarSong = (track: TrackDetail) => (
 				payload: { data, error },
 			});
 		})
-		.then(() => dispatch(setLoadingSimilar(false)))
-		.catch((error) =>
-			dispatch({
-				type: ActionType_Detail.GET_SIMILAR_SONGS,
-				payload: { error },
-			})
-		);
+		.catch((error) => {
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Detail.GET_SIMILAR_SONGS,
+					payload: { error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Detail.GET_SIMILAR_SONGS,
+					payload: {
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingSimilar(false)));
 };
 
 export const getComments = (track: TrackDetail, limit: number) => (

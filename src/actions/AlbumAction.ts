@@ -24,11 +24,21 @@ export const getAlbumDetail = (id: number) => (
 				payload: { data, error },
 			});
 		})
-		.then(() => dispatch(setLoadingAlbum(false)))
-		.catch((error) =>
-			dispatch({
-				type: ActionType_Album.GET_ALBUM_DETAIL,
-				payload: { error },
-			})
-		);
+		.catch((error) => {
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Album.GET_ALBUM_DETAIL,
+					payload: { error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Album.GET_ALBUM_DETAIL,
+					payload: {
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingAlbum(false)));
 };

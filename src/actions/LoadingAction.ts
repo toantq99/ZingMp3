@@ -9,6 +9,7 @@ import { ActionType_Album } from "@constants/ActionTypes/AlbumActions";
 import { ActionType_Detail } from "@constants/ActionTypes/DetailActions";
 import { ActionType_Search } from "@constants/ActionTypes/SearchActions";
 import { ActionType_Home } from "@constants/ActionTypes/HomeActions";
+import { ActionType_Auth } from "@constants/ActionTypes/AuthActions";
 
 export const setLoadingAlbum = (isLoading: boolean) => (
 	dispatch: Dispatch<Action_Loading>
@@ -90,6 +91,32 @@ export const setLoadingWeekChartAlbums = (isLoading: boolean) => (
 ) => {
 	dispatch({
 		type: ActionType_Home.weekChart.SET_LOADING_WEEKCHART_ALBUMS,
+		payload: isLoading,
+	});
+};
+
+export const setLoadingLogin = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) => {
+	dispatch({
+		type: ActionType_Auth.SET_LOADING_LOGIN,
+		payload: isLoading,
+	});
+};
+export const setLoadingSignup = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) => {
+	dispatch({
+		type: ActionType_Auth.SET_LOADING_SIGNUP,
+		payload: isLoading,
+	});
+};
+
+export const setLoadingStorage = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) => {
+	dispatch({
+		type: ActionType_Auth.SET_LOADING_STORAGE,
 		payload: isLoading,
 	});
 };

@@ -1,0 +1,16 @@
+.signup-modal-wrapper {
+	.input-row-wrapper {
+		display: grid;
+		margin-bottom: 15px;
+		grid-template-columns: 100px auto;
+		grid-template-rows: auto 10px;
+		align-items: center;
+		row-gap: 5px;
+	}
+
+	.btn-submit {
+		width: 200px;
+		margin: auto;
+		display: block;
+	}
+}

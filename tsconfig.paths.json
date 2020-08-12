@@ -9,6 +9,7 @@
 			"@hooks/*": ["src/hooks/*"],
 			"@mocks/*": ["src/mocks/*"],
 			"@HOCs/*": ["src/HOCs/*"],
+			"@utils/*": ["src/utils/*"],
 			"@AlbumPage/*": ["src/pages/AlbumPage/*"],
 			"@HomePage/*": ["src/pages/HomePage/*"],
 			"@DetailPage/*": ["src/pages/DetailPage/*"],

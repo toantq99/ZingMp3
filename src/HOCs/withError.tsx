@@ -1,5 +1,5 @@
 import React from "react";
-import { Empty } from "antd";
+import { Result } from "antd";
 import { FetchError } from "@constants/DataTypes/HomeTypes";
 
 const withError = (
@@ -12,6 +12,7 @@ const withError = (
 		return (
 			<div
 				className="empty-wrapper"
+				key={key}
 				style={{
 					margin: "20px 0",
 					display: "flex",
@@ -20,22 +21,12 @@ const withError = (
 					height: height || 300,
 				}}
 			>
-				<Empty
-					key={key}
-					image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-					imageStyle={{
-						height: 60,
-					}}
-					description={
-						<>
-							<strong>{title}</strong>
-							<br />
-							<strong>Không có dữ liệu</strong>
-							<br />
-							Code: {error.code} - {error.type}: {error.message}
-						</>
-					}
+				<Result
+					status="error"
+					title={title}
+					subTitle={`Code: ${error.code} - ${error.type}: ${error.message}`}
 				/>
+				,
 			</div>
 		);
 	else return Component;

@@ -36,13 +36,24 @@ export const getSuggestList = (query: string) => (
 				payload: { query, data, error },
 			});
 		})
-		.then(() => dispatch(setLoadingSuggestList(query, false)))
-		.catch((error) =>
-			dispatch({
-				type: ActionType_Home.suggestList.GET_SUGGESTLIST,
-				payload: { query, error },
-			})
-		);
+		.catch((error) => {
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Home.suggestList.GET_SUGGESTLIST,
+					payload: { query, error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Home.suggestList.GET_SUGGESTLIST,
+					payload: {
+						query: query,
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingSuggestList(query, false)));
 };
 
 export const getCollection = (query: string) => (
@@ -60,13 +71,24 @@ export const getCollection = (query: string) => (
 				payload: { query, data, error },
 			});
 		})
-		.then(() => dispatch(setLoadingCollection(query, false)))
-		.catch((error) =>
-			dispatch({
-				type: ActionType_Home.collection.GET_COLLECTION,
-				payload: { query, error },
-			})
-		);
+		.catch((error) => {
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Home.collection.GET_COLLECTION,
+					payload: { query, error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Home.collection.GET_COLLECTION,
+					payload: {
+						query: query,
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingCollection(query, false)));
 };
 
 export const getTrackChart = () => (
@@ -87,13 +109,23 @@ export const getTrackChart = () => (
 				payload: { data, error },
 			});
 		})
-		.then(() => dispatch(setLoadingTrackChart(false)))
 		.catch((error) => {
-			dispatch({
-				type: ActionType_Home.trackChart.GET_TRACKCHART,
-				payload: { error },
-			});
-		});
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Home.trackChart.GET_TRACKCHART,
+					payload: { error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Home.trackChart.GET_TRACKCHART,
+					payload: {
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingTrackChart(false)));
 };
 
 export const getArtistChart = () => (
@@ -112,13 +144,23 @@ export const getArtistChart = () => (
 				payload: { data, error },
 			});
 		})
-		.then(() => dispatch(setLoadingArtistChart(false)))
 		.catch((error) => {
-			dispatch({
-				type: ActionType_Home.artistChart.GET_ARTISTCHART,
-				payload: { error },
-			});
-		});
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Home.artistChart.GET_ARTISTCHART,
+					payload: { error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Home.artistChart.GET_ARTISTCHART,
+					payload: {
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingArtistChart(false)));
 };
 
 export const getWeekChartTracks = () => (
@@ -136,13 +178,23 @@ export const getWeekChartTracks = () => (
 				payload: { error, data },
 			});
 		})
-		.then(() => dispatch(setLoadingWeekChartTracks(false)))
 		.catch((error) => {
-			dispatch({
-				type: ActionType_Home.weekChart.GET_WEEKCHART_TRACKS,
-				payload: { error },
-			});
-		});
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Home.weekChart.GET_WEEKCHART_TRACKS,
+					payload: { error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Home.weekChart.GET_WEEKCHART_TRACKS,
+					payload: {
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingWeekChartTracks(false)));
 };
 
 export const getWeekChartAlbums = () => (
@@ -160,11 +212,21 @@ export const getWeekChartAlbums = () => (
 				payload: { error, data },
 			});
 		})
-		.then(() => dispatch(setLoadingWeekChartAlbums(false)))
 		.catch((error) => {
-			dispatch({
-				type: ActionType_Home.weekChart.GET_WEEKCHART_ALBUMS,
-				payload: { error },
-			});
-		});
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Home.weekChart.GET_WEEKCHART_ALBUMS,
+					payload: { error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Home.weekChart.GET_WEEKCHART_ALBUMS,
+					payload: {
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingWeekChartAlbums(false)));
 };
