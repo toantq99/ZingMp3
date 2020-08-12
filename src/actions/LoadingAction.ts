@@ -103,6 +103,14 @@ export const setLoadingLogin = (isLoading: boolean) => (
 		payload: isLoading,
 	});
 };
+export const setLoadingSignup = (isLoading: boolean) => (
+	dispatch: Dispatch<Action_Loading>
+) => {
+	dispatch({
+		type: ActionType_Auth.SET_LOADING_SIGNUP,
+		payload: isLoading,
+	});
+};
 
 export const setLoadingStorage = (isLoading: boolean) => (
 	dispatch: Dispatch<Action_Loading>

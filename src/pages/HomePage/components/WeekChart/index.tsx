@@ -31,7 +31,7 @@ const WeekChart: React.FC<Props> = ({ name, type }) => {
 		(state: RootState) => state.home.weekChart[typeName]
 	);
 	const [top1, ...rest] = data || [];
-	return withFetching({ isLoading, error })(
+	return withFetching({ isLoading, error, title: name })(
 		<div className="week-chart-wrapper">
 			<WChartTitle name={name} />
 			<WChartHeader item={top1} type={type} />

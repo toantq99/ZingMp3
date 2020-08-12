@@ -8,7 +8,7 @@ const LogoutConfirm: React.FC<{ children: JSX.Element }> = ({ children }) => {
 	return (
 		<Popconfirm
 			placement="bottomRight"
-			title="Log out ???"
+			title="Đăng xuất ???"
 			onConfirm={() => dispatch(logout())}
 		>
 			{children}

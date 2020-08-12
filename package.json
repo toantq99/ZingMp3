@@ -14,11 +14,13 @@
 		"@types/react-dom": "^16.9.8",
 		"@types/react-redux": "^7.1.9",
 		"@types/react-router-dom": "^5.1.5",
+		"@types/yup": "^0.29.4",
 		"antd": "^4.5.1",
 		"axios": "^0.19.2",
 		"chart.js": "^2.9.3",
 		"classnames": "^2.2.6",
 		"concurrently": "^5.3.0",
+		"formik": "^2.1.5",
 		"node-sass": "^4.14.1",
 		"react": "^16.13.1",
 		"react-chartjs-2": "^2.9.0",
@@ -26,11 +28,12 @@
 		"react-h5-audio-player": "^3.2.0",
 		"react-redux": "^7.2.1",
 		"react-router-dom": "^5.2.0",
-		"react-scripts": "3.4.1",
+		"react-scripts": "^3.4.3",
 		"redux": "^4.0.5",
 		"redux-devtools-extension": "^2.13.8",
 		"redux-thunk": "^2.3.0",
-		"typescript": "^3.7.5"
+		"typescript": "^3.7.5",
+		"yup": "^0.29.3"
 	},
 	"scripts": {
 		"start": "craco start",

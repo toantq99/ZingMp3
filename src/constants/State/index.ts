@@ -59,7 +59,8 @@ export interface DetailState {
 export interface FavListState extends FavList {}
 
 export interface AuthState {
-	isLoading: boolean;
+	isLoadingLogin: boolean;
+	isLoadingSignup: boolean;
 	isLoadingStorage: boolean;
 	user?: User;
 	token?: string;

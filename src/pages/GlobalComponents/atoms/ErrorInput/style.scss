@@ -1,0 +1,8 @@
+.input-row-wrapper {
+	.error-input-wrapper {
+		grid-row: 2;
+		grid-column: 2;
+		color: red;
+		transition: all ease-in-out 0.3s;
+	}
+}

@@ -30,13 +30,23 @@ export const searchSong = (query: string, page: number, pageSize: number) => (
 				},
 			});
 		})
-		.then(() => dispatch(setLoadingSearch(false)))
-		.catch((error) =>
-			dispatch({
-				type: ActionType_Search.SEARCH_SONG,
-				payload: { error },
-			})
-		);
+		.catch((error) => {
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Search.SEARCH_SONG,
+					payload: { error: error.response.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Search.SEARCH_SONG,
+					payload: {
+						error: { message: "", type: error.message, code: 400 },
+					},
+				});
+			}
+		})
+		.finally(() => dispatch(setLoadingSearch(false)));
 };
 
 export const emptySearch = () => (dispatch: Dispatch<{ type: string }>) => {

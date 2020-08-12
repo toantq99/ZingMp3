@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Modal, Input, Button } from "antd";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "@actions/AuthAction";
 import { RootState } from "@constants/State";
 import {
 	CheckOutlined,
 	LoginOutlined,
 	UserOutlined,
 	LockOutlined,
+	MailOutlined,
+	UserAddOutlined,
 } from "@ant-design/icons";
+import { signup } from "@actions/AuthAction";
 import "./style.scss";
+
+import { Formik, Field, ErrorMessage, Form } from "formik";
 import ErrorInput from "@GlobalComponents/atoms/ErrorInput";
 import InputSuffix from "@GlobalComponents/atoms/InputSuffix";
-import { LoginSchema } from "@utils/YupSchema";
-
+import { SignupSchema } from "@utils/YupSchema";
 interface Props {
 	visible: boolean;
 	setVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,29 +25,33 @@ interface Props {
 const initValue = {
 	username: "",
 	password: "",
+	fullName: "",
+	email: "",
 };
 
-const LoginModal: React.FC<Props> = ({ visible, setVisible }) => {
+const SignupModal: React.FC<Props> = ({ visible, setVisible }) => {
 	const dispatch = useDispatch();
-	const { isLoadingLogin } = useSelector((state: RootState) => state.auth);
+	const { isLoadingSignup } = useSelector((state: RootState) => state.auth);
 	const [isSuccess, setIsSuccess] = useState(false);
 	return (
 		<Modal
-			title="Đăng nhập"
+			title="Đăng ký"
 			visible={visible}
 			onCancel={() => setVisible(false)}
 			footer={null}
-			className="login-modal-wrapper"
+			className="signup-modal-wrapper"
 		>
 			<Formik
 				initialValues={initValue}
-				validationSchema={LoginSchema}
+				validationSchema={SignupSchema}
 				onSubmit={(values) => {
+					console.log(values);
 					dispatch(
-						login(values, () => {
+						signup(values, () => {
 							setIsSuccess(true);
 							setTimeout(() => {
 								setVisible(false);
+								setIsSuccess(false);
 							}, 500);
 						})
 					);
@@ -59,7 +65,7 @@ const LoginModal: React.FC<Props> = ({ visible, setVisible }) => {
 								{({ field, meta }: { field: any; meta: any }) => (
 									<Input
 										placeholder="Tên đăng nhập"
-										prefix={<UserOutlined />}
+										prefix={<UserAddOutlined />}
 										{...field}
 										suffix={<InputSuffix meta={meta} />}
 									/>
@@ -88,14 +94,49 @@ const LoginModal: React.FC<Props> = ({ visible, setVisible }) => {
 								render={(msg) => <ErrorInput msg={msg} />}
 							/>
 						</div>
+						<div className="input-row-wrapper">
+							<label>Họ và tên</label>
+							<Field name="fullName">
+								{({ field, meta }: { field: any; meta: any }) => (
+									<Input
+										placeholder="Họ và tên"
+										prefix={<UserOutlined />}
+										{...field}
+										suffix={<InputSuffix meta={meta} />}
+									/>
+								)}
+							</Field>
+							<ErrorMessage
+								name="fullName"
+								render={(msg) => <ErrorInput msg={msg} />}
+							/>
+						</div>
+						<div className="input-row-wrapper">
+							<label>Email</label>
+							<Field name="email">
+								{({ field, meta }: { field: any; meta: any }) => (
+									<Input
+										type="email"
+										placeholder="Email"
+										prefix={<MailOutlined />}
+										{...field}
+										suffix={<InputSuffix meta={meta} />}
+									/>
+								)}
+							</Field>
+							<ErrorMessage
+								name="email"
+								render={(msg) => <ErrorInput msg={msg} />}
+							/>
+						</div>
 						<Button
 							className="btn-submit"
 							type="primary"
 							htmlType="submit"
-							loading={isLoadingLogin}
+							loading={isLoadingSignup}
 							icon={isSuccess ? <CheckOutlined /> : <LoginOutlined />}
 						>
-							Đăng nhập
+							Đăng ký
 						</Button>
 					</Form>
 				)}
@@ -103,4 +144,4 @@ const LoginModal: React.FC<Props> = ({ visible, setVisible }) => {
 		</Modal>
 	);
 };
-export default LoginModal;
+export default SignupModal;
