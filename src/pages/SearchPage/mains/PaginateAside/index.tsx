@@ -9,16 +9,19 @@ import { PaginateProps } from "../PaginateBot";
 import { useEventListener } from "@hooks/useEventListener";
 // SCSS
 import "./style.scss";
+import { usePageChangeHandler } from "@hooks/usePageChangeHandler";
 
 const PaginateAside: React.FC<PaginateProps> = ({
 	total,
 	page,
 	pageSize,
 	query,
-	pageChangeHandler,
 }) => {
 	const hasNext = page * pageSize < total;
 	const hasPrevious = page > 1;
+
+	const pageChangeHandler = usePageChangeHandler();
+
 	useEventListener("keydown", (e: KeyboardEvent) => {
 		if (e.keyCode === 33 && hasNext) {
 			pageChangeHandler(query, page + 1, pageSize);

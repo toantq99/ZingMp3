@@ -42,3 +42,7 @@ export const getAlbumDetail = (id: number) => (
 		})
 		.finally(() => dispatch(setLoadingAlbum(false)));
 };
+
+export const toNextTrack = () => (dispatch: Dispatch<{ type: string }>) => {
+	dispatch({ type: "TO_NEXT_TRACK" });
+};

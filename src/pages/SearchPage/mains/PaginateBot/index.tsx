@@ -3,16 +3,12 @@ import React from "react";
 import { Pagination } from "antd";
 // SCSS
 import "./style.scss";
+import { usePageChangeHandler } from "@hooks/usePageChangeHandler";
 export interface PaginateProps {
 	total: number;
 	page: number;
 	pageSize: number;
 	query: string;
-	pageChangeHandler: (
-		_query: string,
-		_pageToGo: number,
-		_pageSize?: number
-	) => void;
 }
 
 const PaginateBot: React.FC<PaginateProps> = ({
@@ -20,8 +16,8 @@ const PaginateBot: React.FC<PaginateProps> = ({
 	page,
 	pageSize,
 	query,
-	pageChangeHandler,
 }) => {
+	const pageChangeHandler = usePageChangeHandler();
 	return (
 		<Pagination
 			total={total}
@@ -30,7 +26,7 @@ const PaginateBot: React.FC<PaginateProps> = ({
 			current={page}
 			defaultPageSize={pageSize}
 			showTotal={() => `Tổng số ${total} kết quả`}
-			onChange={(_page: number, _pageSize?: number) =>
+			onChange={(_page: number, _pageSize: number = pageSize) =>
 				pageChangeHandler(query, _page, _pageSize)
 			}
 			onShowSizeChange={(_currentSize, newSize) =>

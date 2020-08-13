@@ -1,7 +1,6 @@
 // Libs
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 // Components
 import withFetching from "@HOCs/withFetching";
 import PaginateBot from "./mains/PaginateBot";
@@ -22,7 +21,6 @@ interface Props {
 
 const SearchPage: React.FC<Props> = ({ location }) => {
 	const dispatch = useDispatch();
-	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
 	const query = searchParams.get("query") || "";
 	const page = parseInt(searchParams.get("page") || "") || 1;
@@ -37,17 +35,6 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 	const { isLoading = true, searchResult, error } = useSelector(
 		(state: RootState) => state.search
 	);
-
-	const pageChangeHandler = (
-		_query: string,
-		_pageToGo: number,
-		_pageSize: number = pageSize
-	) => {
-		history.push(
-			`/tim-kiem/?query=${_query}&page=${_pageToGo}&limit=${_pageSize}`
-		);
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	};
 
 	return withFetching({ isLoading, error })(
 		<div className="search-page-wrapper">
@@ -67,7 +54,6 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 						page,
 						pageSize,
 						query,
-						pageChangeHandler,
 					}}
 				/>
 			</div>
@@ -78,7 +64,6 @@ const SearchPage: React.FC<Props> = ({ location }) => {
 						page,
 						pageSize,
 						query,
-						pageChangeHandler,
 					}}
 				/>
 			</div>
