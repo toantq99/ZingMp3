@@ -26,5 +26,12 @@
         "fullName": "user4 user4",
         "email": "user4@gmail.com",
         "id": 4
+    },
+    {
+        "username": "userss",
+        "password": "Abc123",
+        "fullName": "ho va ten",
+        "email": "email@email.com",
+        "id": 5
     }
 ]

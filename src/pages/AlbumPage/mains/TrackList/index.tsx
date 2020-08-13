@@ -4,6 +4,8 @@ import React from "react";
 import TrackItem from "../../components/TrackItem";
 // Types
 import { Track } from "@constants/DataTypes/TrackTypes";
+// SCSS
+import "./style.scss";
 
 interface Props {
 	list: Track[];
@@ -24,19 +26,21 @@ const TrackList: React.FC<Props> = ({
 }) => {
 	return (
 		<div className="track-list-wrapper">
-			<h2 className="text-upper">Tiếp theo</h2>
-			{list.map((item, id) => (
-				<TrackItem
-					item={item}
-					index={id}
-					key={id}
-					setCurrentTrackIndex={setCurrentTrackIndex}
-					setCurrentTime={setCurrentTime}
-					isPlaying={id === currentTrackIndex}
-					currentTime={currentTime}
-					duration={duration}
-				/>
-			))}
+			<h2>Tiếp theo</h2>
+			<div className="scroll-zone">
+				{list.map((item, id) => (
+					<TrackItem
+						item={item}
+						index={id}
+						key={id}
+						setCurrentTrackIndex={setCurrentTrackIndex}
+						setCurrentTime={setCurrentTime}
+						isPlaying={id === currentTrackIndex}
+						currentTime={currentTime}
+						duration={duration}
+					/>
+				))}
+			</div>
 		</div>
 	);
 };

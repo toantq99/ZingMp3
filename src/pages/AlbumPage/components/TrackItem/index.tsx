@@ -29,15 +29,17 @@ const TrackItem: React.FC<Props> = ({
 	duration,
 }) => {
 	return (
-		<div
-			className="track-item-wrapper"
-			onClick={() => {
-				setCurrentTrackIndex(index);
-				setCurrentTime(0);
-			}}
-		>
-			<div className="info">
-				<Link to={`/bai-hat/${item.id}`}>{item.title_short}</Link>
+		<div className="track-item-wrapper">
+			<div
+				className="info"
+				onClick={() => {
+					setCurrentTrackIndex(index);
+					setCurrentTime(0);
+				}}
+			>
+				<Link to={`/bai-hat/${item.id}`} className="title">
+					{item.title_short}
+				</Link>
 				<div>{(item.artist || {}).name}</div>
 			</div>
 			{isPlaying ? (

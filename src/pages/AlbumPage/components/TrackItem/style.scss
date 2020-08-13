@@ -4,13 +4,16 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	.title {
-		overflow: hidden;
-		display: block;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 1;
-		text-overflow: ellipsis;
-		width: 200px;
+	.info {
+		width: -webkit-fill-available;
+		.title {
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 1;
+			text-overflow: ellipsis;
+			max-width: 200px;
+			width: fit-content;
+		}
 	}
 }
