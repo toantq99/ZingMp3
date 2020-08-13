@@ -28,7 +28,7 @@ const FavItem: React.FC<{ id: number }> = ({ id }) => {
 	}, [id]);
 	const dispatch = useDispatch();
 
-	return withFetching({ isLoading, height: 50 })(
+	return withFetching({ isLoading, height: 150 })(
 		<div className="fav-item-wrapper">
 			<Thumbnail width={50} height={50} item={fullItem} />
 			<div className="info">

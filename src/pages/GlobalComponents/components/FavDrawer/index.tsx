@@ -23,7 +23,7 @@ const FavDrawer: React.FC<Props> = ({ favList, show, setShow }) => {
 			width={400}
 		>
 			{favList.length > 0 ? (
-				favList.map((id, index) => <FavItem id={id} key={index} />)
+				favList.map((id, index) => <FavItem id={id} key={id} />)
 			) : (
 				<Empty description={"Danh sách yêu thích trống"} />
 			)}
