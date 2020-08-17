@@ -46,8 +46,8 @@ app.get("/api/user/auth", (req, res) => {
 				token: jwt.sign(matchedUser, secretKey),
 			});
 		} else throw new Error("Token not found");
-	} catch {
-		res.status(401).send({ message: "Invalid Token" });
+	} catch (err) {
+		res.status(401).send({ message: err.message || "Invalid Token" });
 	}
 });
 

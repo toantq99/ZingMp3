@@ -22,7 +22,6 @@ const CustomAudioPlayer: React.FC<Props> = ({ song, onListen, onPlay }) => {
 				onPlay(e);
 				e.target.onloadedmetadata = onPlay;
 			}}
-			loop
 			className="audio-player-wrapper"
 		/>
 	);

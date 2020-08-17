@@ -10,7 +10,12 @@ import "./style.scss";
 const CommentItem: React.FC<{ cmt: Comment }> = ({ cmt }) => {
 	return (
 		<div className="comment-item-wrapper">
-			<img src={cmt.author.picture} alt="avatar" className="avatar" />
+			<img
+				src={cmt.author.picture}
+				alt="avatar"
+				className="avatar"
+				loading="lazy"
+			/>
 			<CommentContent cmt={cmt} />
 		</div>
 	);

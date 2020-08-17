@@ -8,6 +8,7 @@ const FooterLogo: React.FC = () => {
 			alt="logo"
 			width={56}
 			height={56}
+			loading="lazy"
 		/>
 	);
 };

@@ -8,7 +8,7 @@ import SignupModal from "../SignupModal";
 const NavLoginButton: React.FC = () => {
 	const [showLogin, setShowLogin] = useState(false);
 	const [showSignup, setShowSignup] = useState(false);
-	const { user } = useSelector((state: RootState) => state.auth);
+	const { user } = useSelector((state: RootState) => state.commons.auth);
 	return (
 		<span className="nav-login-button-wrapper">
 			{user ? (

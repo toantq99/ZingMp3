@@ -20,7 +20,7 @@ interface Props {
 const ButtonGroup: React.FC<Props> = ({ song }) => {
 	const dispatch = useDispatch();
 	let isAdded = useSelector((state: RootState) =>
-		state.favList.includes(song.id)
+		state.commons.favList.includes(song.id)
 	);
 	const [added, setAdded] = useState(isAdded);
 	useEffect(() => {

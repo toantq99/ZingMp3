@@ -27,7 +27,9 @@ const initValue = {
 
 const LoginModal: React.FC<Props> = ({ visible, setVisible }) => {
 	const dispatch = useDispatch();
-	const { isLoadingLogin } = useSelector((state: RootState) => state.auth);
+	const { isLoadingLogin } = useSelector(
+		(state: RootState) => state.commons.auth
+	);
 	const [isSuccess, setIsSuccess] = useState(false);
 	return (
 		<Modal

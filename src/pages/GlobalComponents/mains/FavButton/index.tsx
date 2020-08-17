@@ -16,7 +16,7 @@ const FavButton: React.FC = () => {
 	const [show, setShow] = useState(false);
 	const dispatch = useDispatch();
 	const [isFirstMount, setIsFirstMount] = useState(true);
-	const favList = useSelector((state: RootState) => state.favList);
+	const favList = useSelector((state: RootState) => state.commons.favList);
 
 	useEffect(() => {
 		if (isFirstMount) {

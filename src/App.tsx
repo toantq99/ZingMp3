@@ -26,7 +26,9 @@ const App: React.FC = () => {
 	useEffect(() => {
 		dispatch(loginFromStorage());
 	}, [dispatch]);
-	const { isLoadingStorage } = useSelector((state: RootState) => state.auth);
+	const { isLoadingStorage } = useSelector(
+		(state: RootState) => state.commons.auth
+	);
 	return withLoading(isLoadingStorage)(
 		<BrowserRouter>
 			<Navbar />

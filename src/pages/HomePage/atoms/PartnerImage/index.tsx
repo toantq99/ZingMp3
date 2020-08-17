@@ -9,6 +9,7 @@ const PartnerImage: React.FC = () => {
 			src="https://static-zmp3.zadn.vn/skins/zmp3-v5.1/images/doi-tac/universal.jpeg"
 			alt="Universal"
 			className="partner-image"
+			loading="lazy"
 		/>
 	);
 };

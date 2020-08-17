@@ -11,12 +11,7 @@ const Top3ItemInfo: React.FC<{ item: TrackDetail }> = ({ item }) => {
 			<img src={item.album.cover_small} alt="singer img" />
 			<div className="info">
 				<div className="title">{item.title_short}</div>
-				<small
-					className="artist
-				"
-				>
-					{item.artist.name}
-				</small>
+				<small className="artist">{item.artist.name}</small>
 			</div>
 		</div>
 	);

@@ -14,8 +14,10 @@ export interface RootState {
 	detail: DetailState;
 	search: SearchState;
 	album: AlbumState;
-	favList: FavListState;
-	auth: AuthState;
+	commons: {
+		favList: FavListState;
+		auth: AuthState;
+	};
 }
 
 export interface IFetchAndLoadingDetail<T> extends FetchResultDetail<T> {

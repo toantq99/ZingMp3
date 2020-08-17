@@ -1,0 +1,12 @@
+.track-item-info-wrapper {
+	width: -webkit-fill-available;
+	.title {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		text-overflow: ellipsis;
+		max-width: 200px;
+		width: fit-content;
+	}
+}

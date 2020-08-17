@@ -9,6 +9,7 @@ const NewsHeader: React.FC<{ content: string }> = ({ content }) => {
 			<img
 				src="https://znews-photo.zadn.vn/w480/Uploaded/wyhktpu/2020_07_15/Song_gio_thumb.jpg"
 				alt="news-header"
+				loading="lazy"
 			/>
 			<div>{content}</div>
 		</div>

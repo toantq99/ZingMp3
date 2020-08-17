@@ -18,8 +18,9 @@ interface Props {
 
 const ContextMenu: React.FC<Props> = ({ item, type }) => {
 	const isAdded =
-		useSelector((state: RootState) => state.favList.includes(item.id)) &&
-		item.type === "track";
+		useSelector((state: RootState) =>
+			state.commons.favList.includes(item.id)
+		) && item.type === "track";
 
 	return (
 		<ul className="menu">

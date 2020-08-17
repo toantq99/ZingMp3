@@ -32,14 +32,24 @@ export const login = (
 			});
 		})
 		.then(callback)
-		.catch((err) => {
-			dispatch({
-				type: ActionType_Auth.LOGIN,
-				payload: { error: err.response.data },
-			});
+		.catch((error) => {
+			const res = error.response;
+			if (res) {
+				dispatch({
+					type: ActionType_Auth.LOGIN,
+					payload: { error: res.data },
+				});
+			} else {
+				dispatch({
+					type: ActionType_Auth.LOGIN,
+					payload: {
+						error: { message: error.message },
+					},
+				});
+			}
 			notification["error"]({
 				message: "Đăng nhập thất bại",
-				description: err.response.data.message,
+				description: res ? res.data.message : error.message,
 				placement: "bottomLeft",
 			});
 		})

@@ -8,6 +8,7 @@ const FooterSocialImage: React.FC = () => {
 			alt="social"
 			width={34}
 			height={34}
+			loading="lazy"
 		/>
 	);
 };

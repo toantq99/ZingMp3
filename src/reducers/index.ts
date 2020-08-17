@@ -9,7 +9,9 @@ export default combineReducers({
 	home: homeReducer,
 	detail: detailReducer,
 	album: albumReducer,
-	favList: favReducer,
 	search: searchReducer,
-	auth: authReducer,
+	commons: combineReducers({
+		favList: favReducer,
+		auth: authReducer,
+	}),
 });

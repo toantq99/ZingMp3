@@ -22,6 +22,7 @@ const ThumbnailImage: React.FC<Props> = ({ item, width, height }) => {
 				width={width}
 				height={height}
 				className="image"
+				loading="lazy"
 			/>
 			<ButtonThumbnail />
 		</div>

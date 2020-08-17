@@ -24,4 +24,4 @@ const TrackInfo: React.FC<Props> = ({ track, album }) => {
 	);
 };
 
-export default TrackInfo;
+export default React.memo(TrackInfo);

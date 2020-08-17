@@ -31,7 +31,9 @@ const initValue = {
 
 const SignupModal: React.FC<Props> = ({ visible, setVisible }) => {
 	const dispatch = useDispatch();
-	const { isLoadingSignup } = useSelector((state: RootState) => state.auth);
+	const { isLoadingSignup } = useSelector(
+		(state: RootState) => state.commons.auth
+	);
 	const [isSuccess, setIsSuccess] = useState(false);
 	return (
 		<Modal

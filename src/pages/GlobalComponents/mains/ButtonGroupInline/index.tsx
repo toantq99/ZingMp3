@@ -20,7 +20,7 @@ interface Props {
 const ButtonGroupInline: React.FC<Props> = ({ item }) => {
 	const dispatch = useDispatch();
 	const isAdded = useSelector((state: RootState) =>
-		state.favList.includes(item.id)
+		state.commons.favList.includes(item.id)
 	);
 
 	return (

@@ -17,4 +17,4 @@ const PlayerBottom: React.FC<{ song: Track }> = ({ song }) => {
 	);
 };
 
-export default PlayerBottom;
+export default React.memo(PlayerBottom);

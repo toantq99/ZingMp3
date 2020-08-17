@@ -33,5 +33,19 @@
         "fullName": "ho va ten",
         "email": "email@email.com",
         "id": 5
+    },
+    {
+        "username": "user5",
+        "password": "Convitnho511",
+        "fullName": "user5 user5",
+        "email": "email@gmail.com",
+        "id": 6
+    },
+    {
+        "username": "user6",
+        "password": "Convitnho511",
+        "fullName": "user1 user1",
+        "email": "user1@gmail.com",
+        "id": 7
     }
 ]

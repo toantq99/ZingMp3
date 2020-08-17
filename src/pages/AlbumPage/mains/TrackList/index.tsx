@@ -6,6 +6,7 @@ import TrackItem from "../../components/TrackItem";
 import { Track } from "@constants/DataTypes/TrackTypes";
 // SCSS
 import "./style.scss";
+import TrackItemCurrent from "@AlbumPage/components/TrackItemCurrent";
 
 interface Props {
 	list: Track[];
@@ -28,18 +29,27 @@ const TrackList: React.FC<Props> = ({
 		<div className="track-list-wrapper">
 			<h2>Tiếp theo</h2>
 			<div className="scroll-zone">
-				{list.map((item, id) => (
-					<TrackItem
-						item={item}
-						index={id}
-						key={id}
-						setCurrentTrackIndex={setCurrentTrackIndex}
-						setCurrentTime={setCurrentTime}
-						isPlaying={id === currentTrackIndex}
-						currentTime={currentTime}
-						duration={duration}
-					/>
-				))}
+				{list.map((item, id) =>
+					id === currentTrackIndex ? (
+						<TrackItemCurrent
+							item={item}
+							index={id}
+							key={id}
+							setCurrentTrackIndex={setCurrentTrackIndex}
+							setCurrentTime={setCurrentTime}
+							currentTime={currentTime}
+							duration={duration}
+						/>
+					) : (
+						<TrackItem
+							item={item}
+							index={id}
+							key={id}
+							setCurrentTrackIndex={setCurrentTrackIndex}
+							setCurrentTime={setCurrentTime}
+						/>
+					)
+				)}
 			</div>
 		</div>
 	);

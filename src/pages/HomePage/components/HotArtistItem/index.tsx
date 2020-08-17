@@ -26,6 +26,7 @@ const HotArtistItem: React.FC<Props> = ({ width, height, item, area }) => {
 				alt={item.name}
 				width={width}
 				height={height}
+				loading="lazy"
 			/>
 			{hovering ? <div className="artist">{item.name}</div> : null}
 		</div>
