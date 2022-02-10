@@ -21,7 +21,7 @@
 		"classnames": "^2.2.6",
 		"concurrently": "^5.3.0",
 		"formik": "^2.1.5",
-		"node-sass": "^4.14.1",
+		"node-sass": "^7.0.0",
 		"react": "^16.13.1",
 		"react-chartjs-2": "^2.9.0",
 		"react-dom": "^16.13.1",
